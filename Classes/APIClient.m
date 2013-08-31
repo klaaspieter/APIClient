@@ -10,4 +10,25 @@
 
 @implementation APIClient
 
+- (id)init;
+{
+    return [self initWithBaseURL:nil];
+}
+
++ (instancetype)clientWithBaseURL:(NSURL *)baseURL;
+{
+    return [[self alloc] initWithBaseURL:baseURL];
+}
+
+- (id)initWithBaseURL:(NSURL *)baseURL;
+{
+    NSParameterAssert(baseURL);
+    if (self = [super init])
+    {
+        _baseURL = baseURL;
+    }
+
+    return self;
+}
+
 @end

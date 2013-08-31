@@ -10,4 +10,9 @@
 
 @interface APIClient : NSObject
 
+@property (nonatomic, readonly, strong) NSURL *baseURL;
+
++ (instancetype)clientWithBaseURL:(NSURL *)baseURL;
+- (id)initWithBaseURL:(NSURL *)baseURL;
+
 @end

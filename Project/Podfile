@@ -1,6 +1,6 @@
-pod "APIClient", :path => "../"
+pod "AFNetworking", "~> 1.3"
 
-target "Specs" do
+target "Specs", exclusive: true do
   pod "Specta"
   pod "Expecta"
 end
