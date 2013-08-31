@@ -1,0 +1,6 @@
+pod "APIClient", :path => "../"
+
+target "Specs" do
+  pod "Specta"
+  pod "Expecta"
+end
