@@ -11,6 +11,10 @@
 		93F2329B952D4C1C98DAFA30 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7953515CB94E4A45B716298D /* libPods.a */; };
 		A1537E3817D1768400D22137 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1537E3717D1768400D22137 /* UIKit.framework */; };
 		A1537E3917D176AA00D22137 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1537E3717D1768400D22137 /* UIKit.framework */; };
+		A1894E6E17D17CBE0052609F /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1894E6D17D17CBE0052609F /* SystemConfiguration.framework */; };
+		A1894E7017D17CC60052609F /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1894E6F17D17CC60052609F /* MobileCoreServices.framework */; };
+		A1894E7317D17D9F0052609F /* APIAFNetworkingHTTPClient.m in Sources */ = {isa = PBXBuildFile; fileRef = A1894E7217D17D9F0052609F /* APIAFNetworkingHTTPClient.m */; };
+		A1894E7617D17E400052609F /* APITestHTTPClient.m in Sources */ = {isa = PBXBuildFile; fileRef = A1894E7517D17E400052609F /* APITestHTTPClient.m */; };
 		A19B260F17D17056008DA908 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A19B25BA17D16E47008DA908 /* Foundation.framework */; };
 		A19B261D17D17056008DA908 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A19B25C917D16E47008DA908 /* SenTestingKit.framework */; };
 		A19B261F17D17056008DA908 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A19B25BA17D16E47008DA908 /* Foundation.framework */; };
@@ -47,6 +51,13 @@
 		60820679716F4CCD8ABFA748 /* Pods-Specs.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Specs.xcconfig"; path = "Pods/Pods-Specs.xcconfig"; sourceTree = SOURCE_ROOT; };
 		7953515CB94E4A45B716298D /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		A1537E3717D1768400D22137 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		A1894E6C17D17C330052609F /* APIHTTPClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APIHTTPClient.h; sourceTree = "<group>"; };
+		A1894E6D17D17CBE0052609F /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		A1894E6F17D17CC60052609F /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		A1894E7117D17D9F0052609F /* APIAFNetworkingHTTPClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APIAFNetworkingHTTPClient.h; sourceTree = "<group>"; };
+		A1894E7217D17D9F0052609F /* APIAFNetworkingHTTPClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APIAFNetworkingHTTPClient.m; sourceTree = "<group>"; };
+		A1894E7417D17E400052609F /* APITestHTTPClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APITestHTTPClient.h; sourceTree = "<group>"; };
+		A1894E7517D17E400052609F /* APITestHTTPClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APITestHTTPClient.m; sourceTree = "<group>"; };
 		A19B25BA17D16E47008DA908 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		A19B25C917D16E47008DA908 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		A19B260E17D17056008DA908 /* libAPIClient.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libAPIClient.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -65,6 +76,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A1894E7017D17CC60052609F /* MobileCoreServices.framework in Frameworks */,
+				A1894E6E17D17CBE0052609F /* SystemConfiguration.framework in Frameworks */,
 				A1537E3817D1768400D22137 /* UIKit.framework in Frameworks */,
 				A19B260F17D17056008DA908 /* Foundation.framework in Frameworks */,
 				93F2329B952D4C1C98DAFA30 /* libPods.a in Frameworks */,
@@ -110,6 +123,8 @@
 		A19B25B917D16E47008DA908 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				A1894E6F17D17CC60052609F /* MobileCoreServices.framework */,
+				A1894E6D17D17CBE0052609F /* SystemConfiguration.framework */,
 				A1537E3717D1768400D22137 /* UIKit.framework */,
 				A19B25BA17D16E47008DA908 /* Foundation.framework */,
 				A19B25C917D16E47008DA908 /* SenTestingKit.framework */,
@@ -122,9 +137,12 @@
 		A19B265217D17257008DA908 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				A19B265F17D17273008DA908 /* Supporting Files */,
 				A19B265417D17257008DA908 /* APIClient.h */,
 				A19B265517D17257008DA908 /* APIClient.m */,
-				A19B265F17D17273008DA908 /* Supporting Files */,
+				A1894E6C17D17C330052609F /* APIHTTPClient.h */,
+				A1894E7117D17D9F0052609F /* APIAFNetworkingHTTPClient.h */,
+				A1894E7217D17D9F0052609F /* APIAFNetworkingHTTPClient.m */,
 			);
 			name = Classes;
 			path = ../Classes;
@@ -135,6 +153,8 @@
 			children = (
 				A19B266017D1727D008DA908 /* Supporting Files */,
 				A19B266117D172FE008DA908 /* APIClientSpecs.m */,
+				A1894E7417D17E400052609F /* APITestHTTPClient.h */,
+				A1894E7517D17E400052609F /* APITestHTTPClient.m */,
 			);
 			name = Specs;
 			path = ../Specs;
@@ -321,6 +341,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A19B265617D17257008DA908 /* APIClient.m in Sources */,
+				A1894E7317D17D9F0052609F /* APIAFNetworkingHTTPClient.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -329,6 +350,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A19B266217D172FE008DA908 /* APIClientSpecs.m in Sources */,
+				A1894E7617D17E400052609F /* APITestHTTPClient.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -451,7 +473,7 @@
 					"$(inherited)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "";
+				GCC_PREFIX_HEADER = "../Classes/APIClient-Prefix.pch";
 				INFOPLIST_FILE = ../Specs/Info.plist;
 				OTHER_LDFLAGS = (
 					"-ObjC",
@@ -484,7 +506,7 @@
 					"$(inherited)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "";
+				GCC_PREFIX_HEADER = "../Classes/APIClient-Prefix.pch";
 				INFOPLIST_FILE = ../Specs/Info.plist;
 				OTHER_LDFLAGS = (
 					"-ObjC",

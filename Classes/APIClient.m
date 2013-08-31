@@ -12,23 +12,28 @@
 
 - (id)init;
 {
-    return [self initWithBaseURL:nil];
+    return [self initWithHTTPClient:nil];
 }
 
 + (instancetype)clientWithBaseURL:(NSURL *)baseURL;
 {
-    return [[self alloc] initWithBaseURL:baseURL];
+    return [[self alloc] initWithHTTPClient:[[APIAFNetworkingHTTPClient alloc] initWithBaseURL:baseURL]];
 }
 
-- (id)initWithBaseURL:(NSURL *)baseURL;
+- (id)initWithHTTPClient:(id<APIHTTPClient>)httpClient;
 {
-    NSParameterAssert(baseURL);
+    NSParameterAssert(httpClient);
     if (self = [super init])
     {
-        _baseURL = baseURL;
+        _httpClient = httpClient;
     }
 
     return self;
+}
+
+- (NSURL *)baseURL;
+{
+    return self.httpClient.baseURL;
 }
 
 @end

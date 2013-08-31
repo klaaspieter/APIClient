@@ -11,25 +11,42 @@
 #import "Expecta.h"
 
 #import "APIClient.h"
+#import "APITestHTTPClient.h"
 
 SpecBegin(APIClient)
 
 __block APIClient *_client;
 
 describe(@"APIClient", ^{
-    it(@"can be initialized with a baseURL", ^{
-        NSURL *baseURL = [NSURL URLWithString:@"https://api.example.org"];
-        _client = [[APIClient alloc] initWithBaseURL:baseURL];
-        expect(_client.baseURL).to.equal(baseURL);
+    describe(@"initialization", ^{
+        __block NSURL *_baseURL;
 
-        _client = [APIClient clientWithBaseURL:baseURL];
-        expect(_client.baseURL).to.equal(baseURL);
-    });
+        beforeEach(^{
+            _baseURL = [NSURL URLWithString:@"https://api.example.org"];
+        });
 
-    it(@"cannot be initialized without a baseURL", ^{
-        expect(^{
-            _client = [[APIClient alloc] init];
-        }).to.raise(NSInternalInconsistencyException);
+        it(@"can be initialized with a baseURL", ^{
+            _client = [APIClient clientWithBaseURL:_baseURL];
+            expect(_client.baseURL).to.equal(_baseURL);
+        });
+
+        it(@"has a httpClient with the configured baseURL", ^{
+            _client = [APIClient clientWithBaseURL:_baseURL];
+            expect(_client.httpClient.baseURL).to.equal(_baseURL);
+        });
+
+        it(@"can be initialized with a different httpClient", ^{
+            APITestHTTPClient *httpClient = [[APITestHTTPClient alloc] initWithBaseURL:_baseURL];
+            _client = [[APIClient alloc] initWithHTTPClient:httpClient];
+            expect(_client.httpClient).to.equal(httpClient);
+            expect(_client.baseURL).to.equal(_baseURL);
+        });
+
+        it(@"cannot be initialized without a httpClient", ^{
+            expect(^{
+                _client = [[APIClient alloc] initWithHTTPClient:nil];
+            }).to.raise(NSInternalInconsistencyException);
+        });
     });
 });
 
