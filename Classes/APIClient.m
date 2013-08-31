@@ -31,9 +31,4 @@
     return self;
 }
 
-- (NSURL *)baseURL;
-{
-    return self.httpClient.baseURL;
-}
-
 @end

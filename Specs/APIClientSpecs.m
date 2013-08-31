@@ -27,7 +27,7 @@ describe(@"APIClient", ^{
 
         it(@"can be initialized with a baseURL", ^{
             _client = [APIClient clientWithBaseURL:_baseURL];
-            expect(_client.baseURL).to.equal(_baseURL);
+            expect(_client.httpClient.baseURL).to.equal(_baseURL);
         });
 
         it(@"has a httpClient with the configured baseURL", ^{
@@ -39,7 +39,7 @@ describe(@"APIClient", ^{
             APITestHTTPClient *httpClient = [[APITestHTTPClient alloc] initWithBaseURL:_baseURL];
             _client = [[APIClient alloc] initWithHTTPClient:httpClient];
             expect(_client.httpClient).to.equal(httpClient);
-            expect(_client.baseURL).to.equal(_baseURL);
+            expect(_client.httpClient.baseURL).to.equal(_baseURL);
         });
 
         it(@"cannot be initialized without a httpClient", ^{
