@@ -24,6 +24,7 @@
 		A19B266217D172FE008DA908 /* APIClientSpecs.m in Sources */ = {isa = PBXBuildFile; fileRef = A19B266117D172FE008DA908 /* APIClientSpecs.m */; };
 		A1D7C3EC17DFDAA8000F8510 /* APIResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = A1D7C3EB17DFDAA8000F8510 /* APIResponse.m */; };
 		A1D7C3F017DFDAE2000F8510 /* Product.m in Sources */ = {isa = PBXBuildFile; fileRef = A1D7C3EF17DFDAE2000F8510 /* Product.m */; };
+		A1D7C3F217DFE589000F8510 /* APIResponseSpecs.m in Sources */ = {isa = PBXBuildFile; fileRef = A1D7C3F117DFE589000F8510 /* APIResponseSpecs.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -74,6 +75,7 @@
 		A1D7C3EB17DFDAA8000F8510 /* APIResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APIResponse.m; sourceTree = "<group>"; };
 		A1D7C3EE17DFDAE2000F8510 /* Product.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Product.h; sourceTree = "<group>"; };
 		A1D7C3EF17DFDAE2000F8510 /* Product.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Product.m; sourceTree = "<group>"; };
+		A1D7C3F117DFE589000F8510 /* APIResponseSpecs.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APIResponseSpecs.m; sourceTree = "<group>"; };
 		A1E374F617DFBD8700235A34 /* SpecHelper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SpecHelper.h; sourceTree = "<group>"; };
 		C6E64584EE9D406A9F78DE5C /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
@@ -171,6 +173,7 @@
 				A1D7C3ED17DFDAD0000F8510 /* Helper Classes */,
 				A1E374F617DFBD8700235A34 /* SpecHelper.h */,
 				A19B266117D172FE008DA908 /* APIClientSpecs.m */,
+				A1D7C3F117DFE589000F8510 /* APIResponseSpecs.m */,
 			);
 			name = Specs;
 			path = ../Specs;
@@ -389,6 +392,7 @@
 				A19B266217D172FE008DA908 /* APIClientSpecs.m in Sources */,
 				A1894E7617D17E400052609F /* APITestHTTPClient.m in Sources */,
 				A1D7C3F017DFDAE2000F8510 /* Product.m in Sources */,
+				A1D7C3F217DFE589000F8510 /* APIResponseSpecs.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
