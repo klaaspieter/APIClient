@@ -6,9 +6,7 @@
 //  Copyright 2013 Klaas Pieter Annema. All rights reserved.
 //
 
-#import "Specta.h"
-#define EXP_SHORTHAND
-#import "Expecta.h"
+#import "SpecHelper.h"
 
 #import "APIClient.h"
 #import "APITestHTTPClient.h"

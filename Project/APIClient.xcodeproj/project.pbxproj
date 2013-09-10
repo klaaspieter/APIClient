@@ -68,6 +68,9 @@
 		A19B265817D1725E008DA908 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		A19B265B17D1725E008DA908 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		A19B266117D172FE008DA908 /* APIClientSpecs.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APIClientSpecs.m; sourceTree = "<group>"; };
+		A1E374FD17DFBF6100235A34 /* APITestHTTPClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APITestHTTPClient.h; sourceTree = "<group>"; };
+		A1E374FE17DFBF6100235A34 /* APITestHTTPClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APITestHTTPClient.m; sourceTree = "<group>"; };
+		A1E374F617DFBD8700235A34 /* SpecHelper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SpecHelper.h; sourceTree = "<group>"; };
 		C6E64584EE9D406A9F78DE5C /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
@@ -99,6 +102,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A1060D2917DD284500EC32B7 /* Client */ = {
+			isa = PBXGroup;
+			children = (
+				A19B265417D17257008DA908 /* APIClient.h */,
+				A19B265517D17257008DA908 /* APIClient.m */,
+				A1894E6C17D17C330052609F /* APIHTTPClient.h */,
+				A1894E7117D17D9F0052609F /* APIAFNetworkingHTTPClient.h */,
+				A1894E7217D17D9F0052609F /* APIAFNetworkingHTTPClient.m */,
+			);
+			name = Client;
+			sourceTree = "<group>";
+		};
 		A19B25AE17D16E47008DA908 = {
 			isa = PBXGroup;
 			children = (
@@ -138,11 +153,7 @@
 			isa = PBXGroup;
 			children = (
 				A19B265F17D17273008DA908 /* Supporting Files */,
-				A19B265417D17257008DA908 /* APIClient.h */,
-				A19B265517D17257008DA908 /* APIClient.m */,
-				A1894E6C17D17C330052609F /* APIHTTPClient.h */,
-				A1894E7117D17D9F0052609F /* APIAFNetworkingHTTPClient.h */,
-				A1894E7217D17D9F0052609F /* APIAFNetworkingHTTPClient.m */,
+				A1060D2917DD284500EC32B7 /* Client */,
 			);
 			name = Classes;
 			path = ../Classes;
@@ -152,6 +163,8 @@
 			isa = PBXGroup;
 			children = (
 				A19B266017D1727D008DA908 /* Supporting Files */,
+				A1E3750017DFBF6D00235A34 /* Test Classes */,
+				A1E374F617DFBD8700235A34 /* SpecHelper.h */,
 				A19B266117D172FE008DA908 /* APIClientSpecs.m */,
 				A1894E7417D17E400052609F /* APITestHTTPClient.h */,
 				A1894E7517D17E400052609F /* APITestHTTPClient.m */,
