@@ -9,13 +9,19 @@
 #import "SpecHelper.h"
 
 #import "APIClient.h"
+
 #import "APITestHTTPClient.h"
+#import "Product.h"
 
 SpecBegin(APIClient)
 
 __block APIClient *_client;
 
 describe(@"APIClient", ^{
+    before(^{
+        setAsyncSpecTimeout(0.0);
+    });
+
     describe(@"initialization", ^{
         __block NSURL *_baseURL;
 
@@ -44,6 +50,16 @@ describe(@"APIClient", ^{
             expect(^{
                 _client = [[APIClient alloc] initWithHTTPClient:nil];
             }).to.raise(NSInternalInconsistencyException);
+        });
+    });
+
+    describe(@"finding", ^{
+        it(@"can find all resources of a type", ^AsyncBlock {
+            APIResponse *response = [_client findAll:[Product class]];
+            response.success = ^(NSArray *products) {
+                expect(products).notTo.beNil();
+                done();
+            };
         });
     });
 });

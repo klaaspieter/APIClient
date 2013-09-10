@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 
 #import "APIAFNetworkingHTTPClient.h"
+#import "APIResponse.h"
 
 @interface APIClient : NSObject
 
@@ -16,5 +17,7 @@
 
 + (instancetype)clientWithBaseURL:(NSURL *)baseURL;
 - (id)initWithHTTPClient:(id<APIHTTPClient>)httpClient;
+
+- (APIResponse *)findAll:(Class)resource;
 
 @end

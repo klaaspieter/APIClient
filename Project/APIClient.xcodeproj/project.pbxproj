@@ -22,6 +22,8 @@
 		A19B265617D17257008DA908 /* APIClient.m in Sources */ = {isa = PBXBuildFile; fileRef = A19B265517D17257008DA908 /* APIClient.m */; };
 		A19B265E17D1725E008DA908 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = A19B265A17D1725E008DA908 /* InfoPlist.strings */; };
 		A19B266217D172FE008DA908 /* APIClientSpecs.m in Sources */ = {isa = PBXBuildFile; fileRef = A19B266117D172FE008DA908 /* APIClientSpecs.m */; };
+		A1D7C3EC17DFDAA8000F8510 /* APIResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = A1D7C3EB17DFDAA8000F8510 /* APIResponse.m */; };
+		A1D7C3F017DFDAE2000F8510 /* Product.m in Sources */ = {isa = PBXBuildFile; fileRef = A1D7C3EF17DFDAE2000F8510 /* Product.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -68,8 +70,10 @@
 		A19B265817D1725E008DA908 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		A19B265B17D1725E008DA908 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		A19B266117D172FE008DA908 /* APIClientSpecs.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APIClientSpecs.m; sourceTree = "<group>"; };
-		A1E374FD17DFBF6100235A34 /* APITestHTTPClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APITestHTTPClient.h; sourceTree = "<group>"; };
-		A1E374FE17DFBF6100235A34 /* APITestHTTPClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APITestHTTPClient.m; sourceTree = "<group>"; };
+		A1D7C3EA17DFDAA8000F8510 /* APIResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APIResponse.h; sourceTree = "<group>"; };
+		A1D7C3EB17DFDAA8000F8510 /* APIResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APIResponse.m; sourceTree = "<group>"; };
+		A1D7C3EE17DFDAE2000F8510 /* Product.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Product.h; sourceTree = "<group>"; };
+		A1D7C3EF17DFDAE2000F8510 /* Product.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Product.m; sourceTree = "<group>"; };
 		A1E374F617DFBD8700235A34 /* SpecHelper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SpecHelper.h; sourceTree = "<group>"; };
 		C6E64584EE9D406A9F78DE5C /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
@@ -154,6 +158,7 @@
 			children = (
 				A19B265F17D17273008DA908 /* Supporting Files */,
 				A1060D2917DD284500EC32B7 /* Client */,
+				A1D7C3E917DFDA9D000F8510 /* Response */,
 			);
 			name = Classes;
 			path = ../Classes;
@@ -163,11 +168,9 @@
 			isa = PBXGroup;
 			children = (
 				A19B266017D1727D008DA908 /* Supporting Files */,
-				A1E3750017DFBF6D00235A34 /* Test Classes */,
+				A1D7C3ED17DFDAD0000F8510 /* Helper Classes */,
 				A1E374F617DFBD8700235A34 /* SpecHelper.h */,
 				A19B266117D172FE008DA908 /* APIClientSpecs.m */,
-				A1894E7417D17E400052609F /* APITestHTTPClient.h */,
-				A1894E7517D17E400052609F /* APITestHTTPClient.m */,
 			);
 			name = Specs;
 			path = ../Specs;
@@ -188,6 +191,26 @@
 				A19B265A17D1725E008DA908 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		A1D7C3E917DFDA9D000F8510 /* Response */ = {
+			isa = PBXGroup;
+			children = (
+				A1D7C3EA17DFDAA8000F8510 /* APIResponse.h */,
+				A1D7C3EB17DFDAA8000F8510 /* APIResponse.m */,
+			);
+			name = Response;
+			sourceTree = "<group>";
+		};
+		A1D7C3ED17DFDAD0000F8510 /* Helper Classes */ = {
+			isa = PBXGroup;
+			children = (
+				A1894E7417D17E400052609F /* APITestHTTPClient.h */,
+				A1894E7517D17E400052609F /* APITestHTTPClient.m */,
+				A1D7C3EE17DFDAE2000F8510 /* Product.h */,
+				A1D7C3EF17DFDAE2000F8510 /* Product.m */,
+			);
+			name = "Helper Classes";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -355,6 +378,7 @@
 			files = (
 				A19B265617D17257008DA908 /* APIClient.m in Sources */,
 				A1894E7317D17D9F0052609F /* APIAFNetworkingHTTPClient.m in Sources */,
+				A1D7C3EC17DFDAA8000F8510 /* APIResponse.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -364,6 +388,7 @@
 			files = (
 				A19B266217D172FE008DA908 /* APIClientSpecs.m in Sources */,
 				A1894E7617D17E400052609F /* APITestHTTPClient.m in Sources */,
+				A1D7C3F017DFDAE2000F8510 /* Product.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

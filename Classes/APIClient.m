@@ -31,4 +31,9 @@
     return self;
 }
 
+- (APIResponse *)findAll:(Class)resource;
+{
+    return nil;
+}
+
 @end
