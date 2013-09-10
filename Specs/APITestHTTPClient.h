@@ -13,6 +13,7 @@
 @interface APITestHTTPClient : NSObject <APIHTTPClient>
 
 @property (nonatomic, readonly, strong) NSURL *baseURL;
+@property (nonatomic, readonly, strong) NSArray *requests;
 
 - (id)initWithBaseURL:(NSURL *)baseURL;
 

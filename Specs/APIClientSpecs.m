@@ -68,6 +68,14 @@ describe(@"APIClient", ^{
             id response = [_client findAll:[Product class]];
             expect(response).to.beKindOf([APIResponse class]);
         });
+
+        it(@"makes a request for the resource", ^{
+            APITestHTTPClient *httpClient = [[APITestHTTPClient alloc] initWithBaseURL:_baseURL];
+            _client = [[APIClient alloc] initWithHTTPClient:httpClient];
+            [_client findAll:[Product class]];
+
+            expect(httpClient.requests[0]).to.equal(@"/products");
+        });
     });
 });
 

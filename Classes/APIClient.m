@@ -34,6 +34,7 @@
 - (APIResponse *)findAll:(Class)resource;
 {
     APIResponse *response = [[APIResponse alloc] init];
+    [self.httpClient getPath:@"/products" parameters:nil success:nil failure:nil];
     return response;
 }
 
