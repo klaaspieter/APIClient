@@ -33,7 +33,8 @@
 
 - (APIResponse *)findAll:(Class)resource;
 {
-    return nil;
+    APIResponse *response = [[APIResponse alloc] init];
+    return response;
 }
 
 @end

@@ -22,13 +22,13 @@ describe(@"APIClient", ^{
         setAsyncSpecTimeout(0.0);
     });
 
+    __block NSURL *_baseURL;
+
+    beforeEach(^{
+        _baseURL = [NSURL URLWithString:@"https://api.example.org"];
+    });
+
     describe(@"initialization", ^{
-        __block NSURL *_baseURL;
-
-        beforeEach(^{
-            _baseURL = [NSURL URLWithString:@"https://api.example.org"];
-        });
-
         it(@"can be initialized with a baseURL", ^{
             _client = [APIClient clientWithBaseURL:_baseURL];
             expect(_client.httpClient.baseURL).to.equal(_baseURL);
@@ -60,6 +60,13 @@ describe(@"APIClient", ^{
                 expect(products).notTo.beNil();
                 done();
             };
+        });
+    });
+
+    describe(@"findAll:", ^{
+        it(@"returns a response promise", ^{
+            id response = [_client findAll:[Product class]];
+            expect(response).to.beKindOf([APIResponse class]);
         });
     });
 });
