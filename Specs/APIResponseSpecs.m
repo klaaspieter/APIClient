@@ -10,23 +10,10 @@
 
 #import "APIResponse.h"
 
-APIResponse *resolvedResponse(id object)
-{
-    return [[APIResponse alloc] initWithResolver:^(APIResponseBlock resolve, APIResponseBlock reject) {
-        resolve(object);
-    }];
-};
-
-APIResponse *delayedResponse(id object)
-{
-    return [[APIResponse alloc] initWithResolver:^(APIResponseBlock resolve, APIResponseBlock reject) {
-        double delayInSeconds = 0.1;
-        dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delayInSeconds * NSEC_PER_SEC));
-        dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
-           resolve(object);
-        });
-    }];
-}
+APIResponse *resolvedResponse(id object);
+APIResponse *delayedResolvedResponse(id object);
+APIResponse *rejectedResponse(id error);
+APIResponse *delayedRejectedResponse(id error);
 
 SpecBegin(APIResponse)
 
@@ -63,9 +50,31 @@ describe(@"APIResponse", ^{
         });
 
         it(@"calls the success block when the response is resolved", ^AsyncBlock{
-            APIResponse *response = delayedResponse(_object);
+            APIResponse *response = delayedResolvedResponse(_object);
             response.success = ^(id object) {
                 expect(object).to.equal(_object);
+                done();
+            };
+        });
+    });
+
+    describe(@"rejecting", ^{
+        it(@"sets the error", ^{
+            APIResponse *response = rejectedResponse(_object);
+            expect(response.error).to.equal(_object);
+        });
+
+        it(@"calls the failure block when set on an already rejected response", ^{
+            APIResponse *response = rejectedResponse(_object);
+            response.failure = ^(id error) {
+                expect(error).to.equal(_object);
+            };
+        });
+
+        it(@"calls the failure block when the response is rejected", ^AsyncBlock{
+            APIResponse *response = delayedRejectedResponse(_object);
+            response.failure = ^(id error) {
+                expect(error).to.equal(_object);
                 done();
             };
         });
@@ -73,3 +82,39 @@ describe(@"APIResponse", ^{
 });
 
 SpecEnd
+
+APIResponse *resolvedResponse(id object)
+{
+    return [[APIResponse alloc] initWithResolver:^(APIResponseBlock resolve, APIResponseBlock reject) {
+        resolve(object);
+    }];
+};
+
+APIResponse *delayedResolvedResponse(id object)
+{
+    return [[APIResponse alloc] initWithResolver:^(APIResponseBlock resolve, APIResponseBlock reject) {
+        double delayInSeconds = 0.1;
+        dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delayInSeconds * NSEC_PER_SEC));
+        dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
+            resolve(object);
+        });
+    }];
+}
+
+APIResponse *rejectedResponse(id error)
+{
+    return [[APIResponse alloc] initWithResolver:^(APIResponseBlock resolve, APIResponseBlock reject) {
+        reject(error);
+    }];
+}
+
+APIResponse *delayedRejectedResponse(id error)
+{
+    return [[APIResponse alloc] initWithResolver:^(APIResponseBlock resolve, APIResponseBlock reject) {
+        double delayInSeconds = 0.1;
+        dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delayInSeconds * NSEC_PER_SEC));
+        dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
+            reject(error);
+        });
+    }];
+}

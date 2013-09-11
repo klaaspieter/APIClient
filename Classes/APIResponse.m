@@ -13,6 +13,7 @@
 @property (nonatomic, readwrite, strong) id object;
 
 @property (nonatomic, readwrite, assign) BOOL isFailure;
+@property (nonatomic, readwrite, strong) id error;
 @end
 
 @implementation APIResponse
@@ -24,7 +25,7 @@
         resolver(^(id object){
             [self resolveWithObject:object];
         }, ^(id error){
-            self.isFailure = YES;
+            [self rejectWithError:error];
         });
     }
 
@@ -55,6 +56,23 @@
 
     _success = success;
     [self performResolve];
+}
+
+#pragma - Rejecting
+- (void)rejectWithError:(id)error;
+{
+    self.isFailure = YES;
+    self.error = error;
+    [self performReject];
+}
+
+- (void)performReject;
+{
+    if (!self.isFailure)
+        return;
+
+    if (self.failure)
+        self.failure(self.error);
 }
 
 @end

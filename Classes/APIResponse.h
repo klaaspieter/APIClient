@@ -17,7 +17,9 @@ typedef void(^APIResponseResolver)(APIResponseBlock resolve, APIResponseBlock re
 @property (nonatomic, readonly, assign) BOOL isSuccess;
 @property (nonatomic, readonly, strong) id object;
 
+@property (nonatomic, readwrite, copy) APIResponseBlock failure;
 @property (nonatomic, readonly, assign) BOOL isFailure;
+@property (nonatomic, readonly, strong) id error;
 
 - (id)initWithResolver:(APIResponseResolver)resolver;
 
