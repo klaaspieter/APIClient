@@ -17,6 +17,17 @@ APIResponse *resolvedResponse(id object)
     }];
 };
 
+APIResponse *delayedResponse(id object)
+{
+    return [[APIResponse alloc] initWithResolver:^(APIResponseBlock resolve, APIResponseBlock reject) {
+        double delayInSeconds = 0.1;
+        dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delayInSeconds * NSEC_PER_SEC));
+        dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
+           resolve(object);
+        });
+    }];
+}
+
 SpecBegin(APIResponse)
 
 __block id _object;
@@ -44,10 +55,18 @@ describe(@"APIResponse", ^{
             expect(response.object).to.equal(_object);
         });
 
-        it(@"calls the success block when set on a successful response", ^{
+        it(@"calls the success block when set on an already resolved response", ^{
             APIResponse *response = resolvedResponse(_object);
             response.success = ^(id object) {
                 expect(object).to.equal(_object);
+            };
+        });
+
+        it(@"calls the success block when the response is resolved", ^AsyncBlock{
+            APIResponse *response = delayedResponse(_object);
+            response.success = ^(id object) {
+                expect(object).to.equal(_object);
+                done();
             };
         });
     });

@@ -24,6 +24,8 @@
         resolver(^(id object){
             self.isSuccess = YES;
             self.object = object;
+            if (self.success)
+                self.success(self.object);
         }, ^(id error){
             self.isFailure = YES;
         });
