@@ -19,7 +19,7 @@ __block APIClient *_client;
 
 describe(@"APIClient", ^{
     before(^{
-        setAsyncSpecTimeout(0.0);
+        setAsyncSpecTimeout(1.0);
     });
 
     __block NSURL *_baseURL;

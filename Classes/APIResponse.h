@@ -13,7 +13,7 @@ typedef void(^APIResponseResolver)(APIResponseBlock resolve, APIResponseBlock re
 
 @interface APIResponse : NSObject
 
-@property (nonatomic, readwrite, copy) id success;
+@property (nonatomic, readwrite, copy) APIResponseBlock success;
 @property (nonatomic, readonly, assign) BOOL isSuccess;
 @property (nonatomic, readonly, strong) id object;
 

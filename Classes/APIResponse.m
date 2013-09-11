@@ -32,4 +32,11 @@
     return self;
 }
 
+- (void)setSuccess:(APIResponseBlock)success;
+{
+    _success = success;
+    if (self.isSuccess && _success)
+        _success(self.object);
+}
+
 @end

@@ -19,9 +19,15 @@ APIResponse *resolvedResponse(id object)
 
 SpecBegin(APIResponse)
 
+__block id _object;
+
 describe(@"APIResponse", ^{
+    beforeEach(^{
+        _object = [[NSObject alloc] init];
+    });
+
     it(@"can be resolved", ^{
-        APIResponse *response = resolvedResponse(nil);
+        APIResponse *response = resolvedResponse(_object);
         expect(response.isSuccess).to.beTruthy();
     });
 
@@ -34,9 +40,15 @@ describe(@"APIResponse", ^{
 
     describe(@"resolving", ^{
         it(@"sets the resolved object", ^{
-            id object = [[NSObject alloc] init];
-            APIResponse *response = resolvedResponse(object);
-            expect(response.object).to.equal(object);
+            APIResponse *response = resolvedResponse(_object);
+            expect(response.object).to.equal(_object);
+        });
+
+        it(@"calls the success block when set on a successful response", ^{
+            APIResponse *response = resolvedResponse(_object);
+            response.success = ^(id object) {
+                expect(object).to.equal(_object);
+            };
         });
     });
 });
