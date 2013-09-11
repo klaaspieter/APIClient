@@ -55,21 +55,26 @@ describe(@"APIResponse", ^{
             };
         });
 
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wunused-variable"
         it(@"cannot be resolved again", ^{
             APIResponse *response = [[APIResponse alloc] initWithResolver:^(APIResponseBlock resolve, APIResponseBlock reject) {
                 resolve(_object);
-                resolve(nil);
+                expect(^{
+                    resolve(nil);
+                }).to.raise(NSInternalInconsistencyException);
             }];
-            expect(response.object).to.equal(_object);
         });
 
         it(@"cannot be rejected", ^{
             APIResponse *response = [[APIResponse alloc] initWithResolver:^(APIResponseBlock resolve, APIResponseBlock reject) {
                 resolve(_object);
-                reject(nil);
+                expect(^{
+                    reject(nil);
+                }).to.raise(NSInternalInconsistencyException);
             }];
-            expect(response.object).to.equal(_object);
         });
+#pragma clang diagnostic pop
     });
 
     describe(@"rejecting", ^{
@@ -93,21 +98,26 @@ describe(@"APIResponse", ^{
             };
         });
 
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wunused-variable"
         it(@"cannot be rejected again", ^{
             APIResponse *response = [[APIResponse alloc] initWithResolver:^(APIResponseBlock resolve, APIResponseBlock reject) {
                 reject(_object);
-                reject(nil);
+                expect(^{
+                    reject(nil);
+                }).to.raise(NSInternalInconsistencyException);
             }];
-            expect(response.error).to.equal(_object);
         });
 
         it(@"cannot be resolved", ^{
             APIResponse *response = [[APIResponse alloc] initWithResolver:^(APIResponseBlock resolve, APIResponseBlock reject) {
                 reject(_object);
-                resolve(nil);
+                expect(^{
+                    resolve(nil);
+                }).to.raise(NSInternalInconsistencyException);
             }];
-            expect(response.error).to.equal(_object);
         });
+#pragma clang diagnostic pop
     });
 });
 

@@ -42,8 +42,7 @@
 #pragma - Resolving
 - (void)resolveWithObject:(id)object;
 {
-    if (self.isFinished)
-        return;
+    NSAssert(!self.isFinished, @"A finished response cannot be resolved");
     
     self.isSuccess = YES;
     self.object = object;
@@ -71,8 +70,7 @@
 #pragma - Rejecting
 - (void)rejectWithError:(id)error;
 {
-    if (self.isFinished)
-        return;
+    NSAssert(!self.isFinished, @"A finished response cannot be rejected");
     
     self.isFailure = YES;
     self.error = error;
