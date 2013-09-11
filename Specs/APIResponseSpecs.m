@@ -25,14 +25,12 @@ describe(@"APIResponse", ^{
     });
 
     it(@"can be resolved", ^{
-        APIResponse *response = resolvedResponse(_object);
+        APIResponse *response = resolvedResponse(nil);
         expect(response.isSuccess).to.beTruthy();
     });
 
     it(@"can be rejected", ^{
-        APIResponse *response = [[APIResponse alloc] initWithResolver:^(APIResponseBlock resolve, APIResponseBlock reject) {
-            reject(nil);
-        }];
+        APIResponse *response = rejectedResponse(nil);
         expect(response.isFailure).to.beTruthy();
     });
 
