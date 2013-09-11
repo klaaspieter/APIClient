@@ -22,10 +22,7 @@
     if (self = [super init])
     {
         resolver(^(id object){
-            self.isSuccess = YES;
-            self.object = object;
-            if (self.success)
-                self.success(self.object);
+            [self resolveWithObject:object];
         }, ^(id error){
             self.isFailure = YES;
         });
@@ -34,11 +31,30 @@
     return self;
 }
 
+#pragma - Resolving
+- (void)resolveWithObject:(id)object;
+{
+    self.isSuccess = YES;
+    self.object = object;
+    [self performResolve];
+}
+
+- (void)performResolve;
+{
+    if (!self.isSuccess)
+        return;
+
+    if (self.success)
+        self.success(self.object);
+}
+
 - (void)setSuccess:(APIResponseBlock)success;
 {
+    if (_success == success)
+        return;
+
     _success = success;
-    if (self.isSuccess && _success)
-        _success(self.object);
+    [self performResolve];
 }
 
 @end
