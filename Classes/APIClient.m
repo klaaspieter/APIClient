@@ -33,8 +33,13 @@
 
 - (APIResponse *)findAll:(Class)resource;
 {
-    APIResponse *response = [[APIResponse alloc] init];
-    [self.httpClient getPath:@"/products" parameters:nil success:nil failure:nil];
+    APIResponse *response = [[APIResponse alloc] initWithResolver:^(APIResponseBlock resolve, APIResponseBlock reject) {
+        [self.httpClient getPath:@"/products" parameters:nil success:^(id responseObject) {
+            resolve(responseObject);
+        } failure:^(NSError *error) {
+            reject(error);
+        }];
+    }];
     return response;
 }
 

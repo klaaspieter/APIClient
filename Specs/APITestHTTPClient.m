@@ -8,8 +8,36 @@
 
 #import "APITestHTTPClient.h"
 
+typedef void(^RequestResolver)(id object);
+
+@interface Resolver : NSObject
+@property (nonatomic, readonly, copy) RequestResolver success;
+@property (nonatomic, readonly, copy) RequestResolver failure;
+
++ (instancetype)resolverWithSuccess:(RequestResolver)success failure:(RequestResolver)failure;
+@end
+
+@implementation Resolver
++ (instancetype)resolverWithSuccess:(RequestResolver)success failure:(RequestResolver)failure;
+{
+    return [[self alloc] initWithSuccess:success failure:failure];
+}
+
+- (id)initWithSuccess:(RequestResolver)success failure:(RequestResolver)failure;
+{
+    if (self = [super init])
+    {
+        _success = success;
+        _failure = failure;
+    }
+
+    return self;
+}
+
+@end
+
 @interface APITestHTTPClient ()
-@property (nonatomic, readwrite, copy) NSMutableArray *mutableRequests;
+@property (nonatomic, readwrite, copy) NSMutableDictionary *mutableRequests;
 @end
 
 @implementation APITestHTTPClient
@@ -24,26 +52,44 @@
     return self;
 }
 
-
 - (void)getPath:(NSString *)path
      parameters:(NSDictionary *)parameters
         success:(void (^)(id responseObject))success
         failure:(void (^)(NSError *error))failure;
 {
-     [self.mutableRequests addObject:path];
+    Resolver *resolver = [Resolver resolverWithSuccess:success failure:failure];
+    [self.mutableRequests setObject:resolver forKey:path];
 }
 
-- (NSMutableArray *)mutableRequests;
+- (NSMutableDictionary *)mutableRequests;
 {
     if (!_mutableRequests)
-        _mutableRequests = [NSMutableArray array];
+        _mutableRequests = [NSMutableDictionary dictionary];
 
     return _mutableRequests;
 }
 
 - (NSArray *)requests;
 {
-    return [self.mutableRequests copy];
+    return [self.mutableRequests allKeys];
+}
+
+- (void)succeedRequests;
+{
+    for (NSString *path in self.mutableRequests)
+    {
+        Resolver *resolver = self.mutableRequests[path];
+        resolver.success(@{});
+    }
+}
+
+- (void)failRequests;
+{
+    for (NSString *path in self.mutableRequests)
+    {
+        Resolver *resolver = self.mutableRequests[path];
+        resolver.failure(@{});
+    }
 }
 
 @end

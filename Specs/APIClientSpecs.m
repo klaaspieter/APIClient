@@ -15,17 +15,18 @@
 
 SpecBegin(APIClient)
 
-__block APIClient *_client;
-
 describe(@"APIClient", ^{
     before(^{
         setAsyncSpecTimeout(1.0);
     });
 
+    __block APIClient *_client;
     __block NSURL *_baseURL;
+    __block APITestHTTPClient *_httpClient;
 
     beforeEach(^{
         _baseURL = [NSURL URLWithString:@"https://api.example.org"];
+        _httpClient = [[APITestHTTPClient alloc] initWithBaseURL:_baseURL];
     });
 
     describe(@"initialization", ^{
@@ -40,9 +41,8 @@ describe(@"APIClient", ^{
         });
 
         it(@"can be initialized with a different httpClient", ^{
-            APITestHTTPClient *httpClient = [[APITestHTTPClient alloc] initWithBaseURL:_baseURL];
-            _client = [[APIClient alloc] initWithHTTPClient:httpClient];
-            expect(_client.httpClient).to.equal(httpClient);
+            _client = [[APIClient alloc] initWithHTTPClient:_httpClient];
+            expect(_client.httpClient).to.equal(_httpClient);
             expect(_client.httpClient.baseURL).to.equal(_baseURL);
         });
 
@@ -53,28 +53,41 @@ describe(@"APIClient", ^{
         });
     });
 
-    describe(@"finding", ^{
-        it(@"can find all resources of a type", ^AsyncBlock {
-            APIResponse *response = [_client findAll:[Product class]];
-            response.success = ^(NSArray *products) {
-                expect(products).notTo.beNil();
-                done();
-            };
-        });
-    });
-
     describe(@"findAll:", ^{
+        beforeEach(^{
+            _client = [[APIClient alloc] initWithHTTPClient:_httpClient];
+        });
+
         it(@"returns a response promise", ^{
             id response = [_client findAll:[Product class]];
             expect(response).to.beKindOf([APIResponse class]);
         });
 
         it(@"makes a request for the resource", ^{
-            APITestHTTPClient *httpClient = [[APITestHTTPClient alloc] initWithBaseURL:_baseURL];
-            _client = [[APIClient alloc] initWithHTTPClient:httpClient];
             [_client findAll:[Product class]];
+            expect(_httpClient.requests[0]).to.equal(@"/products");
+        });
 
-            expect(httpClient.requests[0]).to.equal(@"/products");
+        context(@"with a successful request", ^{
+            it(@"resolves the response with the response body", ^AsyncBlock {
+                APIResponse *response = [_client findAll:[Product class]];
+                response.success = ^(id object) {
+                    expect(object).notTo.beNil();
+                    done();
+                };
+                [_httpClient succeedRequests];
+            });
+        });
+
+        context(@"with a failed request", ^{
+            it(@"rejects the response with the error", ^AsyncBlock {
+                APIResponse *response = [_client findAll:[Product class]];
+                response.failure = ^(NSError *error) {
+                    expect(error).notTo.beNil();
+                    done();
+                };
+                [_httpClient failRequests];
+            });
         });
     });
 });

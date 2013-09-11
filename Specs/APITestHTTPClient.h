@@ -17,4 +17,7 @@
 
 - (id)initWithBaseURL:(NSURL *)baseURL;
 
+- (void)succeedRequests;
+- (void)failRequests;
+
 @end
