@@ -54,6 +54,22 @@ describe(@"APIResponse", ^{
                 done();
             };
         });
+
+        it(@"cannot be resolved again", ^{
+            APIResponse *response = [[APIResponse alloc] initWithResolver:^(APIResponseBlock resolve, APIResponseBlock reject) {
+                resolve(_object);
+                resolve(nil);
+            }];
+            expect(response.object).to.equal(_object);
+        });
+
+        it(@"cannot be rejected", ^{
+            APIResponse *response = [[APIResponse alloc] initWithResolver:^(APIResponseBlock resolve, APIResponseBlock reject) {
+                resolve(_object);
+                reject(nil);
+            }];
+            expect(response.object).to.equal(_object);
+        });
     });
 
     describe(@"rejecting", ^{
@@ -75,6 +91,22 @@ describe(@"APIResponse", ^{
                 expect(error).to.equal(_object);
                 done();
             };
+        });
+
+        it(@"cannot be rejected again", ^{
+            APIResponse *response = [[APIResponse alloc] initWithResolver:^(APIResponseBlock resolve, APIResponseBlock reject) {
+                reject(_object);
+                reject(nil);
+            }];
+            expect(response.error).to.equal(_object);
+        });
+
+        it(@"cannot be resolved", ^{
+            APIResponse *response = [[APIResponse alloc] initWithResolver:^(APIResponseBlock resolve, APIResponseBlock reject) {
+                reject(_object);
+                resolve(nil);
+            }];
+            expect(response.error).to.equal(_object);
         });
     });
 });

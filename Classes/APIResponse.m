@@ -9,6 +9,8 @@
 #import "APIResponse.h"
 
 @interface APIResponse ()
+@property (nonatomic, readwrite, assign) BOOL isFinished;
+
 @property (nonatomic, readwrite, assign) BOOL isSuccess;
 @property (nonatomic, readwrite, strong) id object;
 
@@ -32,9 +34,17 @@
     return self;
 }
 
+- (BOOL)isFinished;
+{
+    return self.isSuccess || self.isFailure;
+}
+
 #pragma - Resolving
 - (void)resolveWithObject:(id)object;
 {
+    if (self.isFinished)
+        return;
+    
     self.isSuccess = YES;
     self.object = object;
     [self performResolve];
@@ -61,6 +71,9 @@
 #pragma - Rejecting
 - (void)rejectWithError:(id)error;
 {
+    if (self.isFinished)
+        return;
+    
     self.isFailure = YES;
     self.error = error;
     [self performReject];
