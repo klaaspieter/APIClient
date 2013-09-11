@@ -10,13 +10,18 @@
 
 #import "APIResponse.h"
 
+APIResponse *resolvedResponse(id object)
+{
+    return [[APIResponse alloc] initWithResolver:^(APIResponseBlock resolve, APIResponseBlock reject) {
+        resolve(object);
+    }];
+};
+
 SpecBegin(APIResponse)
 
 describe(@"APIResponse", ^{
     it(@"can be resolved", ^{
-        APIResponse *response = [[APIResponse alloc] initWithResolver:^(APIResponseBlock resolve, APIResponseBlock reject) {
-            resolve(nil);
-        }];
+        APIResponse *response = resolvedResponse(nil);
         expect(response.isSuccess).to.beTruthy();
     });
 
@@ -25,6 +30,14 @@ describe(@"APIResponse", ^{
             reject(nil);
         }];
         expect(response.isFailure).to.beTruthy();
+    });
+
+    describe(@"resolving", ^{
+        it(@"sets the resolved object", ^{
+            id object = [[NSObject alloc] init];
+            APIResponse *response = resolvedResponse(object);
+            expect(response.object).to.equal(object);
+        });
     });
 });
 

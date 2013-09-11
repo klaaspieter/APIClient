@@ -10,6 +10,8 @@
 
 @interface APIResponse ()
 @property (nonatomic, readwrite, assign) BOOL isSuccess;
+@property (nonatomic, readwrite, strong) id object;
+
 @property (nonatomic, readwrite, assign) BOOL isFailure;
 @end
 
@@ -19,8 +21,9 @@
 {
     if (self = [super init])
     {
-        resolver(^(id value){
+        resolver(^(id object){
             self.isSuccess = YES;
+            self.object = object;
         }, ^(id error){
             self.isFailure = YES;
         });
