@@ -8,7 +8,11 @@
 
 #import <Foundation/Foundation.h>
 
+#import "APIInflector.h"
+
 @protocol APIRouter <NSObject>
+@property (nonatomic, readonly, strong) id<APIInflector> inflector;
+
 - (NSString *)pathForAction:(NSString *)action onResource:(Class)resource;
 @end
 
