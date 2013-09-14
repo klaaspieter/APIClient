@@ -31,8 +31,7 @@
     NSParameterAssert(httpClient);
     if (self = [super init])
     {
-        _httpClient = httpClient;
-        _router = router;
+        _configuration = [[APIClientConfiguration alloc] initWithHTTPClient:httpClient router:router];
     }
 
     return self;
@@ -48,6 +47,16 @@
         }];
     }];
     return response;
+}
+
+- (id<APIRouter>)router;
+{
+    return self.configuration.router;
+}
+
+- (id<APIHTTPClient>)httpClient;
+{
+    return self.configuration.httpClient;
 }
 
 @end

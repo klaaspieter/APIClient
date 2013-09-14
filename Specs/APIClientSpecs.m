@@ -33,37 +33,14 @@ describe(@"APIClient", ^{
     });
 
     describe(@"initialization", ^{
-        it(@"can be initialized with a baseURL", ^{
-            _client = [APIClient clientWithBaseURL:_baseURL];
-            expect(_client.httpClient.baseURL).to.equal(_baseURL);
+        it(@"creates a configuration with the given httpClient", ^{
+            _client = [[APIClient alloc] initWithHTTPClient:_httpClient router:_router];
+            expect(_client.configuration.httpClient).to.equal(_httpClient);
         });
 
-        it(@"cannot be initialized without a baseURL", ^{
-            expect(^{
-                _client = [[APIClient alloc] init];
-            }).to.raise(NSInternalInconsistencyException);
-        });
-
-        it(@"has a httpClient with the configured baseURL", ^{
-            _client = [APIClient clientWithBaseURL:_baseURL];
-            expect(_client.httpClient.baseURL).to.equal(_baseURL);
-        });
-
-        it(@"has a default router", ^{
-            _client = [APIClient clientWithBaseURL:_baseURL];
-            expect(_client.router).notTo.beNil();
-        });
-
-        it(@"can be initialized with a different httpClient", ^{
-            _client = [[APIClient alloc] initWithHTTPClient:_httpClient router:nil];
-            expect(_client.httpClient).to.equal(_httpClient);
-            expect(_client.httpClient.baseURL).to.equal(_baseURL);
-        });
-
-        it(@"cannot be initialized without a httpClient", ^{
-            expect(^{
-                _client = [[APIClient alloc] initWithHTTPClient:nil router:_router];
-            }).to.raise(NSInternalInconsistencyException);
+        it(@"creates a configuration with the given router", ^{
+            _client = [[APIClient alloc] initWithHTTPClient:_httpClient router:_router];
+            expect(_client.configuration.router).to.equal(_router);
         });
     });
 
