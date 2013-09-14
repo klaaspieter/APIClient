@@ -28,8 +28,7 @@ describe(@"APIClient", ^{
     beforeEach(^{
         _baseURL = [NSURL URLWithString:@"https://api.example.org"];
         _httpClient = [[APITestHTTPClient alloc] initWithBaseURL:_baseURL];
-        _router = [OCMockObject mockForProtocol:@protocol(APIRouter)];
-        [[[_router stub] andReturn:@"/products"] pathForAction:@"index" onResource:[Product class]];
+        _router = [[APIRouter alloc] init];
         _client = [[APIClient alloc] initWithHTTPClient:_httpClient router:_router];
     });
 
