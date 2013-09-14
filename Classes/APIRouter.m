@@ -14,9 +14,14 @@
 
 - (id)init;
 {
+    return [self initWithInflector:[[APIInflector alloc] init]];
+}
+
+- (id)initWithInflector:(id<APIInflector>)inflector;
+{
     if (self = [super init])
     {
-        _inflector = [[APIInflector alloc] init];
+        _inflector = inflector;
     }
 
     return self;

@@ -17,5 +17,6 @@
 @end
 
 @interface APIRouter : NSObject <APIRouter>
+- (id)initWithInflector:(id<APIInflector>)inflector;
 - (NSString *)pathForAction:(NSString *)action onResource:(Class)resource;
 @end

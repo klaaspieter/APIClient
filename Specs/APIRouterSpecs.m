@@ -18,6 +18,12 @@ describe(@"APIRouter", ^{
             APIRouter *router = [[APIRouter alloc] init];
             expect(router.inflector).notTo.beNil();
         });
+
+        it(@"accepts other inflectors", ^{
+            APIInflector *inflector = [[APIInflector alloc] init];
+            APIRouter *router = [[APIRouter alloc] initWithInflector:inflector];
+            expect(router.inflector).to.equal(inflector);
+        });
     });
 });
 
