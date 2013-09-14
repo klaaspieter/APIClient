@@ -25,7 +25,7 @@ Pod::Spec.new do |s|
   s.requires_arc = true
 
   s.source_files = 'Classes'
-  s.resources = 'Assets'
 
   s.dependency 'AFNetworking', '~> 1.3'
+  s.dependency "InflectorKit'"
 end

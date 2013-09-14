@@ -1,4 +1,5 @@
 pod "AFNetworking", "~> 1.3"
+pod "InflectorKit"
 
 target "Specs", exclusive: true do
   pod "Specta"

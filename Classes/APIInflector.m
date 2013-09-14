@@ -8,11 +8,13 @@
 
 #import "APIInflector.h"
 
+#import "TTTStringInflector.h"
+
 @implementation APIInflector
 
 - (NSString *)pluralize:(NSString *)string;
 {
-    return @"";
+    return [[TTTStringInflector defaultInflector] pluralize:string];
 }
 
 @end

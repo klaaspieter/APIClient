@@ -25,6 +25,7 @@
 		A1BEBB9717E4C1C2006C8432 /* APIRouter.m in Sources */ = {isa = PBXBuildFile; fileRef = A1BEBB9617E4C1C2006C8432 /* APIRouter.m */; };
 		A1BEBB9A17E4C57F006C8432 /* APIRouterSpecs.m in Sources */ = {isa = PBXBuildFile; fileRef = A1BEBB9917E4C57F006C8432 /* APIRouterSpecs.m */; };
 		A1BEBB9E17E4C702006C8432 /* APIInflector.m in Sources */ = {isa = PBXBuildFile; fileRef = A1BEBB9D17E4C702006C8432 /* APIInflector.m */; };
+		A1BEBBA117E519E4006C8432 /* APIInflectorSpecs.m in Sources */ = {isa = PBXBuildFile; fileRef = A1BEBBA017E519E4006C8432 /* APIInflectorSpecs.m */; };
 		A1D7C3EC17DFDAA8000F8510 /* APIResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = A1D7C3EB17DFDAA8000F8510 /* APIResponse.m */; };
 		A1D7C3F017DFDAE2000F8510 /* Product.m in Sources */ = {isa = PBXBuildFile; fileRef = A1D7C3EF17DFDAE2000F8510 /* Product.m */; };
 		A1D7C3F217DFE589000F8510 /* APIResponseSpecs.m in Sources */ = {isa = PBXBuildFile; fileRef = A1D7C3F117DFE589000F8510 /* APIResponseSpecs.m */; };
@@ -79,6 +80,7 @@
 		A1BEBB9917E4C57F006C8432 /* APIRouterSpecs.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APIRouterSpecs.m; sourceTree = "<group>"; };
 		A1BEBB9C17E4C702006C8432 /* APIInflector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APIInflector.h; sourceTree = "<group>"; };
 		A1BEBB9D17E4C702006C8432 /* APIInflector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APIInflector.m; sourceTree = "<group>"; };
+		A1BEBBA017E519E4006C8432 /* APIInflectorSpecs.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APIInflectorSpecs.m; sourceTree = "<group>"; };
 		A1D7C3EA17DFDAA8000F8510 /* APIResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APIResponse.h; sourceTree = "<group>"; };
 		A1D7C3EB17DFDAA8000F8510 /* APIResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APIResponse.m; sourceTree = "<group>"; };
 		A1D7C3EE17DFDAE2000F8510 /* Product.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Product.h; sourceTree = "<group>"; };
@@ -184,6 +186,7 @@
 				A19B266117D172FE008DA908 /* APIClientSpecs.m */,
 				A1D7C3F117DFE589000F8510 /* APIResponseSpecs.m */,
 				A1BEBB9917E4C57F006C8432 /* APIRouterSpecs.m */,
+				A1BEBBA017E519E4006C8432 /* APIInflectorSpecs.m */,
 			);
 			name = Specs;
 			path = ../Specs;
@@ -425,6 +428,7 @@
 				A1D7C3F017DFDAE2000F8510 /* Product.m in Sources */,
 				A1D7C3F217DFE589000F8510 /* APIResponseSpecs.m in Sources */,
 				A1BEBB9A17E4C57F006C8432 /* APIRouterSpecs.m in Sources */,
+				A1BEBBA117E519E4006C8432 /* APIInflectorSpecs.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
