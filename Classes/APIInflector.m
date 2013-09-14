@@ -10,4 +10,9 @@
 
 @implementation APIInflector
 
+- (NSString *)pluralize:(NSString *)string;
+{
+    return @"";
+}
+
 @end

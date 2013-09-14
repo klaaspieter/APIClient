@@ -29,7 +29,16 @@
 
 - (NSString *)pathForAction:(NSString *)action onResource:(Class)resource;
 {
-    return nil;
+    return [self.inflector pluralize:[self unprefixedNameForResource:resource]];
+}
+
+- (NSString *)unprefixedNameForResource:(Class)resource;
+{
+    NSString *className = NSStringFromClass(resource);
+    NSRegularExpression *prefixRegularExpression = [NSRegularExpression regularExpressionWithPattern:@"[A-Z]+" options:0 error:nil];
+    NSRange capitalsRange = [prefixRegularExpression rangeOfFirstMatchInString:className options:0 range:NSMakeRange(0, className.length)];
+    NSRange prefixRange = NSMakeRange(0, capitalsRange.length - 1);
+    return [[className substringFromIndex:prefixRange.length] lowercaseString];
 }
 
 @end

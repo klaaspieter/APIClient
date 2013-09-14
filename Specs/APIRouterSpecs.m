@@ -25,6 +25,16 @@ describe(@"APIRouter", ^{
             expect(router.inflector).to.equal(inflector);
         });
     });
+
+    describe(@"routing", ^{
+        it(@"routes index actions to the pluralized resource name", ^{
+            id inflector = [OCMockObject mockForProtocol:@protocol(APIInflector)];
+            [[[inflector expect] andReturn:@"objects"] pluralize:@"object"];
+            APIRouter *router = [[APIRouter alloc] initWithInflector:inflector];
+            [router pathForAction:@"index" onResource:[NSObject class]];
+            [inflector verify];
+        });
+    });
 });
 
 SpecEnd
