@@ -23,7 +23,7 @@
 - (id)initWithBaseURL:(NSURL *)baseURL;
 {
     NSParameterAssert(baseURL);
-    return [self initWithHTTPClient:[[APIAFNetworkingHTTPClient alloc] initWithBaseURL:baseURL] router:nil];
+    return [self initWithHTTPClient:[[APIAFNetworkingHTTPClient alloc] initWithBaseURL:baseURL] router:[[APIRouter alloc] init]];
 }
 
 - (id)initWithHTTPClient:(id<APIHTTPClient>)httpClient router:(id<APIRouter>)router;

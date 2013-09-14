@@ -22,6 +22,7 @@
 		A19B265617D17257008DA908 /* APIClient.m in Sources */ = {isa = PBXBuildFile; fileRef = A19B265517D17257008DA908 /* APIClient.m */; };
 		A19B265E17D1725E008DA908 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = A19B265A17D1725E008DA908 /* InfoPlist.strings */; };
 		A19B266217D172FE008DA908 /* APIClientSpecs.m in Sources */ = {isa = PBXBuildFile; fileRef = A19B266117D172FE008DA908 /* APIClientSpecs.m */; };
+		A1BEBB9717E4C1C2006C8432 /* APIRouter.m in Sources */ = {isa = PBXBuildFile; fileRef = A1BEBB9617E4C1C2006C8432 /* APIRouter.m */; };
 		A1D7C3EC17DFDAA8000F8510 /* APIResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = A1D7C3EB17DFDAA8000F8510 /* APIResponse.m */; };
 		A1D7C3F017DFDAE2000F8510 /* Product.m in Sources */ = {isa = PBXBuildFile; fileRef = A1D7C3EF17DFDAE2000F8510 /* Product.m */; };
 		A1D7C3F217DFE589000F8510 /* APIResponseSpecs.m in Sources */ = {isa = PBXBuildFile; fileRef = A1D7C3F117DFE589000F8510 /* APIResponseSpecs.m */; };
@@ -72,6 +73,7 @@
 		A19B265B17D1725E008DA908 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		A19B266117D172FE008DA908 /* APIClientSpecs.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APIClientSpecs.m; sourceTree = "<group>"; };
 		A1BEBB9517E4AE62006C8432 /* APIRouter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = APIRouter.h; sourceTree = "<group>"; };
+		A1BEBB9617E4C1C2006C8432 /* APIRouter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APIRouter.m; sourceTree = "<group>"; };
 		A1D7C3EA17DFDAA8000F8510 /* APIResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APIResponse.h; sourceTree = "<group>"; };
 		A1D7C3EB17DFDAA8000F8510 /* APIResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APIResponse.m; sourceTree = "<group>"; };
 		A1D7C3EE17DFDAE2000F8510 /* Product.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Product.h; sourceTree = "<group>"; };
@@ -202,6 +204,7 @@
 			isa = PBXGroup;
 			children = (
 				A1BEBB9517E4AE62006C8432 /* APIRouter.h */,
+				A1BEBB9617E4C1C2006C8432 /* APIRouter.m */,
 			);
 			name = Router;
 			sourceTree = "<group>";
@@ -392,6 +395,7 @@
 				A19B265617D17257008DA908 /* APIClient.m in Sources */,
 				A1894E7317D17D9F0052609F /* APIAFNetworkingHTTPClient.m in Sources */,
 				A1D7C3EC17DFDAA8000F8510 /* APIResponse.m in Sources */,
+				A1BEBB9717E4C1C2006C8432 /* APIRouter.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

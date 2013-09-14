@@ -50,6 +50,11 @@ describe(@"APIClient", ^{
             expect(_client.httpClient.baseURL).to.equal(_baseURL);
         });
 
+        it(@"has a default router", ^{
+            _client = [APIClient clientWithBaseURL:_baseURL];
+            expect(_client.router).notTo.beNil();
+        });
+
         it(@"can be initialized with a different httpClient", ^{
             _client = [[APIClient alloc] initWithHTTPClient:_httpClient router:nil];
             expect(_client.httpClient).to.equal(_httpClient);

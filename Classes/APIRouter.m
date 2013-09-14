@@ -1,17 +1,18 @@
 //
-//  APIRouter.h
+//  APIRouter.m
 //  APIClient
 //
 //  Created by Klaas Pieter Annema on 14-09-13.
 //  Copyright (c) 2013 Klaas Pieter Annema. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+#import "APIRouter.h"
 
-@protocol APIRouter <NSObject>
-- (NSString *)pathForAction:(NSString *)action onResource:(Class)resource;
-@end
+@implementation APIRouter
 
-@interface APIRouter : NSObject <APIRouter>
 - (NSString *)pathForAction:(NSString *)action onResource:(Class)resource;
+{
+    return nil;
+}
+
 @end
