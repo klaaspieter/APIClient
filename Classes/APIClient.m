@@ -12,7 +12,7 @@
 
 - (id)init;
 {
-    return [self initWithHTTPClient:nil router:nil];
+    return [self initWithBaseURL:nil];
 }
 
 + (instancetype)clientWithBaseURL:(NSURL *)baseURL;
@@ -22,6 +22,7 @@
 
 - (id)initWithBaseURL:(NSURL *)baseURL;
 {
+    NSParameterAssert(baseURL);
     return [self initWithHTTPClient:[[APIAFNetworkingHTTPClient alloc] initWithBaseURL:baseURL] router:nil];
 }
 
