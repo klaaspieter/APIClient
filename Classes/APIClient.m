@@ -17,7 +17,12 @@
 
 + (instancetype)clientWithBaseURL:(NSURL *)baseURL;
 {
-    return [[self alloc] initWithHTTPClient:[[APIAFNetworkingHTTPClient alloc] initWithBaseURL:baseURL] router:nil];
+    return [[self alloc] initWithBaseURL:baseURL];
+}
+
+- (id)initWithBaseURL:(NSURL *)baseURL;
+{
+    return [self initWithHTTPClient:[[APIAFNetworkingHTTPClient alloc] initWithBaseURL:baseURL] router:nil];
 }
 
 - (id)initWithHTTPClient:(id<APIHTTPClient>)httpClient router:(id<APIRouter>)router;

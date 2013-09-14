@@ -50,10 +50,9 @@ describe(@"APIClient", ^{
             expect(_client.httpClient.baseURL).to.equal(_baseURL);
         });
 
-        it(@"cannot be initialized without a httpClient", ^{
-            expect(^{
-                _client = [[APIClient alloc] initWithHTTPClient:nil router:nil];
-            }).to.raise(NSInternalInconsistencyException);
+        it(@"uses the default httpClient when intialized without one", ^{
+            _client = [[APIClient alloc] initWithBaseURL:_baseURL];
+            expect(_client.httpClient.baseURL).to.equal(_baseURL);
         });
     });
 
