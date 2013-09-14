@@ -23,10 +23,14 @@ describe(@"APIClient", ^{
     __block APIClient *_client;
     __block NSURL *_baseURL;
     __block APITestHTTPClient *_httpClient;
+    __block id _router;
 
     beforeEach(^{
         _baseURL = [NSURL URLWithString:@"https://api.example.org"];
         _httpClient = [[APITestHTTPClient alloc] initWithBaseURL:_baseURL];
+        _router = [OCMockObject mockForProtocol:@protocol(APIRouter)];
+        [[[_router stub] andReturn:@"/products"] pathForAction:@"index" onResource:[Product class]];
+        _client = [[APIClient alloc] initWithHTTPClient:_httpClient router:_router];
     });
 
     describe(@"initialization", ^{
@@ -41,23 +45,19 @@ describe(@"APIClient", ^{
         });
 
         it(@"can be initialized with a different httpClient", ^{
-            _client = [[APIClient alloc] initWithHTTPClient:_httpClient];
+            _client = [[APIClient alloc] initWithHTTPClient:_httpClient router:nil];
             expect(_client.httpClient).to.equal(_httpClient);
             expect(_client.httpClient.baseURL).to.equal(_baseURL);
         });
 
         it(@"cannot be initialized without a httpClient", ^{
             expect(^{
-                _client = [[APIClient alloc] initWithHTTPClient:nil];
+                _client = [[APIClient alloc] initWithHTTPClient:nil router:nil];
             }).to.raise(NSInternalInconsistencyException);
         });
     });
 
     describe(@"findAll:", ^{
-        beforeEach(^{
-            _client = [[APIClient alloc] initWithHTTPClient:_httpClient];
-        });
-
         it(@"returns a response promise", ^{
             id response = [_client findAll:[Product class]];
             expect(response).to.beKindOf([APIResponse class]);
@@ -88,6 +88,17 @@ describe(@"APIClient", ^{
                 };
                 [_httpClient failRequests];
             });
+        });
+    });
+
+    describe(@"routing", ^{
+        it(@"uses the router to build paths for a resource", ^{
+            _router = [OCMockObject mockForProtocol:@protocol(APIRouter)];
+            [[[_router expect] andReturn:@"/objects"] pathForAction:@"index" onResource:[Product class]];
+            _client = [[APIClient alloc] initWithHTTPClient:_httpClient router:_router];
+            [_client findAll:[Product class]];
+            expect(_httpClient.requests[0]).to.equal(@"/objects");
+            [_router verify];
         });
     });
 });
