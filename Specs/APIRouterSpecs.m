@@ -31,7 +31,7 @@ describe(@"APIRouter", ^{
             id inflector = [OCMockObject mockForProtocol:@protocol(APIInflector)];
             [[[inflector expect] andReturn:@"objects"] pluralize:@"object"];
             APIRouter *router = [[APIRouter alloc] initWithInflector:inflector];
-            [router pathForAction:@"index" onResource:[NSObject class]];
+            expect([router pathForAction:@"index" onResource:[NSObject class]]).to.equal(@"/objects");
             [inflector verify];
         });
     });

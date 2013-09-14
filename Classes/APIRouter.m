@@ -29,7 +29,8 @@
 
 - (NSString *)pathForAction:(NSString *)action onResource:(Class)resource;
 {
-    return [self.inflector pluralize:[self unprefixedNameForResource:resource]];
+    NSString *pluralizedResourceName = [self.inflector pluralize:[self unprefixedNameForResource:resource]];
+    return [NSString stringWithFormat:@"/%@", pluralizedResourceName];
 }
 
 - (NSString *)unprefixedNameForResource:(Class)resource;
