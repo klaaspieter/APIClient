@@ -19,4 +19,4 @@ SPEC CHECKSUMS:
   OCMock: 80e4cfbc71a0e1bd28caf10a9fda27da7c4c8402
   Specta: 82746c6fd70b104c5d37cfbadb7bf15a2cbc4da0
 
-COCOAPODS: 0.24.0
+COCOAPODS: 0.25.0

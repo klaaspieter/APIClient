@@ -1,4 +1,5 @@
 source "https://rubygems.org"
 
 gem "rake"
-gem "cocoapods"
+gem "cocoapods", git: "http://github.com/CocoaPods/CocoaPods"
+
