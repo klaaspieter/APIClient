@@ -26,18 +26,21 @@
     
     id<APIHTTPClient> httpClient = [APIAFNetworkingHTTPClient clientWithBaseURL:baseURL];
     id<APIRouter> router = [[APIRouter alloc] init];
-    return [self initWithHTTPClient:httpClient router:router];
+    id<APIJSONSerializer> serializer = [[APIJSONSerializer alloc] init];
+    return [self initWithHTTPClient:httpClient router:router serializer:serializer];
 }
 
-- (id)initWithHTTPClient:(id<APIHTTPClient>)httpClient router:(id<APIRouter>)router;
+- (id)initWithHTTPClient:(id<APIHTTPClient>)httpClient router:(id<APIRouter>)router serializer:(id<APIJSONSerializer>)serializer;
 {
     NSParameterAssert(httpClient);
     NSParameterAssert(router);
+    NSParameterAssert(serializer);
     
     if (self = [super init])
     {
         _httpClient = httpClient;
         _router = router;
+        _serializer = serializer;
     }
 
     return self;

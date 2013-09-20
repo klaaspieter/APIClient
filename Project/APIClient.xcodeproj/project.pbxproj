@@ -15,6 +15,7 @@
 		A1894E7017D17CC60052609F /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1894E6F17D17CC60052609F /* MobileCoreServices.framework */; };
 		A1894E7317D17D9F0052609F /* APIAFNetworkingHTTPClient.m in Sources */ = {isa = PBXBuildFile; fileRef = A1894E7217D17D9F0052609F /* APIAFNetworkingHTTPClient.m */; };
 		A1894E7617D17E400052609F /* APITestHTTPClient.m in Sources */ = {isa = PBXBuildFile; fileRef = A1894E7517D17E400052609F /* APITestHTTPClient.m */; };
+		A18F65A217ED0F28009D7818 /* APIJSONSerializer.m in Sources */ = {isa = PBXBuildFile; fileRef = A18F65A117ED0F28009D7818 /* APIJSONSerializer.m */; };
 		A19B260F17D17056008DA908 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A19B25BA17D16E47008DA908 /* Foundation.framework */; };
 		A19B261D17D17056008DA908 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A19B25C917D16E47008DA908 /* SenTestingKit.framework */; };
 		A19B261F17D17056008DA908 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A19B25BA17D16E47008DA908 /* Foundation.framework */; };
@@ -67,6 +68,8 @@
 		A1894E7217D17D9F0052609F /* APIAFNetworkingHTTPClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APIAFNetworkingHTTPClient.m; sourceTree = "<group>"; };
 		A1894E7417D17E400052609F /* APITestHTTPClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APITestHTTPClient.h; sourceTree = "<group>"; };
 		A1894E7517D17E400052609F /* APITestHTTPClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APITestHTTPClient.m; sourceTree = "<group>"; };
+		A18F65A017ED0F28009D7818 /* APIJSONSerializer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APIJSONSerializer.h; sourceTree = "<group>"; };
+		A18F65A117ED0F28009D7818 /* APIJSONSerializer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APIJSONSerializer.m; sourceTree = "<group>"; };
 		A19B25BA17D16E47008DA908 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		A19B25C917D16E47008DA908 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		A19B260E17D17056008DA908 /* libAPIClient.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libAPIClient.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -137,6 +140,15 @@
 			name = Client;
 			sourceTree = "<group>";
 		};
+		A18F659F17ED0F0C009D7818 /* Serializer */ = {
+			isa = PBXGroup;
+			children = (
+				A18F65A017ED0F28009D7818 /* APIJSONSerializer.h */,
+				A18F65A117ED0F28009D7818 /* APIJSONSerializer.m */,
+			);
+			name = Serializer;
+			sourceTree = "<group>";
+		};
 		A19B25AE17D16E47008DA908 = {
 			isa = PBXGroup;
 			children = (
@@ -178,6 +190,7 @@
 				A1060D2917DD284500EC32B7 /* Client */,
 				A1D7C3E917DFDA9D000F8510 /* Response */,
 				A1BEBB9417E4AE45006C8432 /* Router */,
+				A18F659F17ED0F0C009D7818 /* Serializer */,
 				A19B265F17D17273008DA908 /* Supporting Files */,
 			);
 			name = Classes;
@@ -422,6 +435,7 @@
 				A19B265617D17257008DA908 /* APIClient.m in Sources */,
 				A1894E7317D17D9F0052609F /* APIAFNetworkingHTTPClient.m in Sources */,
 				A1D7C3EC17DFDAA8000F8510 /* APIResponse.m in Sources */,
+				A18F65A217ED0F28009D7818 /* APIJSONSerializer.m in Sources */,
 				A1BEBB9717E4C1C2006C8432 /* APIRouter.m in Sources */,
 				A1BEBB9E17E4C702006C8432 /* APIInflector.m in Sources */,
 				A1BEBBA417E51BBC006C8432 /* APIClientConfiguration.m in Sources */,
