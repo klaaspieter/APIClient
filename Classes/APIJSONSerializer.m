@@ -13,7 +13,13 @@
 - (id)deserializeJSON:(NSString *)json;
 {
     NSData *jsonData = [json dataUsingEncoding:NSUTF8StringEncoding];
-    return [NSJSONSerialization JSONObjectWithData:jsonData options:0 error:nil];
+    NSError *error;
+    id object = [NSJSONSerialization JSONObjectWithData:jsonData options:0 error:&error];
+
+    if (!object)
+        [NSException raise:NSInternalInconsistencyException format:@"JSON could not be deserialized. Please make sure your server is returning valid JSON."];
+
+    return object;
 }
 
 @end
