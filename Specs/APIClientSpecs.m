@@ -24,22 +24,24 @@ describe(@"APIClient", ^{
     __block NSURL *_baseURL;
     __block APITestHTTPClient *_httpClient;
     __block id _router;
+    __block id _serializer;
 
     beforeEach(^{
         _baseURL = [NSURL URLWithString:@"https://api.example.org"];
         _httpClient = [[APITestHTTPClient alloc] initWithBaseURL:_baseURL];
         _router = [[APIRouter alloc] init];
-        _client = [[APIClient alloc] initWithHTTPClient:_httpClient router:_router];
+        _serializer = [[APIJSONSerializer alloc] init];
+        _client = [[APIClient alloc] initWithHTTPClient:_httpClient router:_router serializer:_serializer];
     });
 
     describe(@"initialization", ^{
         it(@"creates a configuration with the given httpClient", ^{
-            _client = [[APIClient alloc] initWithHTTPClient:_httpClient router:_router];
+            _client = [[APIClient alloc] initWithHTTPClient:_httpClient router:_router serializer:_serializer];
             expect(_client.configuration.httpClient).to.equal(_httpClient);
         });
 
         it(@"creates a configuration with the given router", ^{
-            _client = [[APIClient alloc] initWithHTTPClient:_httpClient router:_router];
+            _client = [[APIClient alloc] initWithHTTPClient:_httpClient router:_router serializer:_serializer];
             expect(_client.configuration.router).to.equal(_router);
         });
     });
@@ -82,10 +84,21 @@ describe(@"APIClient", ^{
         it(@"uses the router to build paths for a resource", ^{
             _router = [OCMockObject mockForProtocol:@protocol(APIRouter)];
             [[[_router expect] andReturn:@"/objects"] pathForAction:@"index" onResource:[Product class]];
-            _client = [[APIClient alloc] initWithHTTPClient:_httpClient router:_router];
+            _client = [[APIClient alloc] initWithHTTPClient:_httpClient router:_router serializer:_serializer];
             [_client findAll:[Product class]];
             expect(_httpClient.requests[0]).to.equal(@"/objects");
             [_router verify];
+        });
+    });
+
+    describe(@"serialization", ^{
+        it(@"uses the serializer to deserialize the response body", ^{
+            _serializer = [OCMockObject mockForProtocol:@protocol(APIJSONSerializer)];
+            [[[_serializer expect] andReturn:@{}] deserializeJSON:@"{}"];
+            _client = [[APIClient alloc] initWithHTTPClient:_httpClient router:_router serializer:_serializer];
+            [_client findAll:[Product class]];
+            [_httpClient succeedRequests];
+            [_serializer verify];
         });
     });
 });

@@ -79,7 +79,7 @@ typedef void(^RequestResolver)(id object);
     for (NSString *path in self.mutableRequests)
     {
         Resolver *resolver = self.mutableRequests[path];
-        resolver.success(@{});
+        resolver.success(@"{}");
     }
 }
 
@@ -88,7 +88,7 @@ typedef void(^RequestResolver)(id object);
     for (NSString *path in self.mutableRequests)
     {
         Resolver *resolver = self.mutableRequests[path];
-        resolver.failure(@{});
+        resolver.failure(@"{}");
     }
 }
 

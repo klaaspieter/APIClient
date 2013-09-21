@@ -10,4 +10,9 @@
 
 @implementation APIJSONSerializer
 
+- (id)deserializeJSON:(NSString *)json;
+{
+    return nil;
+}
+
 @end

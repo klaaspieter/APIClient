@@ -23,15 +23,19 @@
 - (id)initWithBaseURL:(NSURL *)baseURL;
 {
     NSParameterAssert(baseURL);
-    return [self initWithHTTPClient:[[APIAFNetworkingHTTPClient alloc] initWithBaseURL:baseURL] router:[[APIRouter alloc] init]];
+    // TODO: This resonsibility has been moved into the configuration object
+    return [self initWithHTTPClient:[[APIAFNetworkingHTTPClient alloc]
+                                     initWithBaseURL:baseURL]
+                             router:[[APIRouter alloc] init]
+                         serializer:[[APIJSONSerializer alloc] init]];
 }
 
-- (id)initWithHTTPClient:(id<APIHTTPClient>)httpClient router:(id<APIRouter>)router;
+- (id)initWithHTTPClient:(id<APIHTTPClient>)httpClient router:(id<APIRouter>)router serializer:(id<APIJSONSerializer>)serializer;
 {
     NSParameterAssert(httpClient);
     if (self = [super init])
     {
-        _configuration = [[APIClientConfiguration alloc] initWithHTTPClient:httpClient router:router];
+        _configuration = [[APIClientConfiguration alloc] initWithHTTPClient:httpClient router:router serializer:serializer];
     }
 
     return self;
@@ -41,6 +45,7 @@
 {
     APIResponse *response = [[APIResponse alloc] initWithResolver:^(APIResponseBlock resolve, APIResponseBlock reject) {
         [self.httpClient getPath:[self.router pathForAction:@"index" onResource:resource] parameters:nil success:^(id responseObject) {
+            [self.serializer deserializeJSON:responseObject];
             resolve(responseObject);
         } failure:^(NSError *error) {
             reject(error);
@@ -57,6 +62,11 @@
 - (id<APIHTTPClient>)httpClient;
 {
     return self.configuration.httpClient;
+}
+
+- (id<APIJSONSerializer>)serializer;
+{
+    return self.configuration.serializer;
 }
 
 @end
