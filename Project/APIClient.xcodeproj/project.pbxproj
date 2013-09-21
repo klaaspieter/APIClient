@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		85D2F51389D14EC8947352DB /* libPods-Specs.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D48E02F67DD4191847855B3 /* libPods-Specs.a */; };
 		93F2329B952D4C1C98DAFA30 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7953515CB94E4A45B716298D /* libPods.a */; };
+		A125C15017EDE0070063763F /* APIJSONSerializerSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = A125C14F17EDE0070063763F /* APIJSONSerializerSpec.m */; };
 		A1537E3817D1768400D22137 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1537E3717D1768400D22137 /* UIKit.framework */; };
 		A1537E3917D176AA00D22137 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1537E3717D1768400D22137 /* UIKit.framework */; };
 		A1894E6E17D17CBE0052609F /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1894E6D17D17CBE0052609F /* SystemConfiguration.framework */; };
@@ -60,6 +61,7 @@
 		5D48E02F67DD4191847855B3 /* libPods-Specs.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Specs.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		60820679716F4CCD8ABFA748 /* Pods-Specs.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Specs.xcconfig"; path = "Pods/Pods-Specs.xcconfig"; sourceTree = SOURCE_ROOT; };
 		7953515CB94E4A45B716298D /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		A125C14F17EDE0070063763F /* APIJSONSerializerSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APIJSONSerializerSpec.m; sourceTree = "<group>"; };
 		A1537E3717D1768400D22137 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		A1894E6C17D17C330052609F /* APIHTTPClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APIHTTPClient.h; sourceTree = "<group>"; };
 		A1894E6D17D17CBE0052609F /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
@@ -208,6 +210,7 @@
 				A1BEBB9917E4C57F006C8432 /* APIRouterSpecs.m */,
 				A1BEBBA017E519E4006C8432 /* APIInflectorSpecs.m */,
 				A1BEBBA517E51D6B006C8432 /* APIClientConfigurationSpecs.m */,
+				A125C14F17EDE0070063763F /* APIJSONSerializerSpec.m */,
 			);
 			name = Specs;
 			path = ../Specs;
@@ -449,6 +452,7 @@
 				A19B266217D172FE008DA908 /* APIClientSpecs.m in Sources */,
 				A1894E7617D17E400052609F /* APITestHTTPClient.m in Sources */,
 				A1D7C3F017DFDAE2000F8510 /* Product.m in Sources */,
+				A125C15017EDE0070063763F /* APIJSONSerializerSpec.m in Sources */,
 				A1D7C3F217DFE589000F8510 /* APIResponseSpecs.m in Sources */,
 				A1BEBB9A17E4C57F006C8432 /* APIRouterSpecs.m in Sources */,
 				A1BEBBA117E519E4006C8432 /* APIInflectorSpecs.m in Sources */,

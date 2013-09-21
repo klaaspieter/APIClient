@@ -12,7 +12,8 @@
 
 - (id)deserializeJSON:(NSString *)json;
 {
-    return nil;
+    NSData *jsonData = [json dataUsingEncoding:NSUTF8StringEncoding];
+    return [NSJSONSerialization JSONObjectWithData:jsonData options:0 error:nil];
 }
 
 @end
