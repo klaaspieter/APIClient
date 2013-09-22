@@ -9,8 +9,6 @@
 #import "APIClientConfiguration.h"
 
 @interface APIClientConfiguration ()
-@property (nonatomic, readwrite, strong) id<APIRouter> router;
-@property (nonatomic, readwrite, strong) id<APIJSONSerializer> serializer;
 @end
 
 @implementation APIClientConfiguration
@@ -25,6 +23,23 @@
     return [[self alloc] initWithBaseURL:baseURL];
 }
 
++ (instancetype)configurationWithBlock:(APIClientConfigurationBlock)block;
+{
+    NSParameterAssert(block);
+    APIClientConfiguration *configuration = [[self alloc] _initWithoutBaseURL];
+    block(configuration);
+    [configuration verifyExistenceOfHTTPClient];
+    return configuration;
+}
+
+- (id)_initWithoutBaseURL;
+{
+    if (self = [super init]) {
+    }
+
+    return self;
+}
+
 - (id)initWithBaseURL:(NSURL *)baseURL;
 {
     NSParameterAssert(baseURL);
@@ -35,14 +50,23 @@
 
 - (id)initWithHTTPClient:(id<APIHTTPClient>)httpClient router:(id<APIRouter>)router serializer:(id<APIJSONSerializer>)serializer;
 {
-    if (self = [super init])
-    {
+    if (self = [super init]) {
         _httpClient = httpClient;
         _router = router;
         _serializer = serializer;
     }
 
     return self;
+}
+
+- (NSURL *)baseURL;
+{
+    return self.httpClient.baseURL;
+}
+
+- (void)setBaseURL:(NSURL *)baseURL;
+{
+    _httpClient = [APIAFNetworkingHTTPClient clientWithBaseURL:baseURL];
 }
 
 - (id<APIRouter>)router;
@@ -61,6 +85,15 @@
     }
 
     return _serializer;
+}
+
+- (void)verifyExistenceOfHTTPClient;
+{
+    if (self.httpClient) {
+        return;
+    }
+
+    [NSException raise:NSInternalInconsistencyException format:@"A httpClient must exist after creating a configuration. You can specify a http client by creating one yourself or by setting the baseURL."];
 }
 
 @end

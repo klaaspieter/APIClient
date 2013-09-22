@@ -23,6 +23,41 @@ describe(@"APIClientConfiguration", ^{
         _router = [[APIRouter alloc] init];
     });
 
+    describe(@"configurationWithBlock:", ^{
+        it(@"can be configured with a block", ^{
+            _configuration = [APIClientConfiguration configurationWithBlock:^(APIClientConfiguration *configuration) {
+                configuration.httpClient = _httpClient;
+                configuration.router = _router;
+                configuration.serializer = _serializer;
+            }];
+
+            expect(_configuration.httpClient).to.equal(_httpClient);
+            expect(_configuration.router).to.equal(_router);
+            expect(_configuration.serializer).to.equal(_serializer);
+        });
+
+        it(@"raises if no block was given", ^{
+            expect(^{
+                [APIClientConfiguration configurationWithBlock:nil];
+            }).to.raise(NSInternalInconsistencyException);
+        });
+
+        it(@"raises if baseURL or httpClient was not set", ^{
+            expect(^{
+                [APIClientConfiguration configurationWithBlock:^(APIClientConfiguration *configuration) {}];
+            }).to.raise(NSInternalInconsistencyException);
+        });
+
+        it(@"creates a httpClient if the baseURL is set", ^{
+            _configuration = [APIClientConfiguration configurationWithBlock:^(APIClientConfiguration *configuration) {
+                configuration.baseURL = _baseURL;
+            }];
+
+            expect(_configuration.baseURL).to.equal(_baseURL);
+            expect(_configuration.httpClient.baseURL).to.equal(_baseURL);
+        });
+    });
+
     it(@"creates a default httpClient with the configured baseURL", ^{
         _configuration = [APIClientConfiguration configurationWithBaseURL:_baseURL];
         expect(_configuration.httpClient).to.beInstanceOf([APIAFNetworkingHTTPClient class]);

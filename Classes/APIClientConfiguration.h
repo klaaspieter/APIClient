@@ -13,14 +13,19 @@
 #import "APIJSONSerializer.h"
 #import "APIResponse.h"
 
+@class APIClientConfiguration;
+typedef void(^APIClientConfigurationBlock)(APIClientConfiguration *configuration);
 
 @interface APIClientConfiguration : NSObject
 
-@property (nonatomic, readonly, strong) id<APIHTTPClient> httpClient;
-@property (nonatomic, readonly, strong) id<APIRouter> router;
-@property (nonatomic, readonly, strong) id<APIJSONSerializer> serializer;
+@property (nonatomic, readwrite, strong) NSURL *baseURL;
+@property (nonatomic, readwrite, strong) id<APIHTTPClient> httpClient;
+@property (nonatomic, readwrite, strong) id<APIRouter> router;
+@property (nonatomic, readwrite, strong) id<APIJSONSerializer> serializer;
 
++ (instancetype)configurationWithBlock:(APIClientConfigurationBlock)block;
 + (instancetype)configurationWithBaseURL:(NSURL *)baseURL;
 - (id)initWithHTTPClient:(id<APIHTTPClient>)httpClient router:(id<APIRouter>)router serializer:(id<APIJSONSerializer>)serializer;
 
 @end
+
