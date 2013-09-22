@@ -8,6 +8,11 @@
 
 #import "APIClientConfiguration.h"
 
+@interface APIClientConfiguration ()
+@property (nonatomic, readwrite, strong) id<APIRouter> router;
+@property (nonatomic, readwrite, strong) id<APIJSONSerializer> serializer;
+@end
+
 @implementation APIClientConfiguration
 
 - (id)init;
@@ -25,17 +30,11 @@
     NSParameterAssert(baseURL);
     
     id<APIHTTPClient> httpClient = [APIAFNetworkingHTTPClient clientWithBaseURL:baseURL];
-    id<APIRouter> router = [[APIRouter alloc] init];
-    id<APIJSONSerializer> serializer = [[APIJSONSerializer alloc] init];
-    return [self initWithHTTPClient:httpClient router:router serializer:serializer];
+    return [self initWithHTTPClient:httpClient router:nil serializer:nil];
 }
 
 - (id)initWithHTTPClient:(id<APIHTTPClient>)httpClient router:(id<APIRouter>)router serializer:(id<APIJSONSerializer>)serializer;
 {
-    NSParameterAssert(httpClient);
-    NSParameterAssert(router);
-    NSParameterAssert(serializer);
-    
     if (self = [super init])
     {
         _httpClient = httpClient;
@@ -44,6 +43,24 @@
     }
 
     return self;
+}
+
+- (id<APIRouter>)router;
+{
+    if (!_router) {
+        _router = [[APIRouter alloc] init];
+    }
+
+    return _router;
+}
+
+- (id<APIJSONSerializer>)serializer;
+{
+    if (!_serializer) {
+        _serializer = [[APIJSONSerializer alloc] init];
+    }
+
+    return _serializer;
 }
 
 @end
