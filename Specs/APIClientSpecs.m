@@ -35,6 +35,18 @@ describe(@"APIClient", ^{
     });
 
     describe(@"initialization", ^{
+        it(@"can be configured with a configuration block", ^{
+            _client = [APIClient clientWithConfigurationBlock:^(APIClientConfiguration *configuration) {
+                configuration.httpClient = _httpClient;
+                configuration.router = _router;
+                configuration.serializer = _serializer;
+            }];
+
+            expect(_client.httpClient).to.equal(_httpClient);
+            expect(_client.router).to.equal(_router);
+            expect(_client.serializer).to.equal(_serializer);
+        });
+
         it(@"creates a configuration with the given httpClient", ^{
             _client = [[APIClient alloc] initWithHTTPClient:_httpClient router:_router serializer:_serializer];
             expect(_client.configuration.httpClient).to.equal(_httpClient);

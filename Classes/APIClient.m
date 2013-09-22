@@ -15,6 +15,11 @@
     return [self initWithBaseURL:nil];
 }
 
++ (instancetype)clientWithConfigurationBlock:(APIClientConfigurationBlock)block;
+{
+    return [[self alloc] initWithConfiguration:[APIClientConfiguration configurationWithBlock:block]];
+}
+
 + (instancetype)clientWithBaseURL:(NSURL *)baseURL;
 {
     return [[self alloc] initWithBaseURL:baseURL];
@@ -22,23 +27,28 @@
 
 - (id)initWithBaseURL:(NSURL *)baseURL;
 {
-    NSParameterAssert(baseURL);
-    // TODO: This resonsibility has been moved into the configuration object
-    return [self initWithHTTPClient:[[APIAFNetworkingHTTPClient alloc]
-                                     initWithBaseURL:baseURL]
-                             router:[[APIRouter alloc] init]
-                         serializer:[[APIJSONSerializer alloc] init]];
+    APIClientConfiguration *configuration =
+      [APIClientConfiguration configurationWithBlock:^(APIClientConfiguration *configuration) {
+        configuration.baseURL = baseURL;
+    }];
+    return [self initWithConfiguration:configuration];
+}
+
+- (id)initWithConfiguration:(APIClientConfiguration *)configuration;
+{
+    if (self = [super init])
+    {
+        _configuration = configuration;
+    }
+
+    return self;
 }
 
 - (id)initWithHTTPClient:(id<APIHTTPClient>)httpClient router:(id<APIRouter>)router serializer:(id<APIJSONSerializer>)serializer;
 {
-    NSParameterAssert(httpClient);
-    if (self = [super init])
-    {
-        _configuration = [[APIClientConfiguration alloc] initWithHTTPClient:httpClient router:router serializer:serializer];
-    }
-
-    return self;
+    return [self initWithConfiguration:[[APIClientConfiguration alloc] initWithHTTPClient:httpClient
+                                                                                   router:router
+                                                                               serializer:serializer]];
 }
 
 - (APIResponse *)findAll:(Class)resource;
