@@ -26,6 +26,9 @@ Pod::Spec.new do |s|
 
   s.source_files = 'Classes'
 
+  s.frameworks = "MobileCoreServices", "SystemConfiguration"
+
   s.dependency 'AFNetworking', '~> 1.3'
-  s.dependency "InflectorKit'"
+  s.dependency "InflectorKit"
+
 end
