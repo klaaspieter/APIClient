@@ -88,7 +88,7 @@ describe(@"APIClient", ^{
 
         it(@"makes a request for the resource", ^{
             [_client findAll:[Product class]];
-            expect(_httpClient.requests[0]).to.equal(@"/products");
+            expect(_httpClient.requests[0]).to.equal(@"products");
         });
 
         context(@"with a successful request", ^{
