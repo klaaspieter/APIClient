@@ -10,12 +10,4 @@
 
 @implementation APIAFNetworkingHTTPClient
 
-- (void)getPath:(NSString *)path
-     parameters:(NSDictionary *)parameters
-        success:(void (^)(id responseObject))success
-        failure:(void (^)(NSError *error))failure;
-{
-    
-}
-
 @end
