@@ -20,6 +20,7 @@
 		A125C1D917EDE8A00063763F /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A125C1D817EDE8A00063763F /* MainStoryboard.storyboard */; };
 		A125C1DC17EDE8CA0063763F /* YeastsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A125C1DB17EDE8CA0063763F /* YeastsViewController.m */; };
 		A125C1DF17EDE9630063763F /* Yeast.m in Sources */ = {isa = PBXBuildFile; fileRef = A125C1DE17EDE9630063763F /* Yeast.m */; };
+		A1A8A6DD17EF97D500B1CF50 /* HTTPClient.m in Sources */ = {isa = PBXBuildFile; fileRef = A1A8A6DC17EF97D500B1CF50 /* HTTPClient.m */; };
 		A9EB8279A8454B288E9A502F /* libPods-Example.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B4E4BEA73C64323893899AA /* libPods-Example.a */; };
 /* End PBXBuildFile section */
 
@@ -53,6 +54,8 @@
 		A125C1DB17EDE8CA0063763F /* YeastsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YeastsViewController.m; sourceTree = "<group>"; };
 		A125C1DD17EDE9630063763F /* Yeast.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Yeast.h; sourceTree = "<group>"; };
 		A125C1DE17EDE9630063763F /* Yeast.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Yeast.m; sourceTree = "<group>"; };
+		A1A8A6DB17EF97D500B1CF50 /* HTTPClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTTPClient.h; sourceTree = "<group>"; };
+		A1A8A6DC17EF97D500B1CF50 /* HTTPClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTTPClient.m; sourceTree = "<group>"; };
 		A64D2C2FF3E34C32B96BAB39 /* Pods-Example.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Example.xcconfig"; path = "../Project/Pods/Pods-Example.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -124,6 +127,8 @@
 				A125C1DB17EDE8CA0063763F /* YeastsViewController.m */,
 				A125C1DD17EDE9630063763F /* Yeast.h */,
 				A125C1DE17EDE9630063763F /* Yeast.m */,
+				A1A8A6DB17EF97D500B1CF50 /* HTTPClient.h */,
+				A1A8A6DC17EF97D500B1CF50 /* HTTPClient.m */,
 			);
 			path = Example;
 			sourceTree = "<group>";
@@ -272,6 +277,7 @@
 				A125C1DF17EDE9630063763F /* Yeast.m in Sources */,
 				A125C1BA17EDE56F0063763F /* AppDelegate.m in Sources */,
 				A125C1DC17EDE8CA0063763F /* YeastsViewController.m in Sources */,
+				A1A8A6DD17EF97D500B1CF50 /* HTTPClient.m in Sources */,
 				A125C1B617EDE56F0063763F /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

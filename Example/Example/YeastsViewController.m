@@ -10,6 +10,7 @@
 
 #import "APIClient.h"
 
+#import "HTTPClient.h"
 #import "Yeast.h"
 
 @interface YeastsViewController ()
@@ -23,10 +24,14 @@
 {
     [super viewDidLoad];
 
-    APIClient *client = [APIClient clientWithBaseURL:[NSURL URLWithString:@"http://api.brewerydb.com/v2/"]];
+    APIClient *client = [APIClient clientWithConfigurationBlock:^(APIClientConfiguration *configuration) {
+        NSURL *baseURL = [NSURL URLWithString:@"http://api.brewerydb.com/v2"];
+        configuration.httpClient = [HTTPClient clientWithBaseURL:baseURL];
+    }];
+
     APIResponse *response = [client findAll:[Yeast class]];
     response.success = ^(NSArray *breweries) {
-        NSLog(@"breweries: %@", breweries);
+        NSLog(@"yeasts: %@", breweries);
     };
 
     response.failure = ^(NSError *error) {

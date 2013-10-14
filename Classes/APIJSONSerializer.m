@@ -10,9 +10,9 @@
 
 @implementation APIJSONSerializer
 
-- (id)deserializeJSON:(NSString *)json;
+- (id)deserializeJSON:(NSData *)json;
 {
-    NSData *jsonData = [json dataUsingEncoding:NSUTF8StringEncoding];
+    NSData *jsonData = json;
     NSError *error;
     id object = [NSJSONSerialization JSONObjectWithData:jsonData options:0 error:&error];
 
