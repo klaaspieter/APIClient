@@ -21,11 +21,16 @@
 @property (nonatomic, readonly, strong) id<APIHTTPClient> httpClient;
 @property (nonatomic, readonly, strong) id<APIRouter> router;
 @property (nonatomic, readonly, strong) id<APIJSONSerializer> serializer;
+@property (nonatomic, readonly, strong) id<APIMapper> mapper;
 
 + (instancetype)clientWithConfigurationBlock:(APIClientConfigurationBlock)block;
 + (instancetype)clientWithBaseURL:(NSURL *)baseURL;
 - (id)initWithBaseURL:(NSURL *)baseURL;
-- (id)initWithHTTPClient:(id<APIHTTPClient>)httpClient router:(id<APIRouter>)router serializer:(id<APIJSONSerializer>)serializer;
+- (id)initWithHTTPClient:(id<APIHTTPClient>)httpClient
+                  router:(id<APIRouter>)router
+              serializer:(id<APIJSONSerializer>)serializer
+                  mapper:(id<APIMapper>)mapper;
+
 - (id)initWithConfiguration:(APIClientConfiguration *)configuration;
 
 - (APIResponse *)findAll:(Class)resource;

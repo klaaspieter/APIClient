@@ -45,15 +45,19 @@
     NSParameterAssert(baseURL);
     
     id<APIHTTPClient> httpClient = [APIAFNetworkingHTTPClient clientWithBaseURL:baseURL];
-    return [self initWithHTTPClient:httpClient router:nil serializer:nil];
+    return [self initWithHTTPClient:httpClient router:nil serializer:nil mapper:nil];
 }
 
-- (id)initWithHTTPClient:(id<APIHTTPClient>)httpClient router:(id<APIRouter>)router serializer:(id<APIJSONSerializer>)serializer;
+- (id)initWithHTTPClient:(id<APIHTTPClient>)httpClient
+                  router:(id<APIRouter>)router
+              serializer:(id<APIJSONSerializer>)serializer
+                  mapper:(id<APIMapper>)mapper;
 {
     if (self = [super init]) {
         _httpClient = httpClient;
         _router = router;
         _serializer = serializer;
+        _mapper = mapper;
     }
 
     return self;
@@ -85,6 +89,15 @@
     }
 
     return _serializer;
+}
+
+- (id<APIMapper>)mapper;
+{
+    if (!_mapper) {
+        _mapper = [[APIMapper alloc] init];
+    }
+
+    return _mapper;
 }
 
 - (void)verifyExistenceOfHTTPClient;

@@ -25,13 +25,15 @@ describe(@"APIClient", ^{
     __block APITestHTTPClient *_httpClient;
     __block id _router;
     __block id _serializer;
+    __block id _mapper;
 
     beforeEach(^{
         _baseURL = [NSURL URLWithString:@"https://api.example.org"];
         _httpClient = [[APITestHTTPClient alloc] initWithBaseURL:_baseURL];
         _router = [[APIRouter alloc] init];
         _serializer = [[APIJSONSerializer alloc] init];
-        _client = [[APIClient alloc] initWithHTTPClient:_httpClient router:_router serializer:_serializer];
+        _mapper = [[APIMapper alloc] init];
+        _client = [[APIClient alloc] initWithHTTPClient:_httpClient router:_router serializer:_serializer mapper:_mapper];
     });
 
     describe(@"initialization", ^{
@@ -48,12 +50,12 @@ describe(@"APIClient", ^{
         });
 
         it(@"creates a configuration with the given httpClient", ^{
-            _client = [[APIClient alloc] initWithHTTPClient:_httpClient router:_router serializer:_serializer];
+            _client = [[APIClient alloc] initWithHTTPClient:_httpClient router:_router serializer:_serializer mapper:_mapper];
             expect(_client.configuration.httpClient).to.equal(_httpClient);
         });
 
         it(@"creates a configuration with the given router", ^{
-            _client = [[APIClient alloc] initWithHTTPClient:_httpClient router:_router serializer:_serializer];
+            _client = [[APIClient alloc] initWithHTTPClient:_httpClient router:_router serializer:_serializer mapper:_mapper];
             expect(_client.configuration.router).to.equal(_router);
         });
     });
@@ -62,7 +64,7 @@ describe(@"APIClient", ^{
         it(@"uses the router to build paths for a resource", ^{
             _router = [OCMockObject mockForProtocol:@protocol(APIRouter)];
             [[[_router expect] andReturn:@"/objects"] pathForAction:@"index" onResource:[Product class]];
-            _client = [[APIClient alloc] initWithHTTPClient:_httpClient router:_router serializer:_serializer];
+            _client = [[APIClient alloc] initWithHTTPClient:_httpClient router:_router serializer:_serializer mapper:_mapper];
             [_client findAll:[Product class]];
             expect(_httpClient.requests[0]).to.equal(@"/objects");
             [_router verify];
@@ -72,11 +74,23 @@ describe(@"APIClient", ^{
     describe(@"serialization", ^{
         it(@"uses the serializer to deserialize the response body", ^{
             _serializer = [OCMockObject mockForProtocol:@protocol(APIJSONSerializer)];
-            [[[_serializer expect] andReturn:@{}] deserializeJSON:@"{}"];
-            _client = [[APIClient alloc] initWithHTTPClient:_httpClient router:_router serializer:_serializer];
+            [[[_serializer expect] andReturn:@{}] deserializeJSON:[@"{}" dataUsingEncoding:NSUTF8StringEncoding]];
+            _client = [[APIClient alloc] initWithHTTPClient:_httpClient router:_router serializer:_serializer mapper:_mapper];
             [_client findAll:[Product class]];
             [_httpClient succeedRequests];
             [_serializer verify];
+        });
+    });
+
+    describe(@"mapping", ^{
+        it(@"uses the mapper to map the response to resource objects", ^{
+            Product *product = [[Product alloc] init];
+            _mapper = [OCMockObject mockForProtocol:@protocol(APIMapper)];
+            [[[_mapper expect] andReturn:product] mapValuesFrom:@{} toInstance:[OCMArg isNotNil] usingMapping:@{}];
+            _client  = [[APIClient alloc] initWithHTTPClient:_httpClient router:_router serializer:_serializer mapper:_mapper];
+            [_client findAll:[Product class]];
+            [_httpClient succeedRequests];
+            [_mapper verify];
         });
     });
 
@@ -92,10 +106,10 @@ describe(@"APIClient", ^{
         });
 
         context(@"with a successful request", ^{
-            it(@"resolves the response with the response body", ^AsyncBlock {
+            it(@"resolves the response with the mapping result", ^AsyncBlock {
                 APIResponse *response = [_client findAll:[Product class]];
                 response.success = ^(id object) {
-                    expect(object).to.equal(@{});
+                    expect(object).to.beInstanceOf([Product class]);
                     done();
                 };
                 [_httpClient succeedRequests];

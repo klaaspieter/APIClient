@@ -9,12 +9,14 @@ __block NSURL *_baseURL;
 __block APIAFNetworkingHTTPClient *_httpClient;
 __block APIRouter *_router;
 __block APIJSONSerializer *_serializer;
+__block APIMapper *_mapper;
 
 beforeEach(^{
     _baseURL = [NSURL URLWithString:@"https://api.example.org"];
     _httpClient = [[APIAFNetworkingHTTPClient alloc] initWithBaseURL:_baseURL];
     _router = [[APIRouter alloc] init];
     _serializer = [[APIJSONSerializer alloc] init];
+    _mapper = [[APIMapper alloc] init];
 });
 
 describe(@"APIClientConfiguration", ^{
@@ -71,7 +73,7 @@ describe(@"APIClientConfiguration", ^{
     });
 
     it(@"can be initialized with a different httpClient", ^{
-        _configuration = [[APIClientConfiguration alloc] initWithHTTPClient:_httpClient router:_router serializer:_serializer];
+        _configuration = [[APIClientConfiguration alloc] initWithHTTPClient:_httpClient router:_router serializer:_serializer mapper:_mapper];
         expect(_configuration.httpClient).to.equal(_httpClient);
         expect(_configuration.httpClient.baseURL).to.equal(_baseURL);
     });
@@ -82,7 +84,7 @@ describe(@"APIClientConfiguration", ^{
     });
 
     it(@"can be initialized with a different router", ^{
-        _configuration = [[APIClientConfiguration alloc] initWithHTTPClient:_httpClient router:_router serializer:_serializer];
+        _configuration = [[APIClientConfiguration alloc] initWithHTTPClient:_httpClient router:_router serializer:_serializer mapper:_mapper];
         expect(_configuration.router).to.equal(_router);
     });
 
@@ -92,8 +94,18 @@ describe(@"APIClientConfiguration", ^{
     });
 
     it(@"can be initialized with a different serializer", ^{
-        _configuration = [[APIClientConfiguration alloc] initWithHTTPClient:_httpClient router:_router serializer:_serializer];
+        _configuration = [[APIClientConfiguration alloc] initWithHTTPClient:_httpClient router:_router serializer:_serializer mapper:_mapper];
         expect(_configuration.serializer).to.equal(_serializer);
+    });
+
+    it(@"can be initialized with a different mapper", ^{
+        _configuration = [[APIClientConfiguration alloc] initWithHTTPClient:_httpClient router:_router serializer:_serializer mapper:_mapper];
+        expect(_configuration.mapper).to.beInstanceOf([APIMapper class]);
+    });
+
+    it(@"has a default mapper", ^{
+        _configuration = [APIClientConfiguration configurationWithBaseURL:_baseURL];
+        expect(_configuration.mapper).to.beInstanceOf([APIMapper class]);
     });
 });
 

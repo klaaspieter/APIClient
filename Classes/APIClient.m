@@ -44,18 +44,24 @@
     return self;
 }
 
-- (id)initWithHTTPClient:(id<APIHTTPClient>)httpClient router:(id<APIRouter>)router serializer:(id<APIJSONSerializer>)serializer;
+- (id)initWithHTTPClient:(id<APIHTTPClient>)httpClient
+                  router:(id<APIRouter>)router
+              serializer:(id<APIJSONSerializer>)serializer
+                  mapper:(id<APIMapper>)mapper;
 {
     return [self initWithConfiguration:[[APIClientConfiguration alloc] initWithHTTPClient:httpClient
                                                                                    router:router
-                                                                               serializer:serializer]];
+                                                                               serializer:serializer
+                                                                                   mapper:mapper]];
 }
 
 - (APIResponse *)findAll:(Class)resource;
 {
     APIResponse *response = [[APIResponse alloc] initWithResolver:^(APIResponseBlock resolve, APIResponseBlock reject) {
         [self.httpClient getPath:[self.router pathForAction:@"index" onResource:resource] parameters:nil success:^(id responseObject) {
-            resolve([self.serializer deserializeJSON:responseObject]);
+            id serialized = [self.serializer deserializeJSON:responseObject];
+            id mapped = [self.mapper mapValuesFrom:serialized toInstance:resource usingMapping:@{}];
+            resolve(mapped);
         } failure:^(NSError *error) {
             reject(error);
         }];
@@ -76,6 +82,11 @@
 - (id<APIJSONSerializer>)serializer;
 {
     return self.configuration.serializer;
+}
+
+- (id<APIMapper>)mapper;
+{
+    return self.configuration.mapper;
 }
 
 @end

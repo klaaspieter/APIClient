@@ -12,6 +12,7 @@
 #import "APIAFNetworkingHTTPClient.h"
 #import "APIJSONSerializer.h"
 #import "APIResponse.h"
+#import "APIMapper.h"
 
 @class APIClientConfiguration;
 typedef void(^APIClientConfigurationBlock)(APIClientConfiguration *configuration);
@@ -22,10 +23,14 @@ typedef void(^APIClientConfigurationBlock)(APIClientConfiguration *configuration
 @property (nonatomic, readwrite, strong) id<APIHTTPClient> httpClient;
 @property (nonatomic, readwrite, strong) id<APIRouter> router;
 @property (nonatomic, readwrite, strong) id<APIJSONSerializer> serializer;
+@property (nonatomic, readwrite, strong) id<APIMapper> mapper;
 
 + (instancetype)configurationWithBlock:(APIClientConfigurationBlock)block;
 + (instancetype)configurationWithBaseURL:(NSURL *)baseURL;
-- (id)initWithHTTPClient:(id<APIHTTPClient>)httpClient router:(id<APIRouter>)router serializer:(id<APIJSONSerializer>)serializer;
+- (id)initWithHTTPClient:(id<APIHTTPClient>)httpClient
+                  router:(id<APIRouter>)router
+              serializer:(id<APIJSONSerializer>)serializer
+                  mapper:(id<APIMapper>)mapper;
 
 @end
 
