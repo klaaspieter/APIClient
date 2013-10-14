@@ -16,5 +16,8 @@ DerivedData
 .idea/
 *.hmap
 
-#CocoaPods
+# CocoaPods
 Pods
+
+# Bundler
+.bundle
