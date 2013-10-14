@@ -322,7 +322,7 @@
 			isa = PBXProject;
 			attributes = {
 				CLASSPREFIX = API;
-				LastUpgradeCheck = 0460;
+				LastUpgradeCheck = 0500;
 				ORGANIZATIONNAME = "Klaas Pieter Annema";
 			};
 			buildConfigurationList = A19B25B217D16E47008DA908 /* Build configuration list for PBXProject "APIClient" */;
