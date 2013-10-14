@@ -10,7 +10,7 @@
 
 @protocol APIJSONSerializer <NSObject>
 
-- (id)deserializeJSON:(NSString *)json;
+- (id)deserializeJSON:(NSData *)json;
 @end
 
 @interface APIJSONSerializer : NSObject <APIJSONSerializer>
