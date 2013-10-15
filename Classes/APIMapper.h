@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 
 @protocol APIMapper <NSObject>
-- (id)mapValuesFrom:(id)values toInstance:(id)instance usingMapping:(NSDictionary *)mapping;
+- (BOOL)mapValuesFrom:(id)values toInstance:(id)instance usingMapping:(NSDictionary *)mapping;
 @end
 
 @interface APIMapper : NSObject <APIMapper>

@@ -84,9 +84,8 @@ describe(@"APIClient", ^{
 
     describe(@"mapping", ^{
         it(@"uses the mapper to map the response to resource objects", ^{
-            Product *product = [[Product alloc] init];
             _mapper = [OCMockObject mockForProtocol:@protocol(APIMapper)];
-            [[[_mapper expect] andReturn:product] mapValuesFrom:@{} toInstance:[OCMArg isNotNil] usingMapping:@{}];
+            [[_mapper expect] mapValuesFrom:@{} toInstance:[OCMArg isNotNil] usingMapping:@{}];
             _client  = [[APIClient alloc] initWithHTTPClient:_httpClient router:_router serializer:_serializer mapper:_mapper];
             [_client findAll:[Product class]];
             [_httpClient succeedRequests];

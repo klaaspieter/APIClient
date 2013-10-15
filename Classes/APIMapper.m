@@ -8,11 +8,13 @@
 
 #import "APIMapper.h"
 
+#import "KZPropertyMapper.h"
+
 @implementation APIMapper
-- (id)mapValuesFrom:(id)values toInstance:(id)instance usingMapping:(NSDictionary *)mapping;
+
+- (BOOL)mapValuesFrom:(id)values toInstance:(id)instance usingMapping:(NSDictionary *)mapping;
 {
-#warning NOT IMPLEMENTED
-    return nil;
+    return [KZPropertyMapper mapValuesFrom:values toInstance:instance usingMapping:mapping];
 }
 
 @end
