@@ -37,7 +37,7 @@ describe(@"APIMapper", ^{
     });
 
     it(@"raises when attempting to map without a mapping provider", ^{
-        NSString *reason = @"Attempt to map a resource without a mapping provider. Please assign a mapping provider to your mapper using apiClient.configuration.mapper.mappingProvider = <YOUR PROVIDER>.";
+        NSString *reason = @"Attempt to map a resource without a mapping provider. Please instantiate your mapper with a mapping provider.";
         _mapper.mappingProvider = nil;
         expect(^{
             [_mapper mapValuesFrom:_values toInstance:_product];
