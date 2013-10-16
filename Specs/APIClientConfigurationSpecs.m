@@ -1,6 +1,7 @@
 #import "SpecHelper.h"
 
 #import "APIClientConfiguration.h"
+#import "APITestMappingProvider.h"
 
 SpecBegin(APIClientConfigurationSpecs)
 
@@ -16,7 +17,7 @@ beforeEach(^{
     _httpClient = [[APIAFNetworkingHTTPClient alloc] initWithBaseURL:_baseURL];
     _router = [[APIRouter alloc] init];
     _serializer = [[APIJSONSerializer alloc] init];
-    _mapper = [[APIMapper alloc] init];
+    _mapper = [[APIMapper alloc] initWithMappingProvider:[[APITestMappingProvider alloc] init]];
 });
 
 describe(@"APIClientConfiguration", ^{

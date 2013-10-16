@@ -11,7 +11,7 @@
 #import "APIMappingProvider.h"
 
 @protocol APIMapper <NSObject>
-- (BOOL)mapValuesFrom:(id)values toInstance:(id)instance usingMapping:(NSDictionary *)mapping;
+- (BOOL)mapValuesFrom:(id)values toInstance:(id)instance;
 @end
 
 @interface APIMapper : NSObject <APIMapper>

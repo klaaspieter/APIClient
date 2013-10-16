@@ -61,7 +61,7 @@
         [self.httpClient getPath:[self.router pathForAction:@"index" onResource:resource] parameters:nil success:^(id responseObject) {
             id serialized = [self.serializer deserializeJSON:responseObject];
             id instance = [[resource alloc] init];
-            [self.mapper mapValuesFrom:serialized toInstance:instance usingMapping:@{}];
+            [self.mapper mapValuesFrom:serialized toInstance:instance];
             resolve(instance);
         } failure:^(NSError *error) {
             reject(error);

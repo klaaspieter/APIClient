@@ -27,10 +27,8 @@ describe(@"APIMapper", ^{
             @"price": @(79)
         };
 
-        NSDictionary *mapping = [[[APITestMappingProvider alloc] init] mappingForResource:[Product class]];
-
         Product *product = [[Product alloc] init];
-        [_mapper mapValuesFrom:values toInstance:product usingMapping:mapping];
+        [_mapper mapValuesFrom:values toInstance:product];
         expect(product.name).to.equal(@"Karma");
         expect(product.price).to.equal(79);
     });
