@@ -10,11 +10,20 @@ SpecBegin(APIMapper)
 __block APIMapper *_mapper;
 __block id _mappingProvider;
 
+__block NSDictionary *_values;
+__block Product *_product;
+
 describe(@"APIMapper", ^{
 
     before(^{
         _mappingProvider = [[APITestMappingProvider alloc] init];
         _mapper = [[APIMapper alloc] initWithMappingProvider:_mappingProvider];
+
+        _values = @{
+             @"name": @"Karma",
+             @"price": @(79)
+        };
+        _product = [[Product alloc] init];
     });
 
     it(@"keeps a reference to the mapping provider", ^{
@@ -22,15 +31,17 @@ describe(@"APIMapper", ^{
     });
 
     it(@"maps value to an instance using a mapping", ^{
-        NSDictionary *values = @{
-            @"name": @"Karma",
-            @"price": @(79)
-        };
+        [_mapper mapValuesFrom:_values toInstance:_product];
+        expect(_product.name).to.equal(@"Karma");
+        expect(_product.price).to.equal(79);
+    });
 
-        Product *product = [[Product alloc] init];
-        [_mapper mapValuesFrom:values toInstance:product];
-        expect(product.name).to.equal(@"Karma");
-        expect(product.price).to.equal(79);
+    it(@"raises when attempting to map without a mapping provider", ^{
+        NSString *reason = @"Attempt to map a resource without a mapping provider. Please assign a mapping provider to your mapper using apiClient.configuration.mapper.mappingProvider = <YOUR PROVIDER>.";
+        _mapper.mappingProvider = nil;
+        expect(^{
+            [_mapper mapValuesFrom:_values toInstance:_product];
+        }).to.raiseWithReason(NSInternalInconsistencyException, reason);
     });
 });
 
