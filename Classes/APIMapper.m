@@ -12,6 +12,20 @@
 
 @implementation APIMapper
 
+- (id)init;
+{
+    return [self initWithMappingProvider:nil];
+}
+
+- (id)initWithMappingProvider:(id<APIMappingProvider>)mappingProvider;
+{
+    if (self = [super init]) {
+        _mappingProvider = mappingProvider;
+    }
+
+    return self;
+}
+
 - (BOOL)mapValuesFrom:(id)values toInstance:(id)instance usingMapping:(NSDictionary *)mapping;
 {
     return [KZPropertyMapper mapValuesFrom:values toInstance:instance usingMapping:mapping];
