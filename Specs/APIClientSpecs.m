@@ -33,30 +33,21 @@ describe(@"APIClient", ^{
         _router = [[APIRouter alloc] init];
         _serializer = [[APIJSONSerializer alloc] init];
         _mapper = [[APIMapper alloc] init];
-        _client = [[APIClient alloc] initWithHTTPClient:_httpClient router:_router serializer:_serializer mapper:_mapper];
+        _client = [APIClient clientWithConfigurationBlock:^(APIClientConfiguration *configuration){
+            configuration.httpClient = _httpClient;
+            configuration.router = _router;
+            configuration.serializer = _serializer;
+            configuration.mapper = _mapper;
+        }];
     });
 
     describe(@"initialization", ^{
-        it(@"can be configured with a configuration block", ^{
-            _client = [APIClient clientWithConfigurationBlock:^(APIClientConfiguration *configuration) {
-                configuration.httpClient = _httpClient;
-                configuration.router = _router;
-                configuration.serializer = _serializer;
-            }];
-
+        it(@"creates a configuration with the given properties", ^{
+            _client = [[APIClient alloc] initWithHTTPClient:_httpClient router:_router serializer:_serializer mapper:_mapper];
             expect(_client.configuration.httpClient).to.equal(_httpClient);
             expect(_client.configuration.router).to.equal(_router);
             expect(_client.configuration.serializer).to.equal(_serializer);
-        });
-
-        it(@"creates a configuration with the given httpClient", ^{
-            _client = [[APIClient alloc] initWithHTTPClient:_httpClient router:_router serializer:_serializer mapper:_mapper];
-            expect(_client.configuration.httpClient).to.equal(_httpClient);
-        });
-
-        it(@"creates a configuration with the given router", ^{
-            _client = [[APIClient alloc] initWithHTTPClient:_httpClient router:_router serializer:_serializer mapper:_mapper];
-            expect(_client.configuration.router).to.equal(_router);
+            expect(_client.configuration.mapper).to.equal(_mapper);
         });
     });
 
@@ -64,7 +55,7 @@ describe(@"APIClient", ^{
         it(@"uses the router to build paths for a resource", ^{
             _router = [OCMockObject mockForProtocol:@protocol(APIRouter)];
             [[[_router expect] andReturn:@"/objects"] pathForAction:@"index" onResource:[Product class]];
-            _client = [[APIClient alloc] initWithHTTPClient:_httpClient router:_router serializer:_serializer mapper:_mapper];
+            _client.configuration.router = _router;
             [_client findAll:[Product class]];
             expect(_httpClient.requests[0]).to.equal(@"/objects");
             [_router verify];
@@ -75,7 +66,7 @@ describe(@"APIClient", ^{
         it(@"uses the serializer to deserialize the response body", ^{
             _serializer = [OCMockObject mockForProtocol:@protocol(APIJSONSerializer)];
             [[[_serializer expect] andReturn:@{}] deserializeJSON:[@"{}" dataUsingEncoding:NSUTF8StringEncoding]];
-            _client = [[APIClient alloc] initWithHTTPClient:_httpClient router:_router serializer:_serializer mapper:_mapper];
+            _client.configuration.serializer = _serializer;
             [_client findAll:[Product class]];
             [_httpClient succeedRequests];
             [_serializer verify];
@@ -86,7 +77,7 @@ describe(@"APIClient", ^{
         it(@"uses the mapper to map the response to resource objects", ^{
             _mapper = [OCMockObject mockForProtocol:@protocol(APIMapper)];
             [[_mapper expect] mapValuesFrom:@{} toInstance:[OCMArg isNotNil] usingMapping:@{}];
-            _client  = [[APIClient alloc] initWithHTTPClient:_httpClient router:_router serializer:_serializer mapper:_mapper];
+            _client.configuration.mapper = _mapper;
             [_client findAll:[Product class]];
             [_httpClient succeedRequests];
             [_mapper verify];
