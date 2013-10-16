@@ -44,9 +44,9 @@ describe(@"APIClient", ^{
                 configuration.serializer = _serializer;
             }];
 
-            expect(_client.httpClient).to.equal(_httpClient);
-            expect(_client.router).to.equal(_router);
-            expect(_client.serializer).to.equal(_serializer);
+            expect(_client.configuration.httpClient).to.equal(_httpClient);
+            expect(_client.configuration.router).to.equal(_router);
+            expect(_client.configuration.serializer).to.equal(_serializer);
         });
 
         it(@"creates a configuration with the given httpClient", ^{

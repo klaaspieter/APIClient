@@ -18,10 +18,6 @@
 @interface APIClient : NSObject
 
 @property (nonatomic, readonly, strong) APIClientConfiguration *configuration;
-@property (nonatomic, readonly, strong) id<APIHTTPClient> httpClient;
-@property (nonatomic, readonly, strong) id<APIRouter> router;
-@property (nonatomic, readonly, strong) id<APIJSONSerializer> serializer;
-@property (nonatomic, readonly, strong) id<APIMapper> mapper;
 
 + (instancetype)clientWithConfigurationBlock:(APIClientConfigurationBlock)block;
 + (instancetype)clientWithBaseURL:(NSURL *)baseURL;
