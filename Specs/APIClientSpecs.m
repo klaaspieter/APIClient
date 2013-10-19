@@ -11,7 +11,6 @@
 #import "APIClient.h"
 
 #import "APITestHTTPClient.h"
-#import "APITestMappingProvider.h"
 #import "Product.h"
 
 SpecBegin(APIClient)
@@ -33,7 +32,7 @@ describe(@"APIClient", ^{
         _httpClient = [[APITestHTTPClient alloc] initWithBaseURL:_baseURL];
         _router = [[APIRouter alloc] init];
         _serializer = [[APIJSONSerializer alloc] init];
-        _mapper = [[APIMapper alloc] initWithMappingProvider:[[APITestMappingProvider alloc] init]];
+        _mapper = [[APIMapper alloc] init];
         _client = [APIClient clientWithConfigurationBlock:^(APIClientConfiguration *configuration){
             configuration.httpClient = _httpClient;
             configuration.router = _router;
@@ -77,7 +76,7 @@ describe(@"APIClient", ^{
     describe(@"mapping", ^{
         it(@"uses the mapper to map the response to resource objects", ^{
             _mapper = [OCMockObject mockForProtocol:@protocol(APIMapper)];
-            [[_mapper expect] mapValuesFrom:@{} toInstance:[OCMArg isNotNil]];
+            [[_mapper expect] mapValues:@{} toResource:[Product class]];
             _client.configuration.mapper = _mapper;
             [_client findAll:[Product class]];
             [_httpClient succeedRequests];

@@ -8,7 +8,13 @@
 
 #import "APIMapper.h"
 
-#import "KZPropertyMapper.h"
+#import "DCKeyValueObjectMapping.h"
+#import "DCParserConfiguration.h"
+#import "DCObjectMapping.h"
+
+@interface APIMapper ()
+@property (nonatomic, readwrite, strong) id<APIMappingProvider> mappingProvider;
+@end
 
 @implementation APIMapper
 
@@ -26,12 +32,30 @@
     return self;
 }
 
-- (BOOL)mapValuesFrom:(id)values toInstance:(id)instance;
+- (id)mapValues:(id)values toResource:(Class)resource;
 {
-    NSAssert(self.mappingProvider, @"Attempt to map a resource without a mapping provider. Please instantiate your mapper with a mapping provider.");
+    NSDictionary *mappings = [self.mappingProvider mappingsForResource:resource];
+    DCKeyValueObjectMapping *parser = [self parserForResource:resource withMappings:mappings];
 
-    NSDictionary *mapping = [self.mappingProvider mappingForResource:[instance class]];
-    return [KZPropertyMapper mapValuesFrom:values toInstance:instance usingMapping:mapping];
+    if ([values isKindOfClass:[NSArray class]]) {
+        return [parser parseArray:values];
+    } else {
+        return [parser parseDictionary:values];
+    }
+}
+
+- (DCKeyValueObjectMapping *)parserForResource:(Class)resource withMappings:(NSDictionary *)mappings;
+{
+    DCParserConfiguration *config = [DCParserConfiguration configuration];
+
+    [mappings enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
+        DCObjectMapping *mapping = [DCObjectMapping mapKeyPath:key toAttribute:obj onClass:resource];
+        [config addObjectMapping:mapping];
+    }];
+    
+    DCKeyValueObjectMapping *parser = [DCKeyValueObjectMapping mapperForClass:resource andConfiguration:config];
+
+    return parser;
 }
 
 @end

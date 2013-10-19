@@ -11,4 +11,5 @@
 @interface Product : NSObject
 @property (nonatomic, readwrite, copy) NSString *name;
 @property (nonatomic, readwrite, assign) NSUInteger price;
+@property (nonatomic, readwrite, assign) BOOL inStock;
 @end

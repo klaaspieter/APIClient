@@ -14,7 +14,6 @@
 		A125C15017EDE0070063763F /* APIJSONSerializerSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = A125C14F17EDE0070063763F /* APIJSONSerializerSpec.m */; };
 		A1537E3817D1768400D22137 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1537E3717D1768400D22137 /* UIKit.framework */; };
 		A1537E3917D176AA00D22137 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1537E3717D1768400D22137 /* UIKit.framework */; };
-		A15E12F8180E21F100DA9A48 /* APITestMappingProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = A15E12F6180E21EF00DA9A48 /* APITestMappingProvider.m */; };
 		A1894E6E17D17CBE0052609F /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1894E6D17D17CBE0052609F /* SystemConfiguration.framework */; };
 		A1894E7017D17CC60052609F /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1894E6F17D17CC60052609F /* MobileCoreServices.framework */; };
 		A1894E7317D17D9F0052609F /* APIAFNetworkingHTTPClient.m in Sources */ = {isa = PBXBuildFile; fileRef = A1894E7217D17D9F0052609F /* APIAFNetworkingHTTPClient.m */; };
@@ -64,13 +63,11 @@
 		5D48E02F67DD4191847855B3 /* libPods-Specs.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Specs.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		60820679716F4CCD8ABFA748 /* Pods-Specs.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Specs.xcconfig"; path = "Pods/Pods-Specs.xcconfig"; sourceTree = SOURCE_ROOT; };
 		7953515CB94E4A45B716298D /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		A1063C841812BB70006CFBEC /* APIMappingProvider.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = APIMappingProvider.h; sourceTree = "<group>"; };
 		A12025DB180E08010019C01E /* APIMapperSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APIMapperSpec.m; sourceTree = "<group>"; };
 		A124C1FF180B7DB70088BE4C /* APIMapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APIMapper.m; sourceTree = "<group>"; };
 		A125C14F17EDE0070063763F /* APIJSONSerializerSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APIJSONSerializerSpec.m; sourceTree = "<group>"; };
 		A1537E3717D1768400D22137 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
-		A15E12F5180E21EF00DA9A48 /* APITestMappingProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APITestMappingProvider.h; sourceTree = "<group>"; };
-		A15E12F6180E21EF00DA9A48 /* APITestMappingProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APITestMappingProvider.m; sourceTree = "<group>"; };
-		A15E12F9180E229E00DA9A48 /* APIMappingProvider.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = APIMappingProvider.h; sourceTree = "<group>"; };
 		A1894E6C17D17C330052609F /* APIHTTPClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APIHTTPClient.h; sourceTree = "<group>"; };
 		A1894E6D17D17CBE0052609F /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		A1894E6F17D17CC60052609F /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
@@ -279,8 +276,6 @@
 				A1894E7517D17E400052609F /* APITestHTTPClient.m */,
 				A1D7C3EE17DFDAE2000F8510 /* Product.h */,
 				A1D7C3EF17DFDAE2000F8510 /* Product.m */,
-				A15E12F5180E21EF00DA9A48 /* APITestMappingProvider.h */,
-				A15E12F6180E21EF00DA9A48 /* APITestMappingProvider.m */,
 			);
 			name = "Helper Classes";
 			sourceTree = "<group>";
@@ -290,7 +285,7 @@
 			children = (
 				A1DD518B180B7A4B00465924 /* APIMapper.h */,
 				A124C1FF180B7DB70088BE4C /* APIMapper.m */,
-				A15E12F9180E229E00DA9A48 /* APIMappingProvider.h */,
+				A1063C841812BB70006CFBEC /* APIMappingProvider.h */,
 			);
 			name = Mapper;
 			sourceTree = "<group>";
@@ -479,7 +474,6 @@
 				A12025DC180E08010019C01E /* APIMapperSpec.m in Sources */,
 				A125C15017EDE0070063763F /* APIJSONSerializerSpec.m in Sources */,
 				A1D7C3F217DFE589000F8510 /* APIResponseSpecs.m in Sources */,
-				A15E12F8180E21F100DA9A48 /* APITestMappingProvider.m in Sources */,
 				A1BEBB9A17E4C57F006C8432 /* APIRouterSpecs.m in Sources */,
 				A1BEBBA117E519E4006C8432 /* APIInflectorSpecs.m in Sources */,
 				A1BEBBA617E51D6B006C8432 /* APIClientConfigurationSpecs.m in Sources */,

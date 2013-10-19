@@ -2,7 +2,7 @@ inhibit_all_warnings!
 
 pod "AFNetworking", "~> 1.3"
 pod "InflectorKit"
-pod "KZPropertyMapper"
+pod "DCKeyValueObjectMapping"
 
 target "Specs", exclusive: true do
   pod "Specta"
