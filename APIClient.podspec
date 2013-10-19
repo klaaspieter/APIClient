@@ -16,6 +16,6 @@ Pod::Spec.new do |s|
 
   s.dependency "AFNetworking", "~> 1.3"
   s.dependency "InflectorKit"
-  s.dependency "KZPropertyMapper"
+  s.dependency "DCKeyValueObjectMapping"
 
 end
