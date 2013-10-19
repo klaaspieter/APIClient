@@ -11,6 +11,7 @@
 #import "APIClient.h"
 
 #import "HTTPClient.h"
+#import "Mapper.h"
 #import "Yeast.h"
 
 @interface YeastsViewController ()
@@ -27,15 +28,19 @@
     APIClient *client = [APIClient clientWithConfigurationBlock:^(APIClientConfiguration *configuration) {
         NSURL *baseURL = [NSURL URLWithString:@"http://api.brewerydb.com/v2"];
         configuration.httpClient = [HTTPClient clientWithBaseURL:baseURL];
+        configuration.mapper = [[Mapper alloc] init];
     }];
 
     APIResponse *response = [client findAll:[Yeast class]];
-    response.success = ^(NSArray *breweries) {
-        NSLog(@"yeasts: %@", breweries);
+    response.success = ^(NSArray *yeasts) {
+        NSLog(@"yeasts: %@", yeasts);
     };
 
     response.failure = ^(NSError *error) {
-        NSLog(@"error: %@", error);
+        [[[UIAlertView alloc] initWithTitle:error.localizedDescription
+                                   message:error.localizedRecoverySuggestion
+                                  delegate:nil cancelButtonTitle:@"Dismiss"
+                          otherButtonTitles:nil] show];
     };
 }
 
