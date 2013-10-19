@@ -12,26 +12,9 @@
 
 @implementation APIMapper
 
-- (id)init;
+- (id)mapValues:(id)values toResource:(Class)resource;
 {
-    return [self initWithMappingProvider:nil];
-}
-
-- (id)initWithMappingProvider:(id<APIMappingProvider>)mappingProvider;
-{
-    if (self = [super init]) {
-        _mappingProvider = mappingProvider;
-    }
-
-    return self;
-}
-
-- (BOOL)mapValuesFrom:(id)values toInstance:(id)instance;
-{
-    NSAssert(self.mappingProvider, @"Attempt to map a resource without a mapping provider. Please instantiate your mapper with a mapping provider.");
-
-    NSDictionary *mapping = [self.mappingProvider mappingForResource:[instance class]];
-    return [KZPropertyMapper mapValuesFrom:values toInstance:instance usingMapping:mapping];
+    return nil;
 }
 
 @end
