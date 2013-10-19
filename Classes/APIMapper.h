@@ -12,8 +12,7 @@
 #import "APIMappingProvider.h"
 
 @protocol APIMapper <NSObject>
-- (id)mapValues:(id)values toResource:(Class)resource;
-- (id)mapValues:(id)values toResources:(Class)resource;
+- (NSArray *)mapValues:(id)values toResource:(Class)resource;
 @end
 
 @interface APIMapper : NSObject <APIMapper>

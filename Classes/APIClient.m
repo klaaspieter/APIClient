@@ -60,7 +60,7 @@
     APIResponse *response = [[APIResponse alloc] initWithResolver:^(APIResponseBlock resolve, APIResponseBlock reject) {
         [self.httpClient getPath:[self.router pathForAction:@"index" onResource:resource] parameters:nil success:^(id responseObject) {
             id serialized = [self.serializer deserializeJSON:responseObject];
-            id mapped = [self.mapper mapValues:serialized toResources:resource];
+            id mapped = [self.mapper mapValues:serialized toResource:resource];
             resolve(mapped);
         } failure:^(NSError *error) {
             reject(error);

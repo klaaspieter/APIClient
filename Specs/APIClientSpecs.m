@@ -76,7 +76,7 @@ describe(@"APIClient", ^{
     describe(@"mapping", ^{
         it(@"uses the mapper to map the response to resource objects", ^{
             _mapper = [OCMockObject mockForProtocol:@protocol(APIMapper)];
-            [[_mapper expect] mapValues:@{} toResources:[Product class]];
+            [[_mapper expect] mapValues:@{} toResource:[Product class]];
             _client.configuration.mapper = _mapper;
             [_client findAll:[Product class]];
             [_httpClient succeedRequests];
