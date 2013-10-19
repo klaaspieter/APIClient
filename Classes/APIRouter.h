@@ -11,12 +11,12 @@
 #import "APIInflector.h"
 
 @protocol APIRouter <NSObject>
-@property (nonatomic, readonly, strong) id<APIInflector> inflector;
-
 - (NSString *)pathForAction:(NSString *)action onResource:(Class)resource;
 @end
 
 @interface APIRouter : NSObject <APIRouter>
+@property (nonatomic, readonly, strong) id<APIInflector> inflector;
+
 - (id)initWithInflector:(id<APIInflector>)inflector;
 - (NSString *)pathForAction:(NSString *)action onResource:(Class)resource;
 @end
