@@ -1,8 +1,5 @@
 # APIClient
 
-[![Version](http://cocoapod-badges.herokuapp.com/v/APIClient/badge.png)](http://cocoadocs.org/docsets/APIClient)
-[![Platform](http://cocoapod-badges.herokuapp.com/p/APIClient/badge.png)](http://cocoadocs.org/docsets/APIClient)
-
 ## Installation
 
 APIClient is available through [CocoaPods](http://cocoapods.org), to install
