@@ -8,8 +8,6 @@
 
 #import "APIMapper.h"
 
-#import "KZPropertyMapper.h"
-
 @implementation APIMapper
 
 - (id)mapValues:(id)values toResource:(Class)resource;
