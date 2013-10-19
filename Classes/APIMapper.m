@@ -38,12 +38,17 @@
     return self;
 }
 
+- (NSString *)rootForResource:(Class)resource;
+{
+    return [self.inflector pluralize:[NSStringFromClass(resource) lowercaseString]];
+}
+
 - (id)mapValues:(id)values toResource:(Class)resource;
 {
     NSDictionary *mappings = [self.mappingProvider mappingsForResource:resource];
     DCKeyValueObjectMapping *parser = [self parserForResource:resource withMappings:mappings];
 
-    NSString *root = [self.inflector pluralize:[NSStringFromClass(resource) lowercaseString]];
+    NSString *root = [self rootForResource:resource];
     return [parser parseArray:values[root]];
 }
 

@@ -20,4 +20,6 @@
 
 - (id)initWithMappingProvider:(id<APIMappingProvider>)mappingProvider;
 - (id)initWithInflector:(id<APIInflector>)inflector mappingProvicer:(id<APIMappingProvider>)mappingProvider;
+
+- (NSString *)rootForResource:(Class)resource;
 @end
