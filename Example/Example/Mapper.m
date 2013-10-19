@@ -10,11 +10,9 @@
 
 @implementation Mapper
 
-- (id)mapValues:(id)values toResource:(Class)resource;
+- (NSString *)rootForResource:(Class)resource;
 {
-    NSDictionary *valuesDictionary = (NSDictionary *)values;
-    values = valuesDictionary[@"data"];
-    return [super mapValues:values toResource:resource];
+    return @"data";
 }
 
 @end
