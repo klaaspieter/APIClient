@@ -32,6 +32,16 @@ describe(@"APIMapper", ^{
         expect(product.name).to.equal(@"Karma");
         expect(product.price).to.equal(79);
     });
+
+    it(@"maps snake case to camelCase", ^{
+        _values = @{
+            @"name": @"Karma",
+            @"price": @(79),
+            @"in_stock": @(true)
+        };
+        Product *product = [_mapper mapValues:_values toResource:[Product class]];
+        expect(product.inStock).to.beTruthy();
+    });
 });
 
 SpecEnd
