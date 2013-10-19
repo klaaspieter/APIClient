@@ -18,6 +18,7 @@
 - (id)initWithBaseURL:(NSURL *)baseURL;
 
 - (void)succeedRequests;
+- (void)succeedRequestsWithJSONObject:(id)object;
 - (void)failRequests;
 
 @end

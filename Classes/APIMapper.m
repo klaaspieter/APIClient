@@ -25,7 +25,13 @@
 
 - (id)initWithMappingProvider:(id<APIMappingProvider>)mappingProvider;
 {
+    return [self initWithInflector:nil mappingProvicer:mappingProvider];
+}
+
+- (id)initWithInflector:(id<APIInflector>)inflector mappingProvicer:(id<APIMappingProvider>)mappingProvider;
+{
     if (self = [super init]) {
+        _inflector = inflector;
         _mappingProvider = mappingProvider;
     }
 
@@ -37,11 +43,17 @@
     NSDictionary *mappings = [self.mappingProvider mappingsForResource:resource];
     DCKeyValueObjectMapping *parser = [self parserForResource:resource withMappings:mappings];
 
-    if ([values isKindOfClass:[NSArray class]]) {
-        return [parser parseArray:values];
-    } else {
-        return [parser parseDictionary:values];
-    }
+    NSString *root = [NSStringFromClass(resource) lowercaseString];
+    return [parser parseDictionary:values[root]];
+}
+
+- (id)mapValues:(id)values toResources:(Class)resource;
+{
+    NSDictionary *mappings = [self.mappingProvider mappingsForResource:resource];
+    DCKeyValueObjectMapping *parser = [self parserForResource:resource withMappings:mappings];
+
+    NSString *root = [self.inflector pluralize:[NSStringFromClass(resource) lowercaseString]];
+    return [parser parseArray:values[root]];
 }
 
 - (DCKeyValueObjectMapping *)parserForResource:(Class)resource withMappings:(NSDictionary *)mappings;
@@ -56,6 +68,15 @@
     DCKeyValueObjectMapping *parser = [DCKeyValueObjectMapping mapperForClass:resource andConfiguration:config];
 
     return parser;
+}
+
+- (id<APIInflector>)inflector;
+{
+    if (!_inflector) {
+        _inflector = [[APIInflector alloc] init];
+    }
+
+    return _inflector;
 }
 
 @end

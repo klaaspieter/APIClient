@@ -1,4 +1,4 @@
-//
+ //
 //  APITestHTTPClient.m
 //  APIClient
 //
@@ -76,10 +76,16 @@ typedef void(^RequestResolver)(id object);
 
 - (void)succeedRequests;
 {
+    [self succeedRequestsWithJSONObject:@{}];
+}
+
+- (void)succeedRequestsWithJSONObject:(id)object;
+{
     for (NSString *path in self.mutableRequests)
     {
         Resolver *resolver = self.mutableRequests[path];
-        resolver.success([@"{}" dataUsingEncoding:NSUTF8StringEncoding]);
+        NSData *json = [NSJSONSerialization dataWithJSONObject:object options:0 error:nil];
+        resolver.success(json);
     }
 }
 

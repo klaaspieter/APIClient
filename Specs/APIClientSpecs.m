@@ -76,7 +76,7 @@ describe(@"APIClient", ^{
     describe(@"mapping", ^{
         it(@"uses the mapper to map the response to resource objects", ^{
             _mapper = [OCMockObject mockForProtocol:@protocol(APIMapper)];
-            [[_mapper expect] mapValues:@{} toResource:[Product class]];
+            [[_mapper expect] mapValues:@{} toResources:[Product class]];
             _client.configuration.mapper = _mapper;
             [_client findAll:[Product class]];
             [_httpClient succeedRequests];
@@ -98,11 +98,12 @@ describe(@"APIClient", ^{
         context(@"with a successful request", ^{
             it(@"resolves the response with the mapping result", ^AsyncBlock {
                 APIResponse *response = [_client findAll:[Product class]];
-                response.success = ^(id object) {
-                    expect(object).to.beInstanceOf([Product class]);
+                response.success = ^(id products) {
+                    expect(products).to.beKindOf([NSArray class]);
+                    expect(products[0]).to.beInstanceOf([Product class]);
                     done();
                 };
-                [_httpClient succeedRequests];
+                [_httpClient succeedRequestsWithJSONObject:@{@"products": @[@{@"name": @"Karma"}]}];
             });
         });
 
