@@ -21,6 +21,8 @@
 		A125C1DC17EDE8CA0063763F /* YeastsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A125C1DB17EDE8CA0063763F /* YeastsViewController.m */; };
 		A125C1DF17EDE9630063763F /* Yeast.m in Sources */ = {isa = PBXBuildFile; fileRef = A125C1DE17EDE9630063763F /* Yeast.m */; };
 		A12B311D1812C2F70088452E /* Mapper.m in Sources */ = {isa = PBXBuildFile; fileRef = A12B311C1812C2F70088452E /* Mapper.m */; };
+		A12B311F181342630088452E /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A12B311E181342630088452E /* SystemConfiguration.framework */; };
+		A12B31211813426A0088452E /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A12B31201813426A0088452E /* MobileCoreServices.framework */; };
 		A1A8A6DD17EF97D500B1CF50 /* HTTPClient.m in Sources */ = {isa = PBXBuildFile; fileRef = A1A8A6DC17EF97D500B1CF50 /* HTTPClient.m */; };
 		A9EB8279A8454B288E9A502F /* libPods-Example.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B4E4BEA73C64323893899AA /* libPods-Example.a */; };
 /* End PBXBuildFile section */
@@ -57,6 +59,8 @@
 		A125C1DE17EDE9630063763F /* Yeast.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Yeast.m; sourceTree = "<group>"; };
 		A12B311B1812C2F70088452E /* Mapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Mapper.h; sourceTree = "<group>"; };
 		A12B311C1812C2F70088452E /* Mapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Mapper.m; sourceTree = "<group>"; };
+		A12B311E181342630088452E /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		A12B31201813426A0088452E /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		A1A8A6DB17EF97D500B1CF50 /* HTTPClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTTPClient.h; sourceTree = "<group>"; };
 		A1A8A6DC17EF97D500B1CF50 /* HTTPClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTTPClient.m; sourceTree = "<group>"; };
 		A64D2C2FF3E34C32B96BAB39 /* Pods-Example.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Example.xcconfig"; path = "../Project/Pods/Pods-Example.xcconfig"; sourceTree = "<group>"; };
@@ -67,6 +71,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A12B31211813426A0088452E /* MobileCoreServices.framework in Frameworks */,
+				A12B311F181342630088452E /* SystemConfiguration.framework in Frameworks */,
 				A125C1AC17EDE56F0063763F /* CoreGraphics.framework in Frameworks */,
 				A125C1AE17EDE56F0063763F /* UIKit.framework in Frameworks */,
 				A125C1AA17EDE56F0063763F /* Foundation.framework in Frameworks */,
@@ -109,6 +115,8 @@
 		A125C1A817EDE56F0063763F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				A12B31201813426A0088452E /* MobileCoreServices.framework */,
+				A12B311E181342630088452E /* SystemConfiguration.framework */,
 				A125C1A917EDE56F0063763F /* Foundation.framework */,
 				A125C1AB17EDE56F0063763F /* CoreGraphics.framework */,
 				A125C1AD17EDE56F0063763F /* UIKit.framework */,
