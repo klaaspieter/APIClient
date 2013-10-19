@@ -8,9 +8,12 @@
 
 #import <Foundation/Foundation.h>
 
+#import "APIMappingProvider.h"
+
 @protocol APIMapper <NSObject>
 - (id)mapValues:(id)values toResource:(Class)resource;
 @end
 
 @interface APIMapper : NSObject <APIMapper>
+- (id)initWithMappingProvider:(id<APIMappingProvider>)mappingProvider;
 @end

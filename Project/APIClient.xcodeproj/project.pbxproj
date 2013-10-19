@@ -63,6 +63,7 @@
 		5D48E02F67DD4191847855B3 /* libPods-Specs.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Specs.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		60820679716F4CCD8ABFA748 /* Pods-Specs.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Specs.xcconfig"; path = "Pods/Pods-Specs.xcconfig"; sourceTree = SOURCE_ROOT; };
 		7953515CB94E4A45B716298D /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		A1063C841812BB70006CFBEC /* APIMappingProvider.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = APIMappingProvider.h; sourceTree = "<group>"; };
 		A12025DB180E08010019C01E /* APIMapperSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APIMapperSpec.m; sourceTree = "<group>"; };
 		A124C1FF180B7DB70088BE4C /* APIMapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APIMapper.m; sourceTree = "<group>"; };
 		A125C14F17EDE0070063763F /* APIJSONSerializerSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APIJSONSerializerSpec.m; sourceTree = "<group>"; };
@@ -284,6 +285,7 @@
 			children = (
 				A1DD518B180B7A4B00465924 /* APIMapper.h */,
 				A124C1FF180B7DB70088BE4C /* APIMapper.m */,
+				A1063C841812BB70006CFBEC /* APIMappingProvider.h */,
 			);
 			name = Mapper;
 			sourceTree = "<group>";
