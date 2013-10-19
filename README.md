@@ -5,7 +5,7 @@
 APIClient is available through [CocoaPods](http://cocoapods.org), to install
 it simply add the following line to your Podfile:
 
-    pod "APIClient"
+    pod "APIClient", git: https://github.com/klaaspieter/APIClient.git
 
 ## Author
 
