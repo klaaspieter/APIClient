@@ -9,5 +9,6 @@
 #import <Foundation/Foundation.h>
 
 @interface Yeast : NSObject
-
+@property (nonatomic, readonly, copy) NSString *name;
+@property (nonatomic, readonly, copy) NSString *type;
 @end
