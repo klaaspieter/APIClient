@@ -13,7 +13,6 @@
 #import "DCObjectMapping.h"
 
 @interface APIMapper ()
-@property (nonatomic, readwrite, strong) id<APIMappingProvider> mappingProvider;
 @end
 
 @implementation APIMapper
@@ -25,13 +24,13 @@
 
 - (id)initWithMappingProvider:(id<APIMappingProvider>)mappingProvider;
 {
-    return [self initWithInflector:nil mappingProvicer:mappingProvider];
+    return [self initWithResourceNamer:nil mappingProvider:mappingProvider];
 }
 
-- (id)initWithInflector:(id<APIInflector>)inflector mappingProvicer:(id<APIMappingProvider>)mappingProvider;
+- (id)initWithResourceNamer:(id<APIResourceNamer>)resourceNamer mappingProvider:(id<APIMappingProvider>)mappingProvider;
 {
     if (self = [super init]) {
-        _inflector = inflector;
+        _resourceNamer = resourceNamer;
         _mappingProvider = mappingProvider;
     }
 
@@ -40,7 +39,7 @@
 
 - (NSString *)rootForResource:(Class)resource;
 {
-    return [self.inflector pluralize:[NSStringFromClass(resource) lowercaseString]];
+    return [self.resourceNamer pluralizedNameForResource:resource];
 }
 
 - (id)mapValues:(id)values toResource:(Class)resource;
@@ -66,13 +65,13 @@
     return parser;
 }
 
-- (id<APIInflector>)inflector;
+- (id<APIResourceNamer>)resourceNamer;
 {
-    if (!_inflector) {
-        _inflector = [[APIInflector alloc] init];
+    if (!_resourceNamer) {
+        _resourceNamer = [[APIResourceNamer alloc] init];
     }
 
-    return _inflector;
+    return _resourceNamer;
 }
 
 @end

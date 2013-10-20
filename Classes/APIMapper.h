@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-#import "APIInflector.h"
+#import "APIResourceNamer.h"
 #import "APIMappingProvider.h"
 
 @protocol APIMapper <NSObject>
@@ -16,10 +16,11 @@
 @end
 
 @interface APIMapper : NSObject <APIMapper>
-@property (nonatomic, readwrite, strong) id<APIInflector> inflector;
+@property (nonatomic, readwrite, strong) id<APIResourceNamer> resourceNamer;
+@property (nonatomic, readwrite, strong) id<APIMappingProvider> mappingProvider;
 
 - (id)initWithMappingProvider:(id<APIMappingProvider>)mappingProvider;
-- (id)initWithInflector:(id<APIInflector>)inflector mappingProvicer:(id<APIMappingProvider>)mappingProvider;
+- (id)initWithResourceNamer:(id<APIResourceNamer>)resourceNamer mappingProvider:(id<APIMappingProvider>)mappingProvider;
 
 - (NSString *)rootForResource:(Class)resource;
 @end
