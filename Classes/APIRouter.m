@@ -27,7 +27,18 @@
 
 - (NSString *)pathForAction:(NSString *)action onResource:(Class)resource;
 {
-    return [self.resourceNamer pluralizedNameForResource:resource];
+    return [self pathForAction:action onResource:resource withArguments:nil];
+}
+
+- (NSString *)pathForAction:(NSString *)action onResource:(Class)resource withArguments:(NSDictionary *)arguments;
+{
+    if ([action isEqualToString:@"show"]) {
+        return [self pathForShowActionOnResource:resource withArguments:arguments];
+    } else if ([action isEqualToString:@"index"]) {
+        return [self pathForIndexActionOnResource:resource withArguments:arguments];
+    }
+
+    return nil;
 }
 
 - (NSString *)pathForShowActionOnResource:(Class)resource withArguments:(NSDictionary *)arguments;
@@ -51,13 +62,9 @@
     return [pluralizedResourceName stringByAppendingPathComponent:resourceID];
 }
 
-- (NSString *)pathForAction:(NSString *)action onResource:(Class)resource withArguments:(NSDictionary *)arguments;
+- (NSString *)pathForIndexActionOnResource:(Class)resource withArguments:(NSDictionary *)arguments;
 {
-    if ([action isEqualToString:@"show"]) {
-        return [self pathForShowActionOnResource:resource withArguments:arguments];
-    }
-
-    return nil;
+    return [self.resourceNamer pluralizedNameForResource:resource];
 }
 
 - (APIResourceNamer *)resourceNamer;
