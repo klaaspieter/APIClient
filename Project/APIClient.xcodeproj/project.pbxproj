@@ -159,6 +159,7 @@
 		A1697DC81813F4DF0012E245 /* ResourceNamer */ = {
 			isa = PBXGroup;
 			children = (
+				A1BEBB9B17E4C6F2006C8432 /* Inflector */,
 				A1697DC91813F5070012E245 /* APIResourceNamer.h */,
 				A1697DCA1813F5070012E245 /* APIResourceNamer.m */,
 			);
@@ -263,7 +264,6 @@
 		A1BEBB9417E4AE45006C8432 /* Router */ = {
 			isa = PBXGroup;
 			children = (
-				A1BEBB9B17E4C6F2006C8432 /* Inflector */,
 				A1BEBB9517E4AE62006C8432 /* APIRouter.h */,
 				A1BEBB9617E4C1C2006C8432 /* APIRouter.m */,
 			);
