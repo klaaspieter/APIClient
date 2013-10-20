@@ -69,6 +69,20 @@
     return response;
 }
 
+- (APIResponse *)findResource:(Class)resource withID:(id)resourceID;
+{
+    APIResponse *response = [[APIResponse alloc] initWithResolver:^(APIResponseBlock resolve, APIResponseBlock reject) {
+        [self.httpClient getPath:[self.router pathForAction:@"show" onResource:resource withArguments:@{@"id": resourceID}] parameters:nil success:^(id responseObject) {
+            id serialized = [self.serializer deserializeJSON:responseObject];
+            id mapped = [self.mapper mapValues:serialized toResource:resource];
+            resolve(mapped);
+        } failure:^(NSError *error) {
+            reject(error);
+        }];
+    }];
+    return response;
+}
+
 - (id<APIRouter>)router;
 {
     return self.configuration.router;

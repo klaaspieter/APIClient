@@ -30,5 +30,6 @@
 - (id)initWithConfiguration:(APIClientConfiguration *)configuration;
 
 - (APIResponse *)findAll:(Class)resource;
+- (APIResponse *)findResource:(Class)resource withID:(id)resourceID;
 
 @end
