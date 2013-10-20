@@ -36,6 +36,10 @@ describe(@"APIRouter", ^{
         it(@"routes index actions to the pluralized resource name", ^{
             expect([_router pathForAction:@"index" onResource:[NSObject class]]).to.equal(@"objects");
         });
+
+        it(@"routes show actions", ^{
+            expect([_router pathForAction:@"show" onResource:[NSObject class] withArguments:@{@"id": @1}]).to.equal(@"objects/1");
+        });
     });
 });
 

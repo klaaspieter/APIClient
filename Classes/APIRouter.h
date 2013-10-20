@@ -12,6 +12,7 @@
 
 @protocol APIRouter <NSObject>
 - (NSString *)pathForAction:(NSString *)action onResource:(Class)resource;
+- (NSString *)pathForAction:(NSString *)action onResource:(Class)resource withArguments:(NSDictionary *)arguments;
 @end
 
 @interface APIRouter : NSObject <APIRouter>

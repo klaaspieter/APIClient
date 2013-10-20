@@ -30,6 +30,21 @@
     return [self.resourceNamer pluralizedNameForResource:resource];
 }
 
+- (NSString *)pathForShowActionOnResource:(Class)resource withArguments:(NSDictionary *)arguments;
+{
+    NSString *pluralizedResourceName = [self.resourceNamer pluralizedNameForResource:resource];
+    return [pluralizedResourceName stringByAppendingPathComponent:[arguments[@"id"] stringValue]];
+}
+
+- (NSString *)pathForAction:(NSString *)action onResource:(Class)resource withArguments:(NSDictionary *)arguments;
+{
+    if ([action isEqualToString:@"show"]) {
+        return [self pathForShowActionOnResource:resource withArguments:arguments];
+    }
+
+    return nil;
+}
+
 - (APIResourceNamer *)resourceNamer;
 {
     if (!_resourceNamer) {
