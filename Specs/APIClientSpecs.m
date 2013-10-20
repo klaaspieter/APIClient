@@ -95,6 +95,15 @@ describe(@"APIClient", ^{
             expect(_httpClient.requests[0]).to.equal(@"products");
         });
 
+        it(@"uses the router to build paths for the index action", ^{
+            _router = [OCMockObject mockForProtocol:@protocol(APIRouter)];
+            [[[_router expect] andReturn:@"/objects"] pathForAction:@"index" onResource:[Product class]];
+            _client.configuration.router = _router;
+            [_client findAll:[Product class]];
+            expect(_httpClient.requests[0]).to.equal(@"/objects");
+            [_router verify];
+        });
+
         context(@"with a successful request", ^{
             it(@"resolves the response with the mapping result", ^AsyncBlock {
                 APIResponse *response = [_client findAll:[Product class]];
@@ -110,6 +119,50 @@ describe(@"APIClient", ^{
         context(@"with a failed request", ^{
             it(@"rejects the response with the error", ^AsyncBlock {
                 APIResponse *response = [_client findAll:[Product class]];
+                response.failure = ^(NSError *error) {
+                    expect(error).notTo.beNil();
+                    done();
+                };
+                [_httpClient failRequests];
+            });
+        });
+    });
+
+    describe(@"findResource:withID", ^{
+        it(@"returns a response promise", ^{
+            id response = [_client findResource:[Product class] withID:@1];
+            expect(response).to.beKindOf([APIResponse class]);
+        });
+
+        it(@"makes a request for the resource", ^{
+            [_client findResource:[Product class] withID:@1];
+            expect(_httpClient.requests[0]).to.equal(@"products/1");
+        });
+
+        it(@"uses the router to build paths for the show action", ^{
+            _router = [OCMockObject mockForProtocol:@protocol(APIRouter)];
+            [[[_router expect] andReturn:@"/objects/1"] pathForAction:@"show" onResource:[Product class] withArguments:@{@"id": @1}];
+            _client.configuration.router = _router;
+            [_client findResource:[Product class] withID:@1];
+            expect(_httpClient.requests[0]).to.equal(@"/objects/1");
+            [_router verify];
+        });
+
+        context(@"with a successful request", ^{
+            it(@"resolves the response with the mapping result", ^AsyncBlock {
+                APIResponse *response = [_client findResource:[Product class] withID:@1];
+                response.success = ^(id products) {
+                    expect(products).to.beKindOf([NSArray class]);
+                    expect(products[0]).to.beInstanceOf([Product class]);
+                    done();
+                };
+                [_httpClient succeedRequestsWithJSONObject:@{@"products": @[@{@"name": @"Karma"}]}];
+            });
+        });
+
+        context(@"with a failed request", ^{
+            it(@"rejects the response with the error", ^AsyncBlock {
+                APIResponse *response = [_client findResource:[Product class] withID:@1];
                 response.failure = ^(NSError *error) {
                     expect(error).notTo.beNil();
                     done();
