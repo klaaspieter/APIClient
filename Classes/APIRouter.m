@@ -33,7 +33,15 @@
 - (NSString *)pathForShowActionOnResource:(Class)resource withArguments:(NSDictionary *)arguments;
 {
     NSString *pluralizedResourceName = [self.resourceNamer pluralizedNameForResource:resource];
-    return [pluralizedResourceName stringByAppendingPathComponent:[arguments[@"id"] stringValue]];
+    id resourceID = arguments[@"id"];
+
+    if ([resourceID respondsToSelector:@selector(stringValue)]) {
+        resourceID = [resourceID stringValue];
+    } else if ([resourceID isKindOfClass:[NSString class]]) {
+        resourceID = resourceID;
+    }
+
+    return [pluralizedResourceName stringByAppendingPathComponent:resourceID];
 }
 
 - (NSString *)pathForAction:(NSString *)action onResource:(Class)resource withArguments:(NSDictionary *)arguments;

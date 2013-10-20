@@ -33,12 +33,20 @@ describe(@"APIRouter", ^{
     });
 
     describe(@"routing", ^{
-        it(@"routes index actions to the pluralized resource name", ^{
-            expect([_router pathForAction:@"index" onResource:[NSObject class]]).to.equal(@"objects");
+        describe(@"index actions", ^{
+            it(@"routes to the pluralized resource name", ^{
+                expect([_router pathForAction:@"index" onResource:[NSObject class]]).to.equal(@"objects");
+            });
         });
 
-        it(@"routes show actions", ^{
-            expect([_router pathForAction:@"show" onResource:[NSObject class] withArguments:@{@"id": @1}]).to.equal(@"objects/1");
+        describe(@"show actions", ^{
+            it(@"routes to the pluralized resource name and ID", ^{
+                expect([_router pathForAction:@"show" onResource:[NSObject class] withArguments:@{@"id": @1}]).to.equal(@"objects/1");
+            });
+
+            it(@"routes to resource with non-numeric IDs", ^{
+                expect([_router pathForAction:@"show" onResource:[NSObject class] withArguments:@{@"id": @"test"}]).to.equal(@"objects/test");
+            });
         });
     });
 });
