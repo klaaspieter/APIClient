@@ -19,6 +19,10 @@ describe(@"APIInflector", ^{
         expect([inflector pluralize:@"object"]).to.equal(@"objects");
     });
 
+    it(@"can underscore", ^{
+        APIInflector *inflector = [[APIInflector alloc] init];
+        expect([inflector underscore:@"TestObject"]).to.equal(@"test_object");
+    });
 });
 
 SpecEnd

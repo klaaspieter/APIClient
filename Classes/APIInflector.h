@@ -10,8 +10,8 @@
 
 @protocol APIInflector <NSObject>
 - (NSString *)pluralize:(NSString *)string;
+- (NSString *)underscore:(NSString *)string;
 @end
 
 @interface APIInflector : NSObject <APIInflector>
-- (NSString *)pluralize:(NSString *)string;
 @end
