@@ -33,8 +33,13 @@
 - (NSString *)pathForShowActionOnResource:(Class)resource withArguments:(NSDictionary *)arguments;
 {
     NSString *pluralizedResourceName = [self.resourceNamer pluralizedNameForResource:resource];
-    id resourceID = arguments[@"id"];
 
+    if (![arguments objectForKey:@"id"]) {
+        [NSException raise:NSInvalidArgumentException format:
+         @"Show actions cannot be routed without an ID. Please pass in an arguments dictionary with the key ”id”."];
+    }
+
+    id resourceID = arguments[@"id"];
     if ([resourceID respondsToSelector:@selector(stringValue)]) {
         resourceID = [resourceID stringValue];
     } else if ([resourceID isKindOfClass:[NSString class]]) {

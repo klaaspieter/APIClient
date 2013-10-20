@@ -47,6 +47,12 @@ describe(@"APIRouter", ^{
             it(@"routes to resource with non-numeric IDs", ^{
                 expect([_router pathForAction:@"show" onResource:[NSObject class] withArguments:@{@"id": @"test"}]).to.equal(@"objects/test");
             });
+
+            it(@"raises if the arguments doesn't contain an ID", ^{
+                expect(^{
+                    [_router pathForAction:@"show" onResource:[NSObject class] withArguments:@{}];
+                }).to.raise(NSInvalidArgumentException);
+            });
         });
     });
 });
