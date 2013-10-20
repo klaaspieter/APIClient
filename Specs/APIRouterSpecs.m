@@ -12,27 +12,29 @@
 
 SpecBegin(APIRouterSpecs)
 
+__block APIRouter *_router;
+
 describe(@"APIRouter", ^{
+    before(^{
+        _router = [[APIRouter alloc] init];
+    });
+
     describe(@"initialization", ^{
-        it(@"uses a default inflector if none is provided", ^{
+        it(@"has a resource namer", ^{
             APIRouter *router = [[APIRouter alloc] init];
-            expect(router.inflector).notTo.beNil();
+            expect(router.resourceNamer).notTo.beNil();
         });
 
-        it(@"accepts other inflectors", ^{
-            APIInflector *inflector = [[APIInflector alloc] init];
-            APIRouter *router = [[APIRouter alloc] initWithInflector:inflector];
-            expect(router.inflector).to.equal(inflector);
+        it(@"accepts other resource namers", ^{
+            APIResourceNamer *namer = [[APIResourceNamer alloc] init];
+            APIRouter *router = [[APIRouter alloc] initWithResourceNamer:namer];
+            expect(router.resourceNamer).to.equal(namer);
         });
     });
 
     describe(@"routing", ^{
         it(@"routes index actions to the pluralized resource name", ^{
-            id inflector = [OCMockObject mockForProtocol:@protocol(APIInflector)];
-            [[[inflector expect] andReturn:@"objects"] pluralize:@"object"];
-            APIRouter *router = [[APIRouter alloc] initWithInflector:inflector];
-            expect([router pathForAction:@"index" onResource:[NSObject class]]).to.equal(@"objects");
-            [inflector verify];
+            expect([_router pathForAction:@"index" onResource:[NSObject class]]).to.equal(@"objects");
         });
     });
 });

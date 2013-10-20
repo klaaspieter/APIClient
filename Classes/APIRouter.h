@@ -8,15 +8,14 @@
 
 #import <Foundation/Foundation.h>
 
-#import "APIInflector.h"
+#import "APIResourceNamer.h"
 
 @protocol APIRouter <NSObject>
 - (NSString *)pathForAction:(NSString *)action onResource:(Class)resource;
 @end
 
 @interface APIRouter : NSObject <APIRouter>
-@property (nonatomic, readonly, strong) id<APIInflector> inflector;
+@property (nonatomic, readwrite, strong) id<APIResourceNamer> resourceNamer;
 
-- (id)initWithInflector:(id<APIInflector>)inflector;
-- (NSString *)pathForAction:(NSString *)action onResource:(Class)resource;
+- (id)initWithResourceNamer:(id<APIResourceNamer>)resourceNamer;
 @end
