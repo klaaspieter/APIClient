@@ -23,6 +23,26 @@ describe(@"APIResourceNamer", ^{
             expect(_namer.inflector).to.equal(inflector);
         });
     });
+
+    describe(@"nameForResource:", ^{
+        it(@"lowercases the resource name", ^{
+            expect([_namer nameForResource:NSClassFromString(@"Product")]).to.equal(@"product");
+        });
+
+        it(@"underscores the resource name", ^{
+            expect([_namer nameForResource:NSClassFromString(@"OrderLine")]).to.equal(@"order_line");
+        });
+
+        it(@"removes class prefixes", ^{
+            expect([_namer nameForResource:[APIResourceNamer class]]).to.equal(@"resource_namer");
+        });
+    });
+
+    describe(@"pluralizedNameForResource:", ^{
+        it(@"pluralizes the resource name", ^{
+            expect([_namer pluralizedNameForResource:[APIResourceNamer class]]).to.equal(@"resource_namers");
+        });
+    });
 });
 
 SpecEnd

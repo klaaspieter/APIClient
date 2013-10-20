@@ -37,6 +37,7 @@
 		A1D7C3EC17DFDAA8000F8510 /* APIResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = A1D7C3EB17DFDAA8000F8510 /* APIResponse.m */; };
 		A1D7C3F017DFDAE2000F8510 /* Product.m in Sources */ = {isa = PBXBuildFile; fileRef = A1D7C3EF17DFDAE2000F8510 /* Product.m */; };
 		A1D7C3F217DFE589000F8510 /* APIResponseSpecs.m in Sources */ = {isa = PBXBuildFile; fileRef = A1D7C3F117DFE589000F8510 /* APIResponseSpecs.m */; };
+		A1F7C0AE1813FF59001AC8BE /* OrderLine.m in Sources */ = {isa = PBXBuildFile; fileRef = A1F7C0AC1813FF52001AC8BE /* OrderLine.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -108,6 +109,8 @@
 		A1D7C3F117DFE589000F8510 /* APIResponseSpecs.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APIResponseSpecs.m; sourceTree = "<group>"; };
 		A1DD518B180B7A4B00465924 /* APIMapper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = APIMapper.h; sourceTree = "<group>"; };
 		A1E374F617DFBD8700235A34 /* SpecHelper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SpecHelper.h; sourceTree = "<group>"; };
+		A1F7C0AB1813FF52001AC8BE /* OrderLine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrderLine.h; sourceTree = "<group>"; };
+		A1F7C0AC1813FF52001AC8BE /* OrderLine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OrderLine.m; sourceTree = "<group>"; };
 		C6E64584EE9D406A9F78DE5C /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
@@ -292,6 +295,8 @@
 				A1894E7517D17E400052609F /* APITestHTTPClient.m */,
 				A1D7C3EE17DFDAE2000F8510 /* Product.h */,
 				A1D7C3EF17DFDAE2000F8510 /* Product.m */,
+				A1F7C0AB1813FF52001AC8BE /* OrderLine.h */,
+				A1F7C0AC1813FF52001AC8BE /* OrderLine.m */,
 			);
 			name = "Helper Classes";
 			sourceTree = "<group>";
@@ -494,6 +499,7 @@
 				A1BEBB9A17E4C57F006C8432 /* APIRouterSpecs.m in Sources */,
 				A1BEBBA117E519E4006C8432 /* APIInflectorSpecs.m in Sources */,
 				A1BEBBA617E51D6B006C8432 /* APIClientConfigurationSpecs.m in Sources */,
+				A1F7C0AE1813FF59001AC8BE /* OrderLine.m in Sources */,
 				A1697DCD1813F51A0012E245 /* APIResourceNamerSpec.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

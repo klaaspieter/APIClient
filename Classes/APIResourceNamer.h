@@ -13,6 +13,7 @@
 @protocol APIResourceNamer <NSObject>
 
 - (NSString *)nameForResource:(Class)resource;
+- (NSString *)pluralizedNameForResource:(Class)resource;
 
 @end
 
