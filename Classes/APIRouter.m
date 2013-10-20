@@ -36,7 +36,7 @@
 
     if (![arguments objectForKey:@"id"]) {
         [NSException raise:NSInvalidArgumentException format:
-         @"Show actions cannot be routed without an ID. Please pass in an arguments dictionary with the key ”id”."];
+         @"Show actions cannot be routed without an ID. Please pass in an arguments dictionary with an ”id” key."];
     }
 
     id resourceID = arguments[@"id"];
@@ -44,6 +44,8 @@
         resourceID = [resourceID stringValue];
     } else if ([resourceID isKindOfClass:[NSString class]]) {
         resourceID = resourceID;
+    } else {
+        [NSException raise:NSInvalidArgumentException format:@"“id” argument is not a string or cannot be coerced into a string. Please pass an arguments dictionary with an “id” value that is a string or responds to the “stringValue” selector."];
     }
 
     return [pluralizedResourceName stringByAppendingPathComponent:resourceID];

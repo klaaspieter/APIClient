@@ -53,6 +53,12 @@ describe(@"APIRouter", ^{
                     [_router pathForAction:@"show" onResource:[NSObject class] withArguments:@{}];
                 }).to.raise(NSInvalidArgumentException);
             });
+
+            it(@"raises if the ID argument can't be coerced into a string", ^{
+                expect(^{
+                    [_router pathForAction:@"show" onResource:[NSObject class] withArguments:@{@"id": [[NSObject alloc] init]}];
+                }).to.raise(NSInvalidArgumentException);
+            });
         });
     });
 });
