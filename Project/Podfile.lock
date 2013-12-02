@@ -1,14 +1,14 @@
 PODS:
-  - AFNetworking (1.3.2)
+  - AFNetworking (1.3.3)
   - APIClient (0.1.0):
     - AFNetworking (~> 1.3)
     - DCKeyValueObjectMapping
     - InflectorKit
   - DCKeyValueObjectMapping (1.4)
-  - Expecta (0.2.2)
+  - Expecta (0.2.3)
   - InflectorKit (0.0.1)
   - OCMock (2.2.1)
-  - Specta (0.1.11)
+  - Specta (0.2.1)
 
 DEPENDENCIES:
   - AFNetworking (~> 1.3)
@@ -24,12 +24,12 @@ EXTERNAL SOURCES:
     :path: ../../APIClient
 
 SPEC CHECKSUMS:
-  AFNetworking: 7f9bcd7c287a75476cd5c61e82fd3380e93e4c54
+  AFNetworking: 0700ec7a58c36ad217173e167f6e4df7270df66b
   APIClient: 463d7d950a9fab3232cf654e6611db08d5ef48ef
   DCKeyValueObjectMapping: 39adaf0a54ff6368a22d9221db60f0696d81ad7b
-  Expecta: 99adbb2e366a02796477523bfd426143350d9caf
+  Expecta: dbc4a27fabb853bdd2e907e33f11ee43a9a47d0c
   InflectorKit: 9dccab02f95541093995adac639342c9eb9e6c12
   OCMock: 80e4cfbc71a0e1bd28caf10a9fda27da7c4c8402
-  Specta: 82746c6fd70b104c5d37cfbadb7bf15a2cbc4da0
+  Specta: 2d06220591110c6d9757d8be8ecf8e63aa40dc2a
 
-COCOAPODS: 0.26.2
+COCOAPODS: 0.28.0
