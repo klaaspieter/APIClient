@@ -1,5 +1,5 @@
 language: objective-c
-xcode_workspace: "Project/APIClient.xcworkspace"
+xcode_workspace: "APIClient.xcworkspace"
 xcode_scheme: "APIClient"
 rvm: 1.9.3
 cache: bundler
