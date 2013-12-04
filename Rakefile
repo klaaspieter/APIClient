@@ -65,6 +65,12 @@ task :release do
   sh "pod push master #{podspec_path}"
 end
 
+task :test do
+  sh "xctool -workspace Project/APIClient.xcworkspace -scheme APIClient -sdk iphonesimulator test"
+end
+
+task :default => :test
+
 # @return [Pod::Version] The version as reported by the Podspec.
 #
 def spec_version
