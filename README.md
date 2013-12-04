@@ -59,8 +59,6 @@ Any APIClient request follows a number of steps. The entire process is as follow
 3. Use the serializer to serialize the response body to Foundation objects
 4. Map the Foundation objects to instances of the requested resource
 
-#### Components
-
 Every step is abstracted into different components. An APIClient component is a formal protocol and a
 default implementation of that protocol that follows REST conventions. If you need different behavior you can either create a subclass of APIClient's implentation or
 create your own class that conforms to the protocol.
