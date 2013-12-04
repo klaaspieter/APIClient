@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
   s.name         = "APIClient"
   s.version      = "0.1.0"
-  s.summary      = "Objective-C REST Client done right"
+  s.summary      = "Convention over configuration REST API client"
   s.homepage     = "https://github.com/klaaspieter/apiclient"
   s.license      = 'MIT'
   s.author       = { "Klaas Pieter Annema" => "klaaspieter@annema.me" }
