@@ -12,7 +12,7 @@ PODS:
 
 DEPENDENCIES:
   - AFNetworking (~> 1.3)
-  - APIClient (from `../../APIClient`)
+  - APIClient (from `./`)
   - DCKeyValueObjectMapping
   - Expecta
   - InflectorKit
@@ -21,11 +21,11 @@ DEPENDENCIES:
 
 EXTERNAL SOURCES:
   APIClient:
-    :path: ../../APIClient
+    :path: ./
 
 SPEC CHECKSUMS:
   AFNetworking: 0700ec7a58c36ad217173e167f6e4df7270df66b
-  APIClient: 463d7d950a9fab3232cf654e6611db08d5ef48ef
+  APIClient: 81d3f26f05b2068565a3950191eb3c84074cb5d8
   DCKeyValueObjectMapping: 39adaf0a54ff6368a22d9221db60f0696d81ad7b
   Expecta: dbc4a27fabb853bdd2e907e33f11ee43a9a47d0c
   InflectorKit: 9dccab02f95541093995adac639342c9eb9e6c12
