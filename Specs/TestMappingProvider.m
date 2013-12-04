@@ -10,7 +10,7 @@
 
 @implementation TestMappingProvider
 
-- (NSDictionary *)mappingForResource:(Class)resource;
+- (NSDictionary *)mappingsForResource:(Class)resource;
 {
     return @{@"name": @"name", @"price": @"price"};
 }

@@ -7,37 +7,37 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		85D2F51389D14EC8947352DB /* libPods-Specs.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D48E02F67DD4191847855B3 /* libPods-Specs.a */; };
-		93F2329B952D4C1C98DAFA30 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7953515CB94E4A45B716298D /* libPods.a */; };
-		A12025DC180E08010019C01E /* APIMapperSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = A12025DB180E08010019C01E /* APIMapperSpec.m */; };
-		A124C200180B7DB70088BE4C /* APIMapper.m in Sources */ = {isa = PBXBuildFile; fileRef = A124C1FF180B7DB70088BE4C /* APIMapper.m */; };
-		A125C15017EDE0070063763F /* APIJSONSerializerSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = A125C14F17EDE0070063763F /* APIJSONSerializerSpec.m */; };
+		8862960C6A9D4AB3A98464C1 /* libPods-Specs.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AC047CB0CC064A31BAF31F64 /* libPods-Specs.a */; };
 		A1537E3817D1768400D22137 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1537E3717D1768400D22137 /* UIKit.framework */; };
 		A1537E3917D176AA00D22137 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1537E3717D1768400D22137 /* UIKit.framework */; };
-		A1697DCB1813F5070012E245 /* APIResourceNamer.m in Sources */ = {isa = PBXBuildFile; fileRef = A1697DCA1813F5070012E245 /* APIResourceNamer.m */; };
-		A1697DCD1813F51A0012E245 /* APIResourceNamerSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = A1697DCC1813F51A0012E245 /* APIResourceNamerSpec.m */; };
+		A1589205184FDA8200028655 /* APIAFNetworkingHTTPClient.m in Sources */ = {isa = PBXBuildFile; fileRef = A15891FF184FDA8200028655 /* APIAFNetworkingHTTPClient.m */; };
+		A1589206184FDA8200028655 /* APIClient.m in Sources */ = {isa = PBXBuildFile; fileRef = A1589201184FDA8200028655 /* APIClient.m */; };
+		A1589207184FDA8200028655 /* APIClientConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = A1589203184FDA8200028655 /* APIClientConfiguration.m */; };
+		A158920A184FDA9500028655 /* APIResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = A1589209184FDA9500028655 /* APIResponse.m */; };
+		A158920D184FDA9F00028655 /* APIRouter.m in Sources */ = {isa = PBXBuildFile; fileRef = A158920C184FDA9F00028655 /* APIRouter.m */; };
+		A1589210184FDAB000028655 /* APIJSONSerializer.m in Sources */ = {isa = PBXBuildFile; fileRef = A158920F184FDAB000028655 /* APIJSONSerializer.m */; };
+		A1589214184FDABC00028655 /* APIMapper.m in Sources */ = {isa = PBXBuildFile; fileRef = A1589212184FDABC00028655 /* APIMapper.m */; };
+		A1589219184FDACD00028655 /* APIInflector.m in Sources */ = {isa = PBXBuildFile; fileRef = A1589216184FDACD00028655 /* APIInflector.m */; };
+		A158921A184FDACD00028655 /* APIResourceNamer.m in Sources */ = {isa = PBXBuildFile; fileRef = A1589218184FDACD00028655 /* APIResourceNamer.m */; };
+		A158923E184FDC6400028655 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A158923D184FDC6400028655 /* XCTest.framework */; };
+		A158923F184FDD0300028655 /* TestMappingProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = A158923B184FDB5A00028655 /* TestMappingProvider.m */; };
+		A1589240184FDD0300028655 /* APITestHTTPClient.m in Sources */ = {isa = PBXBuildFile; fileRef = A1589221184FDB2600028655 /* APITestHTTPClient.m */; };
+		A1589241184FDD0300028655 /* OrderLine.m in Sources */ = {isa = PBXBuildFile; fileRef = A1589223184FDB2600028655 /* OrderLine.m */; };
+		A1589242184FDD0300028655 /* Product.m in Sources */ = {isa = PBXBuildFile; fileRef = A1589225184FDB2600028655 /* Product.m */; };
+		A1589243184FDD0300028655 /* APIClientSpecs.m in Sources */ = {isa = PBXBuildFile; fileRef = A158922A184FDB3900028655 /* APIClientSpecs.m */; };
+		A1589244184FDD0300028655 /* APIResponseSpecs.m in Sources */ = {isa = PBXBuildFile; fileRef = A158922F184FDB3900028655 /* APIResponseSpecs.m */; };
+		A1589245184FDD0300028655 /* APIRouterSpecs.m in Sources */ = {isa = PBXBuildFile; fileRef = A1589230184FDB3900028655 /* APIRouterSpecs.m */; };
+		A1589246184FDD0300028655 /* APIInflectorSpecs.m in Sources */ = {isa = PBXBuildFile; fileRef = A158922B184FDB3900028655 /* APIInflectorSpecs.m */; };
+		A1589247184FDD0300028655 /* APIClientConfigurationSpecs.m in Sources */ = {isa = PBXBuildFile; fileRef = A1589229184FDB3900028655 /* APIClientConfigurationSpecs.m */; };
+		A1589248184FDD0300028655 /* APIJSONSerializerSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = A158922C184FDB3900028655 /* APIJSONSerializerSpec.m */; };
+		A1589249184FDD0300028655 /* APIMapperSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = A158922D184FDB3900028655 /* APIMapperSpec.m */; };
+		A158924A184FDD0300028655 /* APIResourceNamerSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = A158922E184FDB3900028655 /* APIResourceNamerSpec.m */; };
 		A1894E6E17D17CBE0052609F /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1894E6D17D17CBE0052609F /* SystemConfiguration.framework */; };
 		A1894E7017D17CC60052609F /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1894E6F17D17CC60052609F /* MobileCoreServices.framework */; };
-		A1894E7317D17D9F0052609F /* APIAFNetworkingHTTPClient.m in Sources */ = {isa = PBXBuildFile; fileRef = A1894E7217D17D9F0052609F /* APIAFNetworkingHTTPClient.m */; };
-		A1894E7617D17E400052609F /* APITestHTTPClient.m in Sources */ = {isa = PBXBuildFile; fileRef = A1894E7517D17E400052609F /* APITestHTTPClient.m */; };
-		A18F65A217ED0F28009D7818 /* APIJSONSerializer.m in Sources */ = {isa = PBXBuildFile; fileRef = A18F65A117ED0F28009D7818 /* APIJSONSerializer.m */; };
 		A19B260F17D17056008DA908 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A19B25BA17D16E47008DA908 /* Foundation.framework */; };
-		A19B261D17D17056008DA908 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A19B25C917D16E47008DA908 /* SenTestingKit.framework */; };
 		A19B261F17D17056008DA908 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A19B25BA17D16E47008DA908 /* Foundation.framework */; };
 		A19B262217D17056008DA908 /* libAPIClient.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A19B260E17D17056008DA908 /* libAPIClient.a */; };
-		A19B265617D17257008DA908 /* APIClient.m in Sources */ = {isa = PBXBuildFile; fileRef = A19B265517D17257008DA908 /* APIClient.m */; };
-		A19B265E17D1725E008DA908 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = A19B265A17D1725E008DA908 /* InfoPlist.strings */; };
-		A19B266217D172FE008DA908 /* APIClientSpecs.m in Sources */ = {isa = PBXBuildFile; fileRef = A19B266117D172FE008DA908 /* APIClientSpecs.m */; };
-		A1BEBB9717E4C1C2006C8432 /* APIRouter.m in Sources */ = {isa = PBXBuildFile; fileRef = A1BEBB9617E4C1C2006C8432 /* APIRouter.m */; };
-		A1BEBB9A17E4C57F006C8432 /* APIRouterSpecs.m in Sources */ = {isa = PBXBuildFile; fileRef = A1BEBB9917E4C57F006C8432 /* APIRouterSpecs.m */; };
-		A1BEBB9E17E4C702006C8432 /* APIInflector.m in Sources */ = {isa = PBXBuildFile; fileRef = A1BEBB9D17E4C702006C8432 /* APIInflector.m */; };
-		A1BEBBA117E519E4006C8432 /* APIInflectorSpecs.m in Sources */ = {isa = PBXBuildFile; fileRef = A1BEBBA017E519E4006C8432 /* APIInflectorSpecs.m */; };
-		A1BEBBA417E51BBC006C8432 /* APIClientConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = A1BEBBA317E51BBB006C8432 /* APIClientConfiguration.m */; };
-		A1BEBBA617E51D6B006C8432 /* APIClientConfigurationSpecs.m in Sources */ = {isa = PBXBuildFile; fileRef = A1BEBBA517E51D6B006C8432 /* APIClientConfigurationSpecs.m */; };
-		A1D7C3EC17DFDAA8000F8510 /* APIResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = A1D7C3EB17DFDAA8000F8510 /* APIResponse.m */; };
-		A1D7C3F017DFDAE2000F8510 /* Product.m in Sources */ = {isa = PBXBuildFile; fileRef = A1D7C3EF17DFDAE2000F8510 /* Product.m */; };
-		A1D7C3F217DFE589000F8510 /* APIResponseSpecs.m in Sources */ = {isa = PBXBuildFile; fileRef = A1D7C3F117DFE589000F8510 /* APIResponseSpecs.m */; };
-		A1F7C0AE1813FF59001AC8BE /* OrderLine.m in Sources */ = {isa = PBXBuildFile; fileRef = A1F7C0AC1813FF52001AC8BE /* OrderLine.m */; };
+		FFB239744F15407F8B9FCBBF /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B90C9CD54F454A5A8C067A5C /* libPods.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,54 +63,57 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		5D48E02F67DD4191847855B3 /* libPods-Specs.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Specs.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		60820679716F4CCD8ABFA748 /* Pods-Specs.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Specs.xcconfig"; path = "Pods/Pods-Specs.xcconfig"; sourceTree = SOURCE_ROOT; };
-		7953515CB94E4A45B716298D /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		A1063C841812BB70006CFBEC /* APIMappingProvider.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = APIMappingProvider.h; sourceTree = "<group>"; };
-		A12025DB180E08010019C01E /* APIMapperSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APIMapperSpec.m; sourceTree = "<group>"; };
-		A124C1FF180B7DB70088BE4C /* APIMapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APIMapper.m; sourceTree = "<group>"; };
-		A125C14F17EDE0070063763F /* APIJSONSerializerSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APIJSONSerializerSpec.m; sourceTree = "<group>"; };
 		A1537E3717D1768400D22137 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
-		A1697DC91813F5070012E245 /* APIResourceNamer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APIResourceNamer.h; sourceTree = "<group>"; };
-		A1697DCA1813F5070012E245 /* APIResourceNamer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APIResourceNamer.m; sourceTree = "<group>"; };
-		A1697DCC1813F51A0012E245 /* APIResourceNamerSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APIResourceNamerSpec.m; sourceTree = "<group>"; };
-		A1894E6C17D17C330052609F /* APIHTTPClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APIHTTPClient.h; sourceTree = "<group>"; };
+		A15891FE184FDA8200028655 /* APIAFNetworkingHTTPClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = APIAFNetworkingHTTPClient.h; path = Classes/APIAFNetworkingHTTPClient.h; sourceTree = SOURCE_ROOT; };
+		A15891FF184FDA8200028655 /* APIAFNetworkingHTTPClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = APIAFNetworkingHTTPClient.m; path = Classes/APIAFNetworkingHTTPClient.m; sourceTree = SOURCE_ROOT; };
+		A1589200184FDA8200028655 /* APIClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = APIClient.h; path = Classes/APIClient.h; sourceTree = SOURCE_ROOT; };
+		A1589201184FDA8200028655 /* APIClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = APIClient.m; path = Classes/APIClient.m; sourceTree = SOURCE_ROOT; };
+		A1589202184FDA8200028655 /* APIClientConfiguration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = APIClientConfiguration.h; path = Classes/APIClientConfiguration.h; sourceTree = SOURCE_ROOT; };
+		A1589203184FDA8200028655 /* APIClientConfiguration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = APIClientConfiguration.m; path = Classes/APIClientConfiguration.m; sourceTree = SOURCE_ROOT; };
+		A1589204184FDA8200028655 /* APIHTTPClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = APIHTTPClient.h; path = Classes/APIHTTPClient.h; sourceTree = SOURCE_ROOT; };
+		A1589208184FDA9500028655 /* APIResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = APIResponse.h; path = Classes/APIResponse.h; sourceTree = SOURCE_ROOT; };
+		A1589209184FDA9500028655 /* APIResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = APIResponse.m; path = Classes/APIResponse.m; sourceTree = SOURCE_ROOT; };
+		A158920B184FDA9F00028655 /* APIRouter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = APIRouter.h; path = Classes/APIRouter.h; sourceTree = SOURCE_ROOT; };
+		A158920C184FDA9F00028655 /* APIRouter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = APIRouter.m; path = Classes/APIRouter.m; sourceTree = SOURCE_ROOT; };
+		A158920E184FDAB000028655 /* APIJSONSerializer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = APIJSONSerializer.h; path = Classes/APIJSONSerializer.h; sourceTree = SOURCE_ROOT; };
+		A158920F184FDAB000028655 /* APIJSONSerializer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = APIJSONSerializer.m; path = Classes/APIJSONSerializer.m; sourceTree = SOURCE_ROOT; };
+		A1589211184FDABC00028655 /* APIMapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = APIMapper.h; path = Classes/APIMapper.h; sourceTree = SOURCE_ROOT; };
+		A1589212184FDABC00028655 /* APIMapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = APIMapper.m; path = Classes/APIMapper.m; sourceTree = SOURCE_ROOT; };
+		A1589213184FDABC00028655 /* APIMappingProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = APIMappingProvider.h; path = Classes/APIMappingProvider.h; sourceTree = SOURCE_ROOT; };
+		A1589215184FDACD00028655 /* APIInflector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = APIInflector.h; path = Classes/APIInflector.h; sourceTree = SOURCE_ROOT; };
+		A1589216184FDACD00028655 /* APIInflector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = APIInflector.m; path = Classes/APIInflector.m; sourceTree = SOURCE_ROOT; };
+		A1589217184FDACD00028655 /* APIResourceNamer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = APIResourceNamer.h; path = Classes/APIResourceNamer.h; sourceTree = SOURCE_ROOT; };
+		A1589218184FDACD00028655 /* APIResourceNamer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = APIResourceNamer.m; path = Classes/APIResourceNamer.m; sourceTree = SOURCE_ROOT; };
+		A158921B184FDAE300028655 /* APIClient-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "APIClient-Prefix.pch"; path = "Classes/APIClient-Prefix.pch"; sourceTree = SOURCE_ROOT; };
+		A158921E184FDAFE00028655 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = InfoPlist.strings; sourceTree = "<group>"; };
+		A158921F184FDAFE00028655 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = Specs/Info.plist; sourceTree = SOURCE_ROOT; };
+		A1589220184FDB2600028655 /* APITestHTTPClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = APITestHTTPClient.h; path = Specs/APITestHTTPClient.h; sourceTree = SOURCE_ROOT; };
+		A1589221184FDB2600028655 /* APITestHTTPClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = APITestHTTPClient.m; path = Specs/APITestHTTPClient.m; sourceTree = SOURCE_ROOT; };
+		A1589222184FDB2600028655 /* OrderLine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OrderLine.h; path = Specs/OrderLine.h; sourceTree = SOURCE_ROOT; };
+		A1589223184FDB2600028655 /* OrderLine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OrderLine.m; path = Specs/OrderLine.m; sourceTree = SOURCE_ROOT; };
+		A1589224184FDB2600028655 /* Product.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Product.h; path = Specs/Product.h; sourceTree = SOURCE_ROOT; };
+		A1589225184FDB2600028655 /* Product.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Product.m; path = Specs/Product.m; sourceTree = SOURCE_ROOT; };
+		A1589229184FDB3900028655 /* APIClientConfigurationSpecs.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = APIClientConfigurationSpecs.m; path = Specs/APIClientConfigurationSpecs.m; sourceTree = SOURCE_ROOT; };
+		A158922A184FDB3900028655 /* APIClientSpecs.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = APIClientSpecs.m; path = Specs/APIClientSpecs.m; sourceTree = SOURCE_ROOT; };
+		A158922B184FDB3900028655 /* APIInflectorSpecs.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = APIInflectorSpecs.m; path = Specs/APIInflectorSpecs.m; sourceTree = SOURCE_ROOT; };
+		A158922C184FDB3900028655 /* APIJSONSerializerSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = APIJSONSerializerSpec.m; path = Specs/APIJSONSerializerSpec.m; sourceTree = SOURCE_ROOT; };
+		A158922D184FDB3900028655 /* APIMapperSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = APIMapperSpec.m; path = Specs/APIMapperSpec.m; sourceTree = SOURCE_ROOT; };
+		A158922E184FDB3900028655 /* APIResourceNamerSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = APIResourceNamerSpec.m; path = Specs/APIResourceNamerSpec.m; sourceTree = SOURCE_ROOT; };
+		A158922F184FDB3900028655 /* APIResponseSpecs.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = APIResponseSpecs.m; path = Specs/APIResponseSpecs.m; sourceTree = SOURCE_ROOT; };
+		A1589230184FDB3900028655 /* APIRouterSpecs.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = APIRouterSpecs.m; path = Specs/APIRouterSpecs.m; sourceTree = SOURCE_ROOT; };
+		A1589239184FDB4C00028655 /* SpecHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SpecHelper.h; path = Specs/SpecHelper.h; sourceTree = SOURCE_ROOT; };
+		A158923A184FDB5A00028655 /* TestMappingProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TestMappingProvider.h; path = Specs/TestMappingProvider.h; sourceTree = SOURCE_ROOT; };
+		A158923B184FDB5A00028655 /* TestMappingProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TestMappingProvider.m; path = Specs/TestMappingProvider.m; sourceTree = SOURCE_ROOT; };
+		A158923D184FDC6400028655 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		A1894E6D17D17CBE0052609F /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		A1894E6F17D17CC60052609F /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
-		A1894E7117D17D9F0052609F /* APIAFNetworkingHTTPClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APIAFNetworkingHTTPClient.h; sourceTree = "<group>"; };
-		A1894E7217D17D9F0052609F /* APIAFNetworkingHTTPClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APIAFNetworkingHTTPClient.m; sourceTree = "<group>"; };
-		A1894E7417D17E400052609F /* APITestHTTPClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APITestHTTPClient.h; sourceTree = "<group>"; };
-		A1894E7517D17E400052609F /* APITestHTTPClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APITestHTTPClient.m; sourceTree = "<group>"; };
-		A18F65A017ED0F28009D7818 /* APIJSONSerializer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APIJSONSerializer.h; sourceTree = "<group>"; };
-		A18F65A117ED0F28009D7818 /* APIJSONSerializer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APIJSONSerializer.m; sourceTree = "<group>"; };
 		A19B25BA17D16E47008DA908 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		A19B25C917D16E47008DA908 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		A19B260E17D17056008DA908 /* libAPIClient.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libAPIClient.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		A19B261C17D17056008DA908 /* Specs.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Specs.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		A19B265317D17257008DA908 /* APIClient-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "APIClient-Prefix.pch"; sourceTree = "<group>"; };
-		A19B265417D17257008DA908 /* APIClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APIClient.h; sourceTree = "<group>"; };
-		A19B265517D17257008DA908 /* APIClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APIClient.m; sourceTree = "<group>"; };
-		A19B265817D1725E008DA908 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
-		A19B265B17D1725E008DA908 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		A19B266117D172FE008DA908 /* APIClientSpecs.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APIClientSpecs.m; sourceTree = "<group>"; };
-		A1BEBB9517E4AE62006C8432 /* APIRouter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = APIRouter.h; sourceTree = "<group>"; };
-		A1BEBB9617E4C1C2006C8432 /* APIRouter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APIRouter.m; sourceTree = "<group>"; };
-		A1BEBB9917E4C57F006C8432 /* APIRouterSpecs.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APIRouterSpecs.m; sourceTree = "<group>"; };
-		A1BEBB9C17E4C702006C8432 /* APIInflector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APIInflector.h; sourceTree = "<group>"; };
-		A1BEBB9D17E4C702006C8432 /* APIInflector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APIInflector.m; sourceTree = "<group>"; };
-		A1BEBBA017E519E4006C8432 /* APIInflectorSpecs.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APIInflectorSpecs.m; sourceTree = "<group>"; };
-		A1BEBBA217E51BBB006C8432 /* APIClientConfiguration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APIClientConfiguration.h; sourceTree = "<group>"; };
-		A1BEBBA317E51BBB006C8432 /* APIClientConfiguration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APIClientConfiguration.m; sourceTree = "<group>"; };
-		A1BEBBA517E51D6B006C8432 /* APIClientConfigurationSpecs.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APIClientConfigurationSpecs.m; sourceTree = "<group>"; };
-		A1D7C3EA17DFDAA8000F8510 /* APIResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APIResponse.h; sourceTree = "<group>"; };
-		A1D7C3EB17DFDAA8000F8510 /* APIResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APIResponse.m; sourceTree = "<group>"; };
-		A1D7C3EE17DFDAE2000F8510 /* Product.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Product.h; sourceTree = "<group>"; };
-		A1D7C3EF17DFDAE2000F8510 /* Product.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Product.m; sourceTree = "<group>"; };
-		A1D7C3F117DFE589000F8510 /* APIResponseSpecs.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APIResponseSpecs.m; sourceTree = "<group>"; };
-		A1DD518B180B7A4B00465924 /* APIMapper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = APIMapper.h; sourceTree = "<group>"; };
-		A1E374F617DFBD8700235A34 /* SpecHelper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SpecHelper.h; sourceTree = "<group>"; };
-		A1F7C0AB1813FF52001AC8BE /* OrderLine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrderLine.h; sourceTree = "<group>"; };
-		A1F7C0AC1813FF52001AC8BE /* OrderLine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OrderLine.m; sourceTree = "<group>"; };
+		AC047CB0CC064A31BAF31F64 /* libPods-Specs.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Specs.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		B90C9CD54F454A5A8C067A5C /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		C6E64584EE9D406A9F78DE5C /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
@@ -123,7 +126,7 @@
 				A1894E6E17D17CBE0052609F /* SystemConfiguration.framework in Frameworks */,
 				A1537E3817D1768400D22137 /* UIKit.framework in Frameworks */,
 				A19B260F17D17056008DA908 /* Foundation.framework in Frameworks */,
-				93F2329B952D4C1C98DAFA30 /* libPods.a in Frameworks */,
+				FFB239744F15407F8B9FCBBF /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -131,11 +134,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A158923E184FDC6400028655 /* XCTest.framework in Frameworks */,
 				A1537E3917D176AA00D22137 /* UIKit.framework in Frameworks */,
-				A19B261D17D17056008DA908 /* SenTestingKit.framework in Frameworks */,
 				A19B261F17D17056008DA908 /* Foundation.framework in Frameworks */,
 				A19B262217D17056008DA908 /* libAPIClient.a in Frameworks */,
-				85D2F51389D14EC8947352DB /* libPods-Specs.a in Frameworks */,
+				8862960C6A9D4AB3A98464C1 /* libPods-Specs.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -145,13 +148,13 @@
 		A1060D2917DD284500EC32B7 /* Client */ = {
 			isa = PBXGroup;
 			children = (
-				A19B265417D17257008DA908 /* APIClient.h */,
-				A19B265517D17257008DA908 /* APIClient.m */,
-				A1BEBBA217E51BBB006C8432 /* APIClientConfiguration.h */,
-				A1BEBBA317E51BBB006C8432 /* APIClientConfiguration.m */,
-				A1894E6C17D17C330052609F /* APIHTTPClient.h */,
-				A1894E7117D17D9F0052609F /* APIAFNetworkingHTTPClient.h */,
-				A1894E7217D17D9F0052609F /* APIAFNetworkingHTTPClient.m */,
+				A15891FE184FDA8200028655 /* APIAFNetworkingHTTPClient.h */,
+				A15891FF184FDA8200028655 /* APIAFNetworkingHTTPClient.m */,
+				A1589200184FDA8200028655 /* APIClient.h */,
+				A1589201184FDA8200028655 /* APIClient.m */,
+				A1589202184FDA8200028655 /* APIClientConfiguration.h */,
+				A1589203184FDA8200028655 /* APIClientConfiguration.m */,
+				A1589204184FDA8200028655 /* APIHTTPClient.h */,
 			);
 			name = Client;
 			sourceTree = "<group>";
@@ -160,8 +163,8 @@
 			isa = PBXGroup;
 			children = (
 				A1BEBB9B17E4C6F2006C8432 /* Inflector */,
-				A1697DC91813F5070012E245 /* APIResourceNamer.h */,
-				A1697DCA1813F5070012E245 /* APIResourceNamer.m */,
+				A1589217184FDACD00028655 /* APIResourceNamer.h */,
+				A1589218184FDACD00028655 /* APIResourceNamer.m */,
 			);
 			name = ResourceNamer;
 			sourceTree = "<group>";
@@ -169,8 +172,8 @@
 		A18F659F17ED0F0C009D7818 /* Serializer */ = {
 			isa = PBXGroup;
 			children = (
-				A18F65A017ED0F28009D7818 /* APIJSONSerializer.h */,
-				A18F65A117ED0F28009D7818 /* APIJSONSerializer.m */,
+				A158920E184FDAB000028655 /* APIJSONSerializer.h */,
+				A158920F184FDAB000028655 /* APIJSONSerializer.m */,
 			);
 			name = Serializer;
 			sourceTree = "<group>";
@@ -199,13 +202,14 @@
 		A19B25B917D16E47008DA908 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				A158923D184FDC6400028655 /* XCTest.framework */,
 				A1894E6F17D17CC60052609F /* MobileCoreServices.framework */,
 				A1894E6D17D17CBE0052609F /* SystemConfiguration.framework */,
 				A1537E3717D1768400D22137 /* UIKit.framework */,
 				A19B25BA17D16E47008DA908 /* Foundation.framework */,
 				A19B25C917D16E47008DA908 /* SenTestingKit.framework */,
-				7953515CB94E4A45B716298D /* libPods.a */,
-				5D48E02F67DD4191847855B3 /* libPods-Specs.a */,
+				B90C9CD54F454A5A8C067A5C /* libPods.a */,
+				AC047CB0CC064A31BAF31F64 /* libPods-Specs.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -228,17 +232,17 @@
 		A19B265717D1725E008DA908 /* Specs */ = {
 			isa = PBXGroup;
 			children = (
+				A1589239184FDB4C00028655 /* SpecHelper.h */,
 				A19B266017D1727D008DA908 /* Supporting Files */,
 				A1D7C3ED17DFDAD0000F8510 /* Helper Classes */,
-				A1E374F617DFBD8700235A34 /* SpecHelper.h */,
-				A19B266117D172FE008DA908 /* APIClientSpecs.m */,
-				A1D7C3F117DFE589000F8510 /* APIResponseSpecs.m */,
-				A1BEBB9917E4C57F006C8432 /* APIRouterSpecs.m */,
-				A1BEBBA017E519E4006C8432 /* APIInflectorSpecs.m */,
-				A1BEBBA517E51D6B006C8432 /* APIClientConfigurationSpecs.m */,
-				A125C14F17EDE0070063763F /* APIJSONSerializerSpec.m */,
-				A12025DB180E08010019C01E /* APIMapperSpec.m */,
-				A1697DCC1813F51A0012E245 /* APIResourceNamerSpec.m */,
+				A158922A184FDB3900028655 /* APIClientSpecs.m */,
+				A158922F184FDB3900028655 /* APIResponseSpecs.m */,
+				A1589230184FDB3900028655 /* APIRouterSpecs.m */,
+				A158922B184FDB3900028655 /* APIInflectorSpecs.m */,
+				A1589229184FDB3900028655 /* APIClientConfigurationSpecs.m */,
+				A158922C184FDB3900028655 /* APIJSONSerializerSpec.m */,
+				A158922D184FDB3900028655 /* APIMapperSpec.m */,
+				A158922E184FDB3900028655 /* APIResourceNamerSpec.m */,
 			);
 			name = Specs;
 			path = ../Specs;
@@ -247,7 +251,7 @@
 		A19B265F17D17273008DA908 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				A19B265317D17257008DA908 /* APIClient-Prefix.pch */,
+				A158921B184FDAE300028655 /* APIClient-Prefix.pch */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -255,8 +259,8 @@
 		A19B266017D1727D008DA908 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				A19B265817D1725E008DA908 /* Info.plist */,
-				A19B265A17D1725E008DA908 /* InfoPlist.strings */,
+				A158921D184FDAFE00028655 /* InfoPlist.strings */,
+				A158921F184FDAFE00028655 /* Info.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -264,8 +268,8 @@
 		A1BEBB9417E4AE45006C8432 /* Router */ = {
 			isa = PBXGroup;
 			children = (
-				A1BEBB9517E4AE62006C8432 /* APIRouter.h */,
-				A1BEBB9617E4C1C2006C8432 /* APIRouter.m */,
+				A158920B184FDA9F00028655 /* APIRouter.h */,
+				A158920C184FDA9F00028655 /* APIRouter.m */,
 			);
 			name = Router;
 			sourceTree = "<group>";
@@ -273,8 +277,8 @@
 		A1BEBB9B17E4C6F2006C8432 /* Inflector */ = {
 			isa = PBXGroup;
 			children = (
-				A1BEBB9C17E4C702006C8432 /* APIInflector.h */,
-				A1BEBB9D17E4C702006C8432 /* APIInflector.m */,
+				A1589215184FDACD00028655 /* APIInflector.h */,
+				A1589216184FDACD00028655 /* APIInflector.m */,
 			);
 			name = Inflector;
 			sourceTree = "<group>";
@@ -282,8 +286,8 @@
 		A1D7C3E917DFDA9D000F8510 /* Response */ = {
 			isa = PBXGroup;
 			children = (
-				A1D7C3EA17DFDAA8000F8510 /* APIResponse.h */,
-				A1D7C3EB17DFDAA8000F8510 /* APIResponse.m */,
+				A1589208184FDA9500028655 /* APIResponse.h */,
+				A1589209184FDA9500028655 /* APIResponse.m */,
 			);
 			name = Response;
 			sourceTree = "<group>";
@@ -291,12 +295,14 @@
 		A1D7C3ED17DFDAD0000F8510 /* Helper Classes */ = {
 			isa = PBXGroup;
 			children = (
-				A1894E7417D17E400052609F /* APITestHTTPClient.h */,
-				A1894E7517D17E400052609F /* APITestHTTPClient.m */,
-				A1D7C3EE17DFDAE2000F8510 /* Product.h */,
-				A1D7C3EF17DFDAE2000F8510 /* Product.m */,
-				A1F7C0AB1813FF52001AC8BE /* OrderLine.h */,
-				A1F7C0AC1813FF52001AC8BE /* OrderLine.m */,
+				A158923A184FDB5A00028655 /* TestMappingProvider.h */,
+				A158923B184FDB5A00028655 /* TestMappingProvider.m */,
+				A1589220184FDB2600028655 /* APITestHTTPClient.h */,
+				A1589221184FDB2600028655 /* APITestHTTPClient.m */,
+				A1589222184FDB2600028655 /* OrderLine.h */,
+				A1589223184FDB2600028655 /* OrderLine.m */,
+				A1589224184FDB2600028655 /* Product.h */,
+				A1589225184FDB2600028655 /* Product.m */,
 			);
 			name = "Helper Classes";
 			sourceTree = "<group>";
@@ -304,9 +310,9 @@
 		A1DD518A180B7A3900465924 /* Mapper */ = {
 			isa = PBXGroup;
 			children = (
-				A1DD518B180B7A4B00465924 /* APIMapper.h */,
-				A124C1FF180B7DB70088BE4C /* APIMapper.m */,
-				A1063C841812BB70006CFBEC /* APIMappingProvider.h */,
+				A1589211184FDABC00028655 /* APIMapper.h */,
+				A1589212184FDABC00028655 /* APIMapper.m */,
+				A1589213184FDABC00028655 /* APIMappingProvider.h */,
 			);
 			name = Mapper;
 			sourceTree = "<group>";
@@ -387,7 +393,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A19B265E17D1725E008DA908 /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -474,15 +479,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A1697DCB1813F5070012E245 /* APIResourceNamer.m in Sources */,
-				A19B265617D17257008DA908 /* APIClient.m in Sources */,
-				A1894E7317D17D9F0052609F /* APIAFNetworkingHTTPClient.m in Sources */,
-				A1D7C3EC17DFDAA8000F8510 /* APIResponse.m in Sources */,
-				A18F65A217ED0F28009D7818 /* APIJSONSerializer.m in Sources */,
-				A1BEBB9717E4C1C2006C8432 /* APIRouter.m in Sources */,
-				A124C200180B7DB70088BE4C /* APIMapper.m in Sources */,
-				A1BEBB9E17E4C702006C8432 /* APIInflector.m in Sources */,
-				A1BEBBA417E51BBC006C8432 /* APIClientConfiguration.m in Sources */,
+				A1589205184FDA8200028655 /* APIAFNetworkingHTTPClient.m in Sources */,
+				A1589206184FDA8200028655 /* APIClient.m in Sources */,
+				A158920A184FDA9500028655 /* APIResponse.m in Sources */,
+				A1589207184FDA8200028655 /* APIClientConfiguration.m in Sources */,
+				A158920D184FDA9F00028655 /* APIRouter.m in Sources */,
+				A1589210184FDAB000028655 /* APIJSONSerializer.m in Sources */,
+				A1589214184FDABC00028655 /* APIMapper.m in Sources */,
+				A1589219184FDACD00028655 /* APIInflector.m in Sources */,
+				A158921A184FDACD00028655 /* APIResourceNamer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -490,17 +495,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A19B266217D172FE008DA908 /* APIClientSpecs.m in Sources */,
-				A1894E7617D17E400052609F /* APITestHTTPClient.m in Sources */,
-				A1D7C3F017DFDAE2000F8510 /* Product.m in Sources */,
-				A12025DC180E08010019C01E /* APIMapperSpec.m in Sources */,
-				A125C15017EDE0070063763F /* APIJSONSerializerSpec.m in Sources */,
-				A1D7C3F217DFE589000F8510 /* APIResponseSpecs.m in Sources */,
-				A1BEBB9A17E4C57F006C8432 /* APIRouterSpecs.m in Sources */,
-				A1BEBBA117E519E4006C8432 /* APIInflectorSpecs.m in Sources */,
-				A1BEBBA617E51D6B006C8432 /* APIClientConfigurationSpecs.m in Sources */,
-				A1F7C0AE1813FF59001AC8BE /* OrderLine.m in Sources */,
-				A1697DCD1813F51A0012E245 /* APIResourceNamerSpec.m in Sources */,
+				A1589241184FDD0300028655 /* OrderLine.m in Sources */,
+				A158924A184FDD0300028655 /* APIResourceNamerSpec.m in Sources */,
+				A1589242184FDD0300028655 /* Product.m in Sources */,
+				A158923F184FDD0300028655 /* TestMappingProvider.m in Sources */,
+				A1589245184FDD0300028655 /* APIRouterSpecs.m in Sources */,
+				A1589246184FDD0300028655 /* APIInflectorSpecs.m in Sources */,
+				A1589240184FDD0300028655 /* APITestHTTPClient.m in Sources */,
+				A1589247184FDD0300028655 /* APIClientConfigurationSpecs.m in Sources */,
+				A1589248184FDD0300028655 /* APIJSONSerializerSpec.m in Sources */,
+				A1589244184FDD0300028655 /* APIResponseSpecs.m in Sources */,
+				A1589249184FDD0300028655 /* APIMapperSpec.m in Sources */,
+				A1589243184FDD0300028655 /* APIClientSpecs.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -515,12 +521,13 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		A19B265A17D1725E008DA908 /* InfoPlist.strings */ = {
+		A158921D184FDAFE00028655 /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
-				A19B265B17D1725E008DA908 /* en */,
+				A158921E184FDAFE00028655 /* en */,
 			);
 			name = InfoPlist.strings;
+			path = ../APIClient/Specs/en.lproj;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -586,7 +593,7 @@
 				DSTROOT = /tmp/APIClient.dst;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "../Classes/APIClient-Prefix.pch";
+				GCC_PREFIX_HEADER = "Classes/APIClient-Prefix.pch";
 				OTHER_LDFLAGS = (
 					"-ObjC",
 					"$(inherited)",
@@ -603,7 +610,7 @@
 				DSTROOT = /tmp/APIClient.dst;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "../Classes/APIClient-Prefix.pch";
+				GCC_PREFIX_HEADER = "Classes/APIClient-Prefix.pch";
 				OTHER_LDFLAGS = (
 					"-ObjC",
 					"$(inherited)",
@@ -618,13 +625,14 @@
 			baseConfigurationReference = 60820679716F4CCD8ABFA748 /* Pods-Specs.xcconfig */;
 			buildSettings = {
 				FRAMEWORK_SEARCH_PATHS = (
-					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
-					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
 					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "../Classes/APIClient-Prefix.pch";
-				INFOPLIST_FILE = ../Specs/Info.plist;
+				GCC_PREFIX_HEADER = "Classes/APIClient-Prefix.pch";
+				INFOPLIST_FILE = Specs/Info.plist;
 				OTHER_LDFLAGS = (
 					"-ObjC",
 					"-framework",
@@ -651,13 +659,14 @@
 			baseConfigurationReference = 60820679716F4CCD8ABFA748 /* Pods-Specs.xcconfig */;
 			buildSettings = {
 				FRAMEWORK_SEARCH_PATHS = (
-					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
-					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
 					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "../Classes/APIClient-Prefix.pch";
-				INFOPLIST_FILE = ../Specs/Info.plist;
+				GCC_PREFIX_HEADER = "Classes/APIClient-Prefix.pch";
+				INFOPLIST_FILE = Specs/Info.plist;
 				OTHER_LDFLAGS = (
 					"-ObjC",
 					"-framework",
