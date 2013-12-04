@@ -66,7 +66,7 @@ task :release do
 end
 
 task :test do
-  sh "xctool -workspace APIClient.xcworkspace -scheme APIClient -sdk iphonesimulator test"
+  sh "xctool -workspace APIClient.xcworkspace -scheme APIClient -sdk iphonesimulator7.0 test"
 end
 
 task :default => :test
