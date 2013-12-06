@@ -2,8 +2,9 @@ language: objective-c
 xcode_workspace: "APIClient.xcworkspace"
 xcode_scheme: "APIClient"
 before_install:
-  - "brew update"
-  - "brew upgrade xctool"
+  - brew update
+  - brew remove --force xctool
+  - brew upgrade xctool
 rvm: 1.9.3
 cache: bundler
 script: "bundle exec rake"
