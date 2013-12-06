@@ -38,6 +38,16 @@
                ReferencedContainer = "container:APIClient.xcodeproj">
             </BuildableReference>
          </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "A13049A618528178003EA1FA"
+               BuildableName = "IntegrationSpecs.xctest"
+               BlueprintName = "IntegrationSpecs"
+               ReferencedContainer = "container:APIClient.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
    </TestAction>
    <LaunchAction

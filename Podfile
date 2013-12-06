@@ -10,6 +10,12 @@ target "Specs", exclusive: true do
   pod "OCMock"
 end
 
+target "IntegrationSpecs", exclusive: true do
+  pod "Specta"
+  pod "Expecta"
+  pod "Barista"
+end
+
 target "Example", exclusive: true do
   xcodeproj "Example/Example.xcodeproj"
   workspace "Example/Example.xcworkspace"
