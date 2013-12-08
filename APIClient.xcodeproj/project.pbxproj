@@ -14,6 +14,15 @@
 		A13049B018528178003EA1FA /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = A13049AE18528178003EA1FA /* InfoPlist.strings */; };
 		A13049BB18528205003EA1FA /* IntegrationSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = A13049BA18528205003EA1FA /* IntegrationSpec.m */; };
 		A13049C5185283AF003EA1FA /* FakeAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = A13049C3185283AF003EA1FA /* FakeAPI.m */; };
+		A13049D218528875003EA1FA /* APIAFNetworkingHTTPClient.m in Sources */ = {isa = PBXBuildFile; fileRef = A15891FF184FDA8200028655 /* APIAFNetworkingHTTPClient.m */; };
+		A13049D318528875003EA1FA /* APIClient.m in Sources */ = {isa = PBXBuildFile; fileRef = A1589201184FDA8200028655 /* APIClient.m */; };
+		A13049D418528875003EA1FA /* APIClientConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = A1589203184FDA8200028655 /* APIClientConfiguration.m */; };
+		A13049D518528875003EA1FA /* APIResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = A1589209184FDA9500028655 /* APIResponse.m */; };
+		A13049D618528875003EA1FA /* APIRouter.m in Sources */ = {isa = PBXBuildFile; fileRef = A158920C184FDA9F00028655 /* APIRouter.m */; };
+		A13049D718528875003EA1FA /* APIJSONSerializer.m in Sources */ = {isa = PBXBuildFile; fileRef = A158920F184FDAB000028655 /* APIJSONSerializer.m */; };
+		A13049D818528875003EA1FA /* APIMapper.m in Sources */ = {isa = PBXBuildFile; fileRef = A1589212184FDABC00028655 /* APIMapper.m */; };
+		A13049D918528875003EA1FA /* APIInflector.m in Sources */ = {isa = PBXBuildFile; fileRef = A1589216184FDACD00028655 /* APIInflector.m */; };
+		A13049DA18528875003EA1FA /* APIResourceNamer.m in Sources */ = {isa = PBXBuildFile; fileRef = A1589218184FDACD00028655 /* APIResourceNamer.m */; };
 		A1537E3817D1768400D22137 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1537E3717D1768400D22137 /* UIKit.framework */; };
 		A1537E3917D176AA00D22137 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1537E3717D1768400D22137 /* UIKit.framework */; };
 		A1589205184FDA8200028655 /* APIAFNetworkingHTTPClient.m in Sources */ = {isa = PBXBuildFile; fileRef = A15891FF184FDA8200028655 /* APIAFNetworkingHTTPClient.m */; };
@@ -82,7 +91,6 @@
 		A13049A718528178003EA1FA /* IntegrationSpecs.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = IntegrationSpecs.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A13049AD18528178003EA1FA /* IntegrationSpecs-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "IntegrationSpecs-Info.plist"; sourceTree = "<group>"; };
 		A13049AF18528178003EA1FA /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		A13049B318528178003EA1FA /* IntegrationSpecs-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "IntegrationSpecs-Prefix.pch"; sourceTree = "<group>"; };
 		A13049B9185281F2003EA1FA /* SpecHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpecHelper.h; sourceTree = "<group>"; };
 		A13049BA18528205003EA1FA /* IntegrationSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IntegrationSpec.m; sourceTree = "<group>"; };
 		A13049C2185283AF003EA1FA /* FakeAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FakeAPI.h; sourceTree = "<group>"; };
@@ -197,6 +205,7 @@
 		A13049AB18528178003EA1FA /* IntegrationSpecs */ = {
 			isa = PBXGroup;
 			children = (
+				A13049DB1852889D003EA1FA /* Resources */,
 				A13049C1185283AF003EA1FA /* FakeAPI */,
 				A13049AC18528178003EA1FA /* Supporting Files */,
 				A13049BA18528205003EA1FA /* IntegrationSpec.m */,
@@ -209,7 +218,6 @@
 			children = (
 				A13049AD18528178003EA1FA /* IntegrationSpecs-Info.plist */,
 				A13049AE18528178003EA1FA /* InfoPlist.strings */,
-				A13049B318528178003EA1FA /* IntegrationSpecs-Prefix.pch */,
 				A13049B9185281F2003EA1FA /* SpecHelper.h */,
 			);
 			name = "Supporting Files";
@@ -230,6 +238,13 @@
 			children = (
 			);
 			path = Responses;
+			sourceTree = "<group>";
+		};
+		A13049DB1852889D003EA1FA /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 		A1697DC81813F4DF0012E245 /* ResourceNamer */ = {
@@ -621,8 +636,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A13049D618528875003EA1FA /* APIRouter.m in Sources */,
+				A13049D218528875003EA1FA /* APIAFNetworkingHTTPClient.m in Sources */,
+				A13049D518528875003EA1FA /* APIResponse.m in Sources */,
 				A13049BB18528205003EA1FA /* IntegrationSpec.m in Sources */,
+				A13049D818528875003EA1FA /* APIMapper.m in Sources */,
+				A13049D718528875003EA1FA /* APIJSONSerializer.m in Sources */,
 				A13049C5185283AF003EA1FA /* FakeAPI.m in Sources */,
+				A13049D418528875003EA1FA /* APIClientConfiguration.m in Sources */,
+				A13049D318528875003EA1FA /* APIClient.m in Sources */,
+				A13049D918528875003EA1FA /* APIInflector.m in Sources */,
+				A13049DA18528875003EA1FA /* APIResourceNamer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -701,7 +725,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = C9610D3E3A70449381DA188C /* Pods-IntegrationSpecs.xcconfig */;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
@@ -712,7 +735,7 @@
 					"$(DEVELOPER_FRAMEWORKS_DIR)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "IntegrationSpecs/IntegrationSpecs-Prefix.pch";
+				GCC_PREFIX_HEADER = "Classes/APIClient-Prefix.pch";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
@@ -723,6 +746,22 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				INFOPLIST_FILE = "IntegrationSpecs/IntegrationSpecs-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-framework",
+					CoreGraphics,
+					"-framework",
+					Foundation,
+					"-framework",
+					MobileCoreServices,
+					"-framework",
+					Security,
+					"-framework",
+					SenTestingKit,
+					"-framework",
+					SystemConfiguration,
+					"$(inherited)",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = xctest;
 			};
@@ -732,7 +771,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = C9610D3E3A70449381DA188C /* Pods-IntegrationSpecs.xcconfig */;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
@@ -744,13 +782,29 @@
 					"$(DEVELOPER_FRAMEWORKS_DIR)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "IntegrationSpecs/IntegrationSpecs-Prefix.pch";
+				GCC_PREFIX_HEADER = "Classes/APIClient-Prefix.pch";
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				INFOPLIST_FILE = "IntegrationSpecs/IntegrationSpecs-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-framework",
+					CoreGraphics,
+					"-framework",
+					Foundation,
+					"-framework",
+					MobileCoreServices,
+					"-framework",
+					Security,
+					"-framework",
+					SenTestingKit,
+					"-framework",
+					SystemConfiguration,
+					"$(inherited)",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = xctest;
 			};

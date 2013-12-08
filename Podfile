@@ -10,7 +10,7 @@ target "Specs", exclusive: true do
   pod "OCMock"
 end
 
-target "IntegrationSpecs", exclusive: true do
+target "IntegrationSpecs" do
   pod "Specta"
   pod "Expecta"
   pod "Barista"

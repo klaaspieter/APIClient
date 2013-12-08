@@ -10,6 +10,8 @@
 
 @interface FakeAPI : NSObject
 
+- (id)initWithPort:(NSUInteger)port;
+
 - (void)start;
 - (void)stop;
 
