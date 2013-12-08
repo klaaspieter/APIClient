@@ -3,6 +3,8 @@
 #import "FakeAPI.h"
 #import "APIClient.h"
 
+#import "Product.h"
+
 SpecBegin(IntegrationSpec)
 
 __block APIClient *_client;
@@ -14,11 +16,16 @@ describe(@"IntegrationSpec", ^{
         FakeAPI *fakeAPI = [[FakeAPI alloc] initWithPort:port];
         [fakeAPI start];
 
-        NSString *url = [NSString stringWithFormat:@"localhost:%i", port];
+        NSString *url = [NSString stringWithFormat:@"http://localhost:%i", port];
         _client = [APIClient clientWithBaseURL:[NSURL URLWithString:url]];
     });
 
-    it(@"can GET a collection of resources", ^{
+    it(@"can GET a collection of resources", ^AsyncBlock{
+        APIResponse *response = [_client findAll:[Product class]];
+        response.success = ^(NSArray *products) {
+            expect(products).to.haveCountOf(2);
+            done();
+        };
     });
 });
 

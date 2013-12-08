@@ -1,0 +1,13 @@
+{
+    "products": [{
+        "id": 1,
+        "name": "Karma w/ 1GB",
+        "price": "79",
+        "balanceIncrease": 1073741824
+     }, {
+        "id": 2,
+        "name": "Karma w/ 5GB",
+        "price": "149",
+        "balanceIncrease": 5368709120
+     }]
+}

@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		8862960C6A9D4AB3A98464C1 /* libPods-Specs.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AC047CB0CC064A31BAF31F64 /* libPods-Specs.a */; };
+		A116891E1854FD3800969587 /* Product.m in Sources */ = {isa = PBXBuildFile; fileRef = A116891D1854FD3800969587 /* Product.m */; };
+		A11689201854FD4900969587 /* products in Resources */ = {isa = PBXBuildFile; fileRef = A116891F1854FD4900969587 /* products */; };
 		A13049A818528178003EA1FA /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A158923D184FDC6400028655 /* XCTest.framework */; };
 		A13049A918528178003EA1FA /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A19B25BA17D16E47008DA908 /* Foundation.framework */; };
 		A13049AA18528178003EA1FA /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1537E3717D1768400D22137 /* UIKit.framework */; };
@@ -88,6 +90,9 @@
 /* Begin PBXFileReference section */
 		60820679716F4CCD8ABFA748 /* Pods-Specs.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Specs.xcconfig"; path = "Pods/Pods-Specs.xcconfig"; sourceTree = SOURCE_ROOT; };
 		9E99FEFE1901430F916E2625 /* libPods-IntegrationSpecs.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-IntegrationSpecs.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		A116891C1854FD3800969587 /* Product.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Product.h; sourceTree = "<group>"; };
+		A116891D1854FD3800969587 /* Product.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Product.m; sourceTree = "<group>"; };
+		A116891F1854FD4900969587 /* products */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = products; sourceTree = "<group>"; };
 		A13049A718528178003EA1FA /* IntegrationSpecs.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = IntegrationSpecs.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A13049AD18528178003EA1FA /* IntegrationSpecs-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "IntegrationSpecs-Info.plist"; sourceTree = "<group>"; };
 		A13049AF18528178003EA1FA /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
@@ -236,6 +241,7 @@
 		A13049C4185283AF003EA1FA /* Responses */ = {
 			isa = PBXGroup;
 			children = (
+				A116891F1854FD4900969587 /* products */,
 			);
 			path = Responses;
 			sourceTree = "<group>";
@@ -243,6 +249,8 @@
 		A13049DB1852889D003EA1FA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				A116891C1854FD3800969587 /* Product.h */,
+				A116891D1854FD3800969587 /* Product.m */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -512,6 +520,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A13049B018528178003EA1FA /* InfoPlist.strings in Resources */,
+				A11689201854FD4900969587 /* products in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -645,6 +654,7 @@
 				A13049C5185283AF003EA1FA /* FakeAPI.m in Sources */,
 				A13049D418528875003EA1FA /* APIClientConfiguration.m in Sources */,
 				A13049D318528875003EA1FA /* APIClient.m in Sources */,
+				A116891E1854FD3800969587 /* Product.m in Sources */,
 				A13049D918528875003EA1FA /* APIInflector.m in Sources */,
 				A13049DA18528875003EA1FA /* APIResourceNamer.m in Sources */,
 			);
