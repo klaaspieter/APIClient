@@ -9,8 +9,7 @@
 #import "FakeAPI.h"
 
 #import "Barista.h"
-#import "BARStaticFileServer.h"
-#import "BARRouter.h"
+#import "FileServerMiddleware.h"
 
 @interface FakeAPI ()
 @property (nonatomic, readwrite, strong) BARServer *server;
@@ -50,11 +49,9 @@
     if (!_server)
     {
         _server = [BARServer serverWithPort:self.port];
-        NSURL *directoryURL = [[NSBundle bundleForClass:self.class] bundleURL];
-        [_server addGlobalMiddleware:[BARStaticFileServer fileServerWithDirectoryURL:directoryURL forURLBasePath:@"/"]];
+        NSURL *directoryURL = [[[NSBundle bundleForClass:self.class] bundleURL] URLByAppendingPathComponent:@"Responses"];
+        [_server addGlobalMiddleware:[FileServerMiddleware fileServerMiddleWithDirectoryURL:directoryURL forURLBasePath:@"/"]];
     }
-
-
 
     return _server;
 }

@@ -10,4 +10,9 @@
 
 @interface Product : NSObject
 
+@property (nonatomic, readonly, copy) NSString *name;
+@property (nonatomic, readonly, assign) NSUInteger price;
+@property (nonatomic, readonly, assign) BOOL inStock;
+@property (nonatomic, readonly, assign) double balanceIncrease;
+
 @end
