@@ -11,9 +11,6 @@ __block FakeAPI *_fakeAPI;
 __block APIClient *_client;
 
 describe(@"IntegrationSpec", ^{
-    beforeAll(^{
-    });
-
     before(^{
         NSUInteger port = 3333;
         _fakeAPI = [[FakeAPI alloc] initWithPort:port];
@@ -37,8 +34,7 @@ describe(@"IntegrationSpec", ^{
 
     it(@"can GET a single resource", ^AsyncBlock{
         APIResponse *response = [_client findResource:[Product class] withID:@1];
-        response.success = ^(NSArray *products) {
-            Product *product = products[0];
+        response.success = ^(Product *product) {
             expect(product.name).to.equal(@"Karma w/ 1GB");
             expect(product.price).to.equal(79);
             expect(product.inStock).to.beTruthy();

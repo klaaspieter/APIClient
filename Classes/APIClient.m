@@ -74,8 +74,9 @@
     APIResponse *response = [[APIResponse alloc] initWithResolver:^(APIResponseBlock resolve, APIResponseBlock reject) {
         [self.httpClient getPath:[self.router pathForAction:@"show" onResource:resource withArguments:@{@"id": resourceID}] parameters:nil success:^(id responseObject) {
             id serialized = [self.serializer deserializeJSON:responseObject];
-            id mapped = [self.mapper mapValues:serialized toResource:resource];
-            resolve(mapped);
+            NSArray *mapped = [self.mapper mapValues:serialized toResource:resource];
+
+            resolve(mapped.firstObject);
         } failure:^(NSError *error) {
             reject(error);
         }];

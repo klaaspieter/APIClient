@@ -151,9 +151,8 @@ describe(@"APIClient", ^{
         context(@"with a successful request", ^{
             it(@"resolves the response with the mapping result", ^AsyncBlock {
                 APIResponse *response = [_client findResource:[Product class] withID:@1];
-                response.success = ^(id products) {
-                    expect(products).to.beKindOf([NSArray class]);
-                    expect(products[0]).to.beInstanceOf([Product class]);
+                response.success = ^(Product *product) {
+                    expect(product).to.beKindOf([Product class]);
                     done();
                 };
                 [_httpClient succeedRequestsWithJSONObject:@{@"products": @[@{@"name": @"Karma"}]}];
