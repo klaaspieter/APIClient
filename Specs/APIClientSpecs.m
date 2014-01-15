@@ -176,6 +176,11 @@ describe(@"APIClient", ^{
             id response = [_client createResource:[[Product alloc] init]];
             expect(response).to.beKindOf([APIResponse class]);
         });
+
+        it(@"makes a request for the resource", ^{
+            [_client createResource:[[Product alloc] init]];
+            expect(_httpClient.requests[0]).to.equal(@"products");
+        });
     });
 });
 
