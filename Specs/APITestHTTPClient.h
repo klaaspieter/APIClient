@@ -10,6 +10,11 @@
 
 #import "APIHTTPClient.h"
 
+@interface APITestHTTPClientRequest : NSObject
+@property (nonatomic, readonly, strong) NSString *path;
+@property (nonatomic, readonly, strong) NSString *method;
+@end
+
 @interface APITestHTTPClient : NSObject <APIHTTPClient>
 
 @property (nonatomic, readonly, strong) NSURL *baseURL;

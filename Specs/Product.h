@@ -13,4 +13,7 @@
 @property (nonatomic, readwrite, assign) NSUInteger price;
 @property (nonatomic, readwrite, assign) double balanceIncrease;
 @property (nonatomic, readwrite, assign) BOOL inStock;
+
++ (instancetype)productWithName:(NSString *)name balanceIncrease:(double)balanceIncrease;
+- (id)initWithName:(NSString *)name balanceIncrease:(double)balanceIncrease;
 @end

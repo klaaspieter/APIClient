@@ -84,6 +84,15 @@
     return response;
 }
 
+- (APIResponse *)createResource:(id)resource;
+{
+    APIResponse *response = [[APIResponse alloc] initWithResolver:^(APIResponseBlock resolve, APIResponseBlock reject) {
+        [self.httpClient postPath:[self.router pathForAction:@"create" onResource:[resource class]] parameters:nil success:nil failure:nil];
+    }];
+
+    return response;
+}
+
 - (id<APIRouter>)router;
 {
     return self.configuration.router;

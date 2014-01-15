@@ -31,5 +31,6 @@
 
 - (APIResponse *)findAll:(Class)resource;
 - (APIResponse *)findResource:(Class)resource withID:(id)resourceID;
+- (APIResponse *)createResource:(id)resource;
 
 @end
