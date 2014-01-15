@@ -170,6 +170,13 @@ describe(@"APIClient", ^{
             });
         });
     });
+
+    describe(@"createResource:", ^{
+        it(@"returns a response promise", ^{
+            id response = [_client createResource:[[Product alloc] init]];
+            expect(response).to.beKindOf([APIResponse class]);
+        });
+    });
 });
 
 SpecEnd

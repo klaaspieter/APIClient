@@ -86,7 +86,10 @@
 
 - (APIResponse *)createResource:(id)resource;
 {
-    return nil;
+    APIResponse *response = [[APIResponse alloc] initWithResolver:^(APIResponseBlock resolve, APIResponseBlock reject) {
+    }];
+
+    return response;
 }
 
 - (id<APIRouter>)router;
