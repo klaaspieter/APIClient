@@ -181,6 +181,11 @@ describe(@"APIClient", ^{
             [_client createResource:[[Product alloc] init]];
             expect([_httpClient.requests[0] path]).to.equal(@"products");
         });
+
+        it(@"makes a POST request for the resource", ^{
+            [_client createResource:[[Product alloc] init]];
+            expect([_httpClient.requests[0] method]).to.equal(@"post");
+        });
     });
 });
 
