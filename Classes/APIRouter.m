@@ -36,6 +36,8 @@
         return [self pathForShowActionOnResource:resource withArguments:arguments];
     } else if ([action isEqualToString:@"index"]) {
         return [self pathForIndexActionOnResource:resource withArguments:arguments];
+    } else if ([action isEqualToString:@"create"]) {
+        return [self pathForCreateActionOnResource:resource withArguments:arguments];
     }
 
     return nil;
@@ -63,6 +65,11 @@
 }
 
 - (NSString *)pathForIndexActionOnResource:(Class)resource withArguments:(NSDictionary *)arguments;
+{
+    return [self.resourceNamer pluralizedNameForResource:resource];
+}
+
+- (NSString *)pathForCreateActionOnResource:(Class)resource withArguments:(NSDictionary *)arguments;
 {
     return [self.resourceNamer pluralizedNameForResource:resource];
 }

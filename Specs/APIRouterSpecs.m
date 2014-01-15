@@ -60,6 +60,12 @@ describe(@"APIRouter", ^{
                 }).to.raise(NSInvalidArgumentException);
             });
         });
+
+        describe(@"create actions", ^{
+            it(@"routes to the pluralized resource name", ^{
+                expect([_router pathForAction:@"create" onResource:[NSObject class]]).to.equal(@"objects");
+            });
+        });
     });
 });
 
