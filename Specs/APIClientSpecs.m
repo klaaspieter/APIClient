@@ -54,10 +54,10 @@ describe(@"APIClient", ^{
     describe(@"routing", ^{
         it(@"uses the router to build paths for a resource", ^{
             _router = [OCMockObject mockForProtocol:@protocol(APIRouter)];
-            [[[_router expect] andReturn:@"/objects"] pathForAction:@"index" onResource:[Product class]];
+            [[[_router expect] andReturn:@"objects"] pathForAction:@"index" onResource:[Product class]];
             _client.configuration.router = _router;
             [_client findAll:[Product class]];
-            expect(_httpClient.requests[0]).to.equal(@"/objects");
+            expect([_httpClient.requests[0] path]).to.equal(@"objects");
             [_router verify];
         });
     });
@@ -92,15 +92,15 @@ describe(@"APIClient", ^{
 
         it(@"makes a request for the resource", ^{
             [_client findAll:[Product class]];
-            expect(_httpClient.requests[0]).to.equal(@"products");
+            expect([_httpClient.requests[0] path]).to.equal(@"products");
         });
 
         it(@"uses the router to build paths for the index action", ^{
             _router = [OCMockObject mockForProtocol:@protocol(APIRouter)];
-            [[[_router expect] andReturn:@"/objects"] pathForAction:@"index" onResource:[Product class]];
+            [[[_router expect] andReturn:@"objects"] pathForAction:@"index" onResource:[Product class]];
             _client.configuration.router = _router;
             [_client findAll:[Product class]];
-            expect(_httpClient.requests[0]).to.equal(@"/objects");
+            expect([_httpClient.requests[0] path]).to.equal(@"objects");
             [_router verify];
         });
 
@@ -136,15 +136,15 @@ describe(@"APIClient", ^{
 
         it(@"makes a request for the resource", ^{
             [_client findResource:[Product class] withID:@1];
-            expect(_httpClient.requests[0]).to.equal(@"products/1");
+            expect([_httpClient.requests[0] path]).to.equal(@"products/1");
         });
 
         it(@"uses the router to build paths for the show action", ^{
             _router = [OCMockObject mockForProtocol:@protocol(APIRouter)];
-            [[[_router expect] andReturn:@"/objects/1"] pathForAction:@"show" onResource:[Product class] withArguments:@{@"id": @1}];
+            [[[_router expect] andReturn:@"objects/1"] pathForAction:@"show" onResource:[Product class] withArguments:@{@"id": @1}];
             _client.configuration.router = _router;
             [_client findResource:[Product class] withID:@1];
-            expect(_httpClient.requests[0]).to.equal(@"/objects/1");
+            expect([_httpClient.requests[0] path]).to.equal(@"objects/1");
             [_router verify];
         });
 
@@ -179,7 +179,7 @@ describe(@"APIClient", ^{
 
         it(@"makes a request for the resource", ^{
             [_client createResource:[[Product alloc] init]];
-            expect(_httpClient.requests[0]).to.equal(@"products");
+            expect([_httpClient.requests[0] path]).to.equal(@"products");
         });
     });
 });
