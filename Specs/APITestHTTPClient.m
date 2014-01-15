@@ -61,6 +61,15 @@ typedef void(^RequestResolver)(id object);
     [self.mutableRequests setObject:resolver forKey:path];
 }
 
+- (void)postPath:(NSString *)path
+      parameters:(NSDictionary *)parameters
+         success:(void (^)(id))success
+         failure:(void (^)(NSError *))failure;
+{
+    Resolver *resolver = [Resolver resolverWithSuccess:success failure:failure];
+    [self.mutableRequests setObject:resolver forKey:path];
+}
+
 - (NSMutableDictionary *)mutableRequests;
 {
     if (!_mutableRequests)
