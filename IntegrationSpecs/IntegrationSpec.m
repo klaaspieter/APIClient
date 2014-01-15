@@ -5,6 +5,8 @@
 
 #import "Product.h"
 
+const double GIGABYTE = 1073741824;
+
 SpecBegin(IntegrationSpec)
 
 __block FakeAPI *_fakeAPI;
@@ -38,7 +40,18 @@ describe(@"IntegrationSpec", ^{
             expect(product.name).to.equal(@"Karma w/ 1GB");
             expect(product.price).to.equal(79);
             expect(product.inStock).to.beTruthy();
-            expect(product.balanceIncrease).to.equal(1073741824);
+            expect(product.balanceIncrease).to.equal(1 * GIGABYTE);
+            done();
+        };
+    });
+
+    it(@"can create a new resource using POST", ^AsyncBlock{
+        Product *product = [Product productWithName:@"Karma w/ 5GB" balanceIncrease:5 * GIGABYTE];
+        APIResponse *response = [_client createResource:product];
+        response.success = ^(Product *product) {
+            expect(product.name).to.equal(@"Karma w/ 5GB");
+            expect(product.balanceIncrease).to.equal(5 * GIGABYTE);
+            expect(product.price).to.equal(129);
             done();
         };
     });

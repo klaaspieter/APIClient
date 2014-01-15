@@ -84,6 +84,11 @@
     return response;
 }
 
+- (APIResponse *)createResource:(id)resource;
+{
+    return nil;
+}
+
 - (id<APIRouter>)router;
 {
     return self.configuration.router;
