@@ -81,11 +81,20 @@ typedef void(^RequestResolver)(id object);
 
 - (void)succeedRequestsWithJSONObject:(id)object;
 {
+    [self succeedRequestsWithData:[NSJSONSerialization dataWithJSONObject:object options:0 error:nil]];
+}
+
+- (void)succeedRequestsWithResponseString:(NSString *)responseString;
+{
+    [self succeedRequestsWithData:[responseString dataUsingEncoding:NSUTF8StringEncoding]];
+}
+
+- (void)succeedRequestsWithData:(NSData *)data;
+{
     for (NSString *path in self.mutableRequests)
     {
         Resolver *resolver = self.mutableRequests[path];
-        NSData *json = [NSJSONSerialization dataWithJSONObject:object options:0 error:nil];
-        resolver.success(json);
+        resolver.success(data);
     }
 }
 

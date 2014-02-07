@@ -19,6 +19,7 @@
 
 - (void)succeedRequests;
 - (void)succeedRequestsWithJSONObject:(id)object;
+- (void)succeedRequestsWithResponseString:(NSString *)responseString;
 - (void)failRequests;
 
 @end
