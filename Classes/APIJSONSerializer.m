@@ -8,16 +8,18 @@
 
 #import "APIJSONSerializer.h"
 
+NSString *const APIJSONSerializerErrorDomain = @"APIJSONSerializerErrorDomain";
+
 @implementation APIJSONSerializer
 
-- (id)deserializeJSON:(NSData *)json;
+- (id)deserializeJSON:(NSData *)json error:(NSError *__autoreleasing *)error;
 {
-    NSData *jsonData = json;
-    NSError *error;
-    id object = [NSJSONSerialization JSONObjectWithData:jsonData options:0 error:&error];
+    NSError *serializationError;
+    id object = [NSJSONSerialization JSONObjectWithData:json options:0 error:&serializationError];
 
-    if (!object)
-        [NSException raise:NSInternalInconsistencyException format:@"JSON could not be deserialized. Please make sure your server is returning valid JSON."];
+    if (!object && error) {
+        *error = [NSError errorWithDomain:APIJSONSerializerErrorDomain code:0 userInfo:@{NSUnderlyingErrorKey: serializationError}];
+    }
 
     return object;
 }

@@ -8,9 +8,10 @@
 
 #import <Foundation/Foundation.h>
 
-@protocol APIJSONSerializer <NSObject>
+FOUNDATION_EXTERN NSString *const APIJSONSerializerErrorDomain;
 
-- (id)deserializeJSON:(NSData *)json;
+@protocol APIJSONSerializer <NSObject>
+- (id)deserializeJSON:(NSData *)json error:(NSError **)error;
 @end
 
 @interface APIJSONSerializer : NSObject <APIJSONSerializer>
