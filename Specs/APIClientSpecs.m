@@ -65,7 +65,8 @@ describe(@"APIClient", ^{
     describe(@"serialization", ^{
         it(@"uses the serializer to deserialize the response body", ^{
             _serializer = [OCMockObject mockForProtocol:@protocol(APIJSONSerializer)];
-            [[[_serializer expect] andReturn:@{}] deserializeJSON:[@"{}" dataUsingEncoding:NSUTF8StringEncoding]];
+            [[[_serializer expect] andReturn:@{}] deserializeJSON:[@"{}" dataUsingEncoding:NSUTF8StringEncoding]
+                                                            error:(NSError *__autoreleasing *)[OCMArg anyPointer]];
             _client.configuration.serializer = _serializer;
             [_client findAll:[Product class]];
             [_httpClient succeedRequests];
@@ -125,6 +126,15 @@ describe(@"APIClient", ^{
                 };
                 [_httpClient failRequests];
             });
+
+            it(@"rejects the response promise when serialization fails", ^AsyncBlock{
+                APIResponse *response = [_client findAll:[Product class]];
+                response.failure = ^(NSError *error) {
+                    expect(error.domain).to.equal(APIJSONSerializerErrorDomain);
+                    done();
+                };
+                [_httpClient succeedRequestsWithResponseString:@"<html></html>"];
+            });
         });
     });
 
@@ -167,6 +177,16 @@ describe(@"APIClient", ^{
                     done();
                 };
                 [_httpClient failRequests];
+            });
+
+
+            it(@"rejects the response promise when serialization fails", ^AsyncBlock{
+                APIResponse *response = [_client findResource:[Product class] withID:@1];
+                response.failure = ^(NSError *error) {
+                    expect(error.domain).to.equal(APIJSONSerializerErrorDomain);
+                    done();
+                };
+                [_httpClient succeedRequestsWithResponseString:@"<html></html>"];
             });
         });
     });
