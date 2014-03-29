@@ -1,7 +1,25 @@
 PODS:
-  - AFNetworking (1.3.3)
+  - AFNetworking (2.2.1):
+    - AFNetworking/NSURLConnection
+    - AFNetworking/NSURLSession
+    - AFNetworking/Reachability
+    - AFNetworking/Security
+    - AFNetworking/Serialization
+    - AFNetworking/UIKit
+  - AFNetworking/NSURLConnection (2.2.1):
+    - AFNetworking/Reachability
+    - AFNetworking/Security
+    - AFNetworking/Serialization
+  - AFNetworking/NSURLSession (2.2.1):
+    - AFNetworking/NSURLConnection
+  - AFNetworking/Reachability (2.2.1)
+  - AFNetworking/Security (2.2.1)
+  - AFNetworking/Serialization (2.2.1)
+  - AFNetworking/UIKit (2.2.1):
+    - AFNetworking/NSURLConnection
+    - AFNetworking/NSURLSession
   - APIClient (0.1.0):
-    - AFNetworking (~> 1.3)
+    - AFNetworking (~> 2.2.1)
     - DCKeyValueObjectMapping
     - InflectorKit
   - Barista (0.0.3):
@@ -79,7 +97,7 @@ PODS:
   - Specta (0.2.1)
 
 DEPENDENCIES:
-  - AFNetworking (~> 1.3)
+  - AFNetworking (~> 2.2.1)
   - APIClient (from `./`)
   - Barista
   - DCKeyValueObjectMapping
@@ -93,8 +111,8 @@ EXTERNAL SOURCES:
     :path: ./
 
 SPEC CHECKSUMS:
-  AFNetworking: 61fdd49e2ffe6380378df37b3b6e70630bb9dd66
-  APIClient: 81d3f26f05b2068565a3950191eb3c84074cb5d8
+  AFNetworking: 0121f4b69be3fa58d1ab317866e036e12ac9651d
+  APIClient: 71f818946dc0127c5733760df5e0d9de150bcbcf
   Barista: 89b9b4d35b7ccfc51e751a9343d1036a3fd87ea6
   CocoaAsyncSocket: 534d09416f992fd51efb23f534742ce70b3a7999
   DCKeyValueObjectMapping: 39adaf0a54ff6368a22d9221db60f0696d81ad7b

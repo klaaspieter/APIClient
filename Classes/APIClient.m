@@ -59,13 +59,18 @@
 {
     APIResponse *response = [[APIResponse alloc] initWithResolver:^(APIResponseBlock resolve, APIResponseBlock reject) {
         [self.httpClient getPath:[self.router pathForAction:@"index" onResource:resource] parameters:nil success:^(id responseObject) {
-            NSError *error;
-            id serialized = [self.serializer deserializeJSON:responseObject error:&error];
-
-            if (!serialized) {
-                reject(error);
+            if ([responseObject isKindOfClass:[NSData class]]) {
+                NSError *error;
+                id serialized = [self.serializer deserializeJSON:responseObject error:&error];
+                
+                if (!serialized) {
+                    reject(error);
+                } else {
+                    id mapped = [self.mapper mapValues:serialized toResource:resource];
+                    resolve(mapped);
+                }
             } else {
-                id mapped = [self.mapper mapValues:serialized toResource:resource];
+                id mapped = [self.mapper mapValues:responseObject toResource:resource];
                 resolve(mapped);
             }
         } failure:^(NSError *error) {
@@ -79,16 +84,20 @@
 {
     APIResponse *response = [[APIResponse alloc] initWithResolver:^(APIResponseBlock resolve, APIResponseBlock reject) {
         [self.httpClient getPath:[self.router pathForAction:@"show" onResource:resource withArguments:@{@"id": resourceID}] parameters:nil success:^(id responseObject) {
-            NSError *error;
-            id serialized = [self.serializer deserializeJSON:responseObject error:&error];
-
-            if (!serialized) {
-                reject(error);
+            if ([responseObject isKindOfClass:[NSData class]]) {
+                NSError *error;
+                id serialized = [self.serializer deserializeJSON:responseObject error:&error];
+                
+                if (!serialized) {
+                    reject(error);
+                } else {
+                    NSArray *mapped = [self.mapper mapValues:serialized toResource:resource];
+                    resolve(mapped.firstObject);
+                }
             } else {
-                NSArray *mapped = [self.mapper mapValues:serialized toResource:resource];
+                NSArray *mapped = [self.mapper mapValues:responseObject toResource:resource];
                 resolve(mapped.firstObject);
             }
-            
         } failure:^(NSError *error) {
             reject(error);
         }];

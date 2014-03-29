@@ -11,6 +11,8 @@
 
 #import "APIHTTPClient.h"
 
-@interface APIAFNetworkingHTTPClient : AFHTTPClient <APIHTTPClient>
+@interface APIAFNetworkingHTTPClient : AFHTTPRequestOperationManager <APIHTTPClient>
+
++(instancetype)clientWithBaseURL:(NSURL*)baseURL;
 
 @end

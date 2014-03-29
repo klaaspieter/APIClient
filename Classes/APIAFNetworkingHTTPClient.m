@@ -10,12 +10,16 @@
 
 @implementation APIAFNetworkingHTTPClient
 
++(instancetype)clientWithBaseURL:(NSURL *)baseURL {
+    return [[self alloc] initWithBaseURL:baseURL];
+}
+
 - (void)getPath:(NSString *)path
      parameters:(NSDictionary *)parameters
         success:(void (^)(id responseObject))success
         failure:(void (^)(NSError *error))failure;
 {
-    return [super getPath:path parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
+    [super GET:path parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
         success(responseObject);
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         failure(error);
