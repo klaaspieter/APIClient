@@ -67,15 +67,15 @@ PODS:
     - CocoaAsyncSocket (~> 7.0)
     - GRMustache (~> 6.4.1)
     - JLRoutes (~> 1.4)
-  - CocoaAsyncSocket (7.3.2)
+  - CocoaAsyncSocket (7.3.4)
   - DCKeyValueObjectMapping (1.4)
-  - Expecta (0.2.3)
+  - Expecta (0.3.0)
   - GRMustache (6.4.1):
     - JRSwizzle (~> 1.0)
   - InflectorKit (0.0.1)
-  - JLRoutes (1.4)
+  - JLRoutes (1.5)
   - JRSwizzle (1.0)
-  - OCMock (2.2.1)
+  - OCMock (2.2.3)
   - Specta (0.2.1)
 
 DEPENDENCIES:
@@ -93,17 +93,17 @@ EXTERNAL SOURCES:
     :path: ./
 
 SPEC CHECKSUMS:
-  AFNetworking: 0700ec7a58c36ad217173e167f6e4df7270df66b
+  AFNetworking: 61fdd49e2ffe6380378df37b3b6e70630bb9dd66
   APIClient: 81d3f26f05b2068565a3950191eb3c84074cb5d8
   Barista: 89b9b4d35b7ccfc51e751a9343d1036a3fd87ea6
-  CocoaAsyncSocket: 977404129ec8505fee1c3701956b769e3bb10ea7
+  CocoaAsyncSocket: 534d09416f992fd51efb23f534742ce70b3a7999
   DCKeyValueObjectMapping: 39adaf0a54ff6368a22d9221db60f0696d81ad7b
-  Expecta: dbc4a27fabb853bdd2e907e33f11ee43a9a47d0c
+  Expecta: 322f1dc42610106a5ba9871b4924cf1635d80833
   GRMustache: d462f30b261a952a06c518ab3bc30cc5ec7abb63
   InflectorKit: 9dccab02f95541093995adac639342c9eb9e6c12
-  JLRoutes: 8814d5341d2678c2daca045ce538f21e62e558d4
+  JLRoutes: 377be327c3070c5b7131e4fc3debdbe0fd704939
   JRSwizzle: 6242ff38485d870fc2636899048ee1ab883ae587
-  OCMock: 80e4cfbc71a0e1bd28caf10a9fda27da7c4c8402
+  OCMock: 74e4ddbcef134170dcc844f91c691f13868075d7
   Specta: 2d06220591110c6d9757d8be8ecf8e63aa40dc2a
 
-COCOAPODS: 0.28.0
+COCOAPODS: 0.30.0
