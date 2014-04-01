@@ -54,6 +54,7 @@
     BARResponse *response = [[BARResponse alloc] init];
     response.statusCode = 200;
     response.responseData = [[NSFileManager defaultManager] contentsAtPath:fileURL.path];
+    [response setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
     [connection sendResponse:response];
 }
 
