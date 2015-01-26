@@ -68,13 +68,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		A19B260C17D17056008DA908 /* CopyFiles */ = {
+		A19B260C17D17056008DA908 /* Copy Files */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "include/${PRODUCT_NAME}";
 			dstSubfolderSpec = 16;
 			files = (
 			);
+			name = "Copy Files";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
@@ -448,7 +449,7 @@
 				CA87751B8E6A426D822CB695 /* Check Pods Manifest.lock */,
 				A19B260A17D17056008DA908 /* Sources */,
 				A19B260B17D17056008DA908 /* Frameworks */,
-				A19B260C17D17056008DA908 /* CopyFiles */,
+				A19B260C17D17056008DA908 /* Copy Files */,
 				6CC5A465E4B2405C96E8DCC9 /* Copy Pods Resources */,
 			);
 			buildRules = (

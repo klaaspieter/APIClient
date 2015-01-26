@@ -47,7 +47,7 @@
 
 - (NSDictionary *)mappingsForResource:(Class)resource;
 {
-    return @{@"yeastType": @"type"};
+    return @{@"yeastType": @"type", @"description": @"information"};
 }
 
 #pragma mark - Table view data source

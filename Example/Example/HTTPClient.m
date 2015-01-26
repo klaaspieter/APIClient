@@ -10,10 +10,10 @@
 
 @implementation HTTPClient
 
-- (NSMutableURLRequest *)requestWithMethod:(NSString *)method path:(NSString *)path parameters:(NSDictionary *)parameters
+- (void)getPath:(NSString *)path parameters:(NSDictionary *)parameters success:(void (^)(id))success failure:(void (^)(NSError *))failure;
 {
     path = [path stringByAppendingString:@"?key=0cddf7ec249232832da492429491d3f4"];
-    return [super requestWithMethod:method path:path parameters:parameters];
+    [super getPath:path parameters:parameters success:success failure:failure];
 }
 
 @end

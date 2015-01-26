@@ -11,4 +11,5 @@
 @interface Yeast : NSObject
 @property (nonatomic, readonly, copy) NSString *name;
 @property (nonatomic, readonly, copy) NSString *type;
+@property (nonatomic, readonly, copy) NSString *information;
 @end
