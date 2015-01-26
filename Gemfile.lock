@@ -50,6 +50,7 @@ GEM
     xcodeproj (0.21.0)
       activesupport (>= 3)
       colored (~> 1.2)
+    xcpretty (0.1.7)
 
 PLATFORMS
   ruby
@@ -57,3 +58,4 @@ PLATFORMS
 DEPENDENCIES
   cocoapods (>= 0.36.0.beta.pre.1)
   rake
+  xcpretty
