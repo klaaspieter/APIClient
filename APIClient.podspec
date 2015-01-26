@@ -14,8 +14,8 @@ Pod::Spec.new do |s|
 
   s.frameworks = "MobileCoreServices", "SystemConfiguration"
 
-  s.dependency "AFNetworking", "~> 2.2.1"
-  s.dependency "InflectorKit"
-  s.dependency "DCKeyValueObjectMapping"
+  s.dependency "AFNetworking", "~> 2.5"
+  s.dependency "InflectorKit", "= 0.0.1"
+  s.dependency "DCKeyValueObjectMapping", "~> 1.4"
 
 end
