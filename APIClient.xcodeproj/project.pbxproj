@@ -7,7 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		30729EC09F66C8C08441F074 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B90C9CD54F454A5A8C067A5C /* libPods.a */; };
 		8862960C6A9D4AB3A98464C1 /* libPods-Specs.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AC047CB0CC064A31BAF31F64 /* libPods-Specs.a */; };
+		A111727A1A76B42300750929 /* libAPIClient.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A19B260E17D17056008DA908 /* libAPIClient.a */; };
 		A116891E1854FD3800969587 /* Product.m in Sources */ = {isa = PBXBuildFile; fileRef = A116891D1854FD3800969587 /* Product.m */; };
 		A13049A818528178003EA1FA /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A158923D184FDC6400028655 /* XCTest.framework */; };
 		A13049A918528178003EA1FA /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A19B25BA17D16E47008DA908 /* Foundation.framework */; };
@@ -15,16 +17,6 @@
 		A13049B018528178003EA1FA /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = A13049AE18528178003EA1FA /* InfoPlist.strings */; };
 		A13049BB18528205003EA1FA /* IntegrationSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = A13049BA18528205003EA1FA /* IntegrationSpec.m */; };
 		A13049C5185283AF003EA1FA /* FakeAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = A13049C3185283AF003EA1FA /* FakeAPI.m */; };
-		A13049D218528875003EA1FA /* APIAFNetworkingHTTPClient.m in Sources */ = {isa = PBXBuildFile; fileRef = A15891FF184FDA8200028655 /* APIAFNetworkingHTTPClient.m */; };
-		A13049D318528875003EA1FA /* APIClient.m in Sources */ = {isa = PBXBuildFile; fileRef = A1589201184FDA8200028655 /* APIClient.m */; };
-		A13049D418528875003EA1FA /* APIClientConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = A1589203184FDA8200028655 /* APIClientConfiguration.m */; };
-		A13049D518528875003EA1FA /* APIResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = A1589209184FDA9500028655 /* APIResponse.m */; };
-		A13049D618528875003EA1FA /* APIRouter.m in Sources */ = {isa = PBXBuildFile; fileRef = A158920C184FDA9F00028655 /* APIRouter.m */; };
-		A13049D718528875003EA1FA /* APIJSONSerializer.m in Sources */ = {isa = PBXBuildFile; fileRef = A158920F184FDAB000028655 /* APIJSONSerializer.m */; };
-		A13049D818528875003EA1FA /* APIMapper.m in Sources */ = {isa = PBXBuildFile; fileRef = A1589212184FDABC00028655 /* APIMapper.m */; };
-		A13049D918528875003EA1FA /* APIInflector.m in Sources */ = {isa = PBXBuildFile; fileRef = A1589216184FDACD00028655 /* APIInflector.m */; };
-		A13049DA18528875003EA1FA /* APIResourceNamer.m in Sources */ = {isa = PBXBuildFile; fileRef = A1589218184FDACD00028655 /* APIResourceNamer.m */; };
-		A1534DB3185684960095C11C /* FileServerMiddleware.m in Sources */ = {isa = PBXBuildFile; fileRef = A1534DB2185684960095C11C /* FileServerMiddleware.m */; };
 		A1534DB5185687430095C11C /* Responses in Resources */ = {isa = PBXBuildFile; fileRef = A1534DB4185687430095C11C /* Responses */; };
 		A1537E3817D1768400D22137 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1537E3717D1768400D22137 /* UIKit.framework */; };
 		A1537E3917D176AA00D22137 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1537E3717D1768400D22137 /* UIKit.framework */; };
@@ -56,7 +48,6 @@
 		A19B261F17D17056008DA908 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A19B25BA17D16E47008DA908 /* Foundation.framework */; };
 		A19B262217D17056008DA908 /* libAPIClient.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A19B260E17D17056008DA908 /* libAPIClient.a */; };
 		CB64A1AFD06C4B9DAED00C23 /* libPods-IntegrationSpecs.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E99FEFE1901430F916E2625 /* libPods-IntegrationSpecs.a */; };
-		FFB239744F15407F8B9FCBBF /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B90C9CD54F454A5A8C067A5C /* libPods.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -89,7 +80,9 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		60820679716F4CCD8ABFA748 /* Pods-Specs.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Specs.xcconfig"; path = "Pods/Pods-Specs.xcconfig"; sourceTree = SOURCE_ROOT; };
+		0A36148DFE3023A9C1037674 /* Pods-IntegrationSpecs.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IntegrationSpecs.debug.xcconfig"; path = "Pods/Target Support Files/Pods-IntegrationSpecs/Pods-IntegrationSpecs.debug.xcconfig"; sourceTree = "<group>"; };
+		56E91A644599CFF0233DC63E /* Pods-Specs.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Specs.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Specs/Pods-Specs.debug.xcconfig"; sourceTree = "<group>"; };
+		7E8B68D0F34733B27A881473 /* libPods-APIClient.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-APIClient.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9E99FEFE1901430F916E2625 /* libPods-IntegrationSpecs.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-IntegrationSpecs.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A116891C1854FD3800969587 /* Product.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Product.h; sourceTree = "<group>"; };
 		A116891D1854FD3800969587 /* Product.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Product.m; sourceTree = "<group>"; };
@@ -100,8 +93,6 @@
 		A13049BA18528205003EA1FA /* IntegrationSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IntegrationSpec.m; sourceTree = "<group>"; };
 		A13049C2185283AF003EA1FA /* FakeAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FakeAPI.h; sourceTree = "<group>"; };
 		A13049C3185283AF003EA1FA /* FakeAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FakeAPI.m; sourceTree = "<group>"; };
-		A1534DB1185684960095C11C /* FileServerMiddleware.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FileServerMiddleware.h; sourceTree = "<group>"; };
-		A1534DB2185684960095C11C /* FileServerMiddleware.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FileServerMiddleware.m; sourceTree = "<group>"; };
 		A1534DB4185687430095C11C /* Responses */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Responses; sourceTree = "<group>"; };
 		A1537E3717D1768400D22137 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		A15891FE184FDA8200028655 /* APIAFNetworkingHTTPClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = APIAFNetworkingHTTPClient.h; path = Classes/APIAFNetworkingHTTPClient.h; sourceTree = SOURCE_ROOT; };
@@ -151,10 +142,12 @@
 		A19B25C917D16E47008DA908 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		A19B260E17D17056008DA908 /* libAPIClient.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libAPIClient.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		A19B261C17D17056008DA908 /* Specs.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Specs.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		A64F1F3DB793A3EDA0B33AEC /* Pods-Specs.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Specs.release.xcconfig"; path = "Pods/Target Support Files/Pods-Specs/Pods-Specs.release.xcconfig"; sourceTree = "<group>"; };
 		AC047CB0CC064A31BAF31F64 /* libPods-Specs.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Specs.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		AE942C4F48D7A90C074ECD8E /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		B261F902EAC654527E16CB5F /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		B90C9CD54F454A5A8C067A5C /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		C6E64584EE9D406A9F78DE5C /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = SOURCE_ROOT; };
-		C9610D3E3A70449381DA188C /* Pods-IntegrationSpecs.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IntegrationSpecs.xcconfig"; path = "Pods/Pods-IntegrationSpecs.xcconfig"; sourceTree = "<group>"; };
+		FC665CFA4620E926C59CD75B /* Pods-IntegrationSpecs.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IntegrationSpecs.release.xcconfig"; path = "Pods/Target Support Files/Pods-IntegrationSpecs/Pods-IntegrationSpecs.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -165,6 +158,7 @@
 				A13049A818528178003EA1FA /* XCTest.framework in Frameworks */,
 				A13049AA18528178003EA1FA /* UIKit.framework in Frameworks */,
 				A13049A918528178003EA1FA /* Foundation.framework in Frameworks */,
+				A111727A1A76B42300750929 /* libAPIClient.a in Frameworks */,
 				CB64A1AFD06C4B9DAED00C23 /* libPods-IntegrationSpecs.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -177,7 +171,7 @@
 				A1894E6E17D17CBE0052609F /* SystemConfiguration.framework in Frameworks */,
 				A1537E3817D1768400D22137 /* UIKit.framework in Frameworks */,
 				A19B260F17D17056008DA908 /* Foundation.framework in Frameworks */,
-				FFB239744F15407F8B9FCBBF /* libPods.a in Frameworks */,
+				30729EC09F66C8C08441F074 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -237,8 +231,6 @@
 				A1534DB4185687430095C11C /* Responses */,
 				A13049C2185283AF003EA1FA /* FakeAPI.h */,
 				A13049C3185283AF003EA1FA /* FakeAPI.m */,
-				A1534DB1185684960095C11C /* FileServerMiddleware.h */,
-				A1534DB2185684960095C11C /* FileServerMiddleware.m */,
 			);
 			path = FakeAPI;
 			sourceTree = "<group>";
@@ -279,9 +271,7 @@
 				A13049AB18528178003EA1FA /* IntegrationSpecs */,
 				A19B25B917D16E47008DA908 /* Frameworks */,
 				A19B25B817D16E47008DA908 /* Products */,
-				C6E64584EE9D406A9F78DE5C /* Pods.xcconfig */,
-				60820679716F4CCD8ABFA748 /* Pods-Specs.xcconfig */,
-				C9610D3E3A70449381DA188C /* Pods-IntegrationSpecs.xcconfig */,
+				F8039810C5182266F2F2D456 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -307,6 +297,7 @@
 				B90C9CD54F454A5A8C067A5C /* libPods.a */,
 				AC047CB0CC064A31BAF31F64 /* libPods-Specs.a */,
 				9E99FEFE1901430F916E2625 /* libPods-IntegrationSpecs.a */,
+				7E8B68D0F34733B27A881473 /* libPods-APIClient.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -414,6 +405,19 @@
 			name = Mapper;
 			sourceTree = "<group>";
 		};
+		F8039810C5182266F2F2D456 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				B261F902EAC654527E16CB5F /* Pods.debug.xcconfig */,
+				AE942C4F48D7A90C074ECD8E /* Pods.release.xcconfig */,
+				0A36148DFE3023A9C1037674 /* Pods-IntegrationSpecs.debug.xcconfig */,
+				FC665CFA4620E926C59CD75B /* Pods-IntegrationSpecs.release.xcconfig */,
+				56E91A644599CFF0233DC63E /* Pods-Specs.debug.xcconfig */,
+				A64F1F3DB793A3EDA0B33AEC /* Pods-Specs.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -465,7 +469,7 @@
 				A19B261817D17056008DA908 /* Frameworks */,
 				A19B261917D17056008DA908 /* Resources */,
 				A19B261A17D17056008DA908 /* Run Script */,
-				7CCA93A80ECC4E6483C00A6A /* Copy Pods Resources */,
+				7CCA93A80ECC4E6483C00A6A /* I */,
 			);
 			buildRules = (
 			);
@@ -475,7 +479,7 @@
 			name = Specs;
 			productName = APIClientTests;
 			productReference = A19B261C17D17056008DA908 /* Specs.xctest */;
-			productType = "com.apple.product-type.bundle";
+			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
 
@@ -573,22 +577,22 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		7CCA93A80ECC4E6483C00A6A /* Copy Pods Resources */ = {
+		7CCA93A80ECC4E6483C00A6A /* I */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Copy Pods Resources";
+			name = I;
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Pods-Specs-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Specs/Pods-Specs-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		8221CB7260294AF7AAA26947 /* Copy Pods Resources */ = {
@@ -603,7 +607,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Pods-IntegrationSpecs-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-IntegrationSpecs/Pods-IntegrationSpecs-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		A19B261A17D17056008DA908 /* Run Script */ = {
@@ -642,19 +646,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A13049D618528875003EA1FA /* APIRouter.m in Sources */,
-				A13049D218528875003EA1FA /* APIAFNetworkingHTTPClient.m in Sources */,
-				A13049D518528875003EA1FA /* APIResponse.m in Sources */,
 				A13049BB18528205003EA1FA /* IntegrationSpec.m in Sources */,
-				A13049D818528875003EA1FA /* APIMapper.m in Sources */,
-				A13049D718528875003EA1FA /* APIJSONSerializer.m in Sources */,
 				A13049C5185283AF003EA1FA /* FakeAPI.m in Sources */,
-				A13049D418528875003EA1FA /* APIClientConfiguration.m in Sources */,
-				A13049D318528875003EA1FA /* APIClient.m in Sources */,
 				A116891E1854FD3800969587 /* Product.m in Sources */,
-				A1534DB3185684960095C11C /* FileServerMiddleware.m in Sources */,
-				A13049D918528875003EA1FA /* APIInflector.m in Sources */,
-				A13049DA18528875003EA1FA /* APIResourceNamer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -731,7 +725,7 @@
 /* Begin XCBuildConfiguration section */
 		A13049B618528178003EA1FA /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = C9610D3E3A70449381DA188C /* Pods-IntegrationSpecs.xcconfig */;
+			baseConfigurationReference = 0A36148DFE3023A9C1037674 /* Pods-IntegrationSpecs.debug.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
@@ -777,7 +771,7 @@
 		};
 		A13049B718528178003EA1FA /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = C9610D3E3A70449381DA188C /* Pods-IntegrationSpecs.xcconfig */;
+			baseConfigurationReference = FC665CFA4620E926C59CD75B /* Pods-IntegrationSpecs.release.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
@@ -873,7 +867,7 @@
 		};
 		A19B262D17D17056008DA908 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = C6E64584EE9D406A9F78DE5C /* Pods.xcconfig */;
+			baseConfigurationReference = B261F902EAC654527E16CB5F /* Pods.debug.xcconfig */;
 			buildSettings = {
 				DSTROOT = /tmp/APIClient.dst;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
@@ -890,7 +884,7 @@
 		};
 		A19B262E17D17056008DA908 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = C6E64584EE9D406A9F78DE5C /* Pods.xcconfig */;
+			baseConfigurationReference = AE942C4F48D7A90C074ECD8E /* Pods.release.xcconfig */;
 			buildSettings = {
 				DSTROOT = /tmp/APIClient.dst;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
@@ -907,7 +901,7 @@
 		};
 		A19B263017D17056008DA908 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 60820679716F4CCD8ABFA748 /* Pods-Specs.xcconfig */;
+			baseConfigurationReference = 56E91A644599CFF0233DC63E /* Pods-Specs.debug.xcconfig */;
 			buildSettings = {
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
@@ -941,7 +935,7 @@
 		};
 		A19B263117D17056008DA908 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 60820679716F4CCD8ABFA748 /* Pods-Specs.xcconfig */;
+			baseConfigurationReference = A64F1F3DB793A3EDA0B33AEC /* Pods-Specs.release.xcconfig */;
 			buildSettings = {
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",

@@ -1,6 +1,6 @@
 inhibit_all_warnings!
 
-pod "AFNetworking", "~> 2.2.1"
+pod "AFNetworking"
 pod "InflectorKit"
 pod "DCKeyValueObjectMapping"
 
@@ -10,14 +10,14 @@ target "Specs", exclusive: true do
   pod "OCMock"
 end
 
-target "IntegrationSpecs" do
+target "IntegrationSpecs", exclusive: true do
   pod "Specta"
   pod "Expecta"
-  pod "Barista"
+  pod "GCDWebServer"
 end
 
-target "Example", exclusive: true do
-  xcodeproj "Example/Example.xcodeproj"
-  workspace "Example/Example.xcworkspace"
-  pod "APIClient", path: "./"
-end
+#target "Example", exclusive: true do
+#  xcodeproj "Example/Example.xcodeproj"
+#  workspace "Example/Example.xcworkspace"
+#  pod "APIClient", path: "./"
+#end

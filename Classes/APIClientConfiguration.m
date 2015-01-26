@@ -8,6 +8,8 @@
 
 #import "APIClientConfiguration.h"
 
+#import "APIAFNetworkingHTTPClient.h"
+
 @interface APIClientConfiguration ()
 @end
 

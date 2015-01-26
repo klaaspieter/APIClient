@@ -11,7 +11,7 @@
 #import "APIClientConfiguration.h"
 
 #import "APIRouter.h"
-#import "APIAFNetworkingHTTPClient.h"
+#import "APIHTTPClient.h"
 #import "APIResponse.h"
 #import "APIJSONSerializer.h"
 

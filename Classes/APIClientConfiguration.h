@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 
 #import "APIRouter.h"
-#import "APIAFNetworkingHTTPClient.h"
+#import "APIHTTPClient.h"
 #import "APIJSONSerializer.h"
 #import "APIResponse.h"
 #import "APIMapper.h"

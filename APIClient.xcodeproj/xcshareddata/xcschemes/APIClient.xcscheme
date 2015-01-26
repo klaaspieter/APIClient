@@ -38,7 +38,26 @@
                ReferencedContainer = "container:APIClient.xcodeproj">
             </BuildableReference>
          </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "A13049A618528178003EA1FA"
+               BuildableName = "IntegrationSpecs.xctest"
+               BlueprintName = "IntegrationSpecs"
+               ReferencedContainer = "container:APIClient.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
+      <MacroExpansion>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "A19B260D17D17056008DA908"
+            BuildableName = "libAPIClient.a"
+            BlueprintName = "APIClient"
+            ReferencedContainer = "container:APIClient.xcodeproj">
+         </BuildableReference>
+      </MacroExpansion>
    </TestAction>
    <LaunchAction
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
@@ -49,6 +68,15 @@
       ignoresPersistentStateOnLaunch = "NO"
       debugDocumentVersioning = "YES"
       allowLocationSimulation = "YES">
+      <MacroExpansion>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "A19B260D17D17056008DA908"
+            BuildableName = "libAPIClient.a"
+            BlueprintName = "APIClient"
+            ReferencedContainer = "container:APIClient.xcodeproj">
+         </BuildableReference>
+      </MacroExpansion>
       <AdditionalOptions>
       </AdditionalOptions>
    </LaunchAction>
@@ -58,6 +86,15 @@
       useCustomWorkingDirectory = "NO"
       buildConfiguration = "Release"
       debugDocumentVersioning = "YES">
+      <MacroExpansion>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "A19B260D17D17056008DA908"
+            BuildableName = "libAPIClient.a"
+            BlueprintName = "APIClient"
+            ReferencedContainer = "container:APIClient.xcodeproj">
+         </BuildableReference>
+      </MacroExpansion>
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">

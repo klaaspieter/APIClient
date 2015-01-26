@@ -2,6 +2,8 @@
 
 #import "APIClientConfiguration.h"
 
+#import "APIAFNetworkingHTTPClient.h"
+
 SpecBegin(APIClientConfigurationSpecs)
 
 __block APIClientConfiguration *_configuration;

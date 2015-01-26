@@ -16,7 +16,7 @@ describe(@"IntegrationSpec", ^{
         _fakeAPI = [[FakeAPI alloc] initWithPort:port];
         [_fakeAPI start];
 
-        NSString *url = [NSString stringWithFormat:@"http://localhost:%i", 3333];
+        NSString *url = [NSString stringWithFormat:@"http://localhost:%ld", port];
         _client = [APIClient clientWithBaseURL:[NSURL URLWithString:url]];
     });
 
@@ -30,6 +30,10 @@ describe(@"IntegrationSpec", ^{
             expect(products).to.haveCountOf(2);
             done();
         };
+        response.failure = ^(NSError *error) {
+            expect(nil).toNot.beNil(); // Fail early
+            done();
+        };
     });
 
     it(@"can GET a single resource", ^AsyncBlock{
@@ -39,6 +43,10 @@ describe(@"IntegrationSpec", ^{
             expect(product.price).to.equal(79);
             expect(product.inStock).to.beTruthy();
             expect(product.balanceIncrease).to.equal(1073741824);
+            done();
+        };
+        response.failure = ^(NSError *error) {
+            expect(nil).toNot.beNil(); // Fail early
             done();
         };
     });

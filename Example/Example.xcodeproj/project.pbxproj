@@ -93,6 +93,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		670F33C98447F6C18BB8D28F /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		A125C19D17EDE56F0063763F = {
 			isa = PBXGroup;
 			children = (
@@ -100,6 +107,7 @@
 				A125C1A817EDE56F0063763F /* Frameworks */,
 				A125C1A717EDE56F0063763F /* Products */,
 				A64D2C2FF3E34C32B96BAB39 /* Pods-Example.xcconfig */,
+				670F33C98447F6C18BB8D28F /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -277,7 +285,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/../Project/Pods/Pods-Example-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/../Pods/Target Support Files/Pods-Example/Pods-Example-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */

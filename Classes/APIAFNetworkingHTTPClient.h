@@ -13,6 +13,6 @@
 
 @interface APIAFNetworkingHTTPClient : AFHTTPRequestOperationManager <APIHTTPClient>
 
-+(instancetype)clientWithBaseURL:(NSURL*)baseURL;
++ (instancetype)clientWithBaseURL:(NSURL*)baseURL;
 
 @end
