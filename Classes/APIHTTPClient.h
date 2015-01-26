@@ -10,7 +10,6 @@
 
 @protocol APIHTTPClient <NSObject>
 
-- (id)initWithBaseURL:(NSURL *)baseURL;
 - (NSURL *)baseURL;
 
 - (void)getPath:(NSString *)path

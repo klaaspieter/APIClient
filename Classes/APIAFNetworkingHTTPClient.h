@@ -11,8 +11,10 @@
 
 #import "APIHTTPClient.h"
 
-@interface APIAFNetworkingHTTPClient : AFHTTPRequestOperationManager <APIHTTPClient>
+@interface APIAFNetworkingHTTPClient : NSObject <APIHTTPClient>
 
-+ (instancetype)clientWithBaseURL:(NSURL*)baseURL;
+@property (nonatomic, readonly, copy) NSURL *baseURL;
+
+- (id)initWithBaseURL:(NSURL *)baseURL;
 
 @end

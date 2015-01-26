@@ -46,7 +46,7 @@
 {
     NSParameterAssert(baseURL);
     
-    id<APIHTTPClient> httpClient = [APIAFNetworkingHTTPClient clientWithBaseURL:baseURL];
+    id<APIHTTPClient> httpClient = [[APIAFNetworkingHTTPClient alloc] initWithBaseURL:baseURL];
     return [self initWithHTTPClient:httpClient router:nil serializer:nil mapper:nil];
 }
 
@@ -72,7 +72,7 @@
 
 - (void)setBaseURL:(NSURL *)baseURL;
 {
-    _httpClient = [APIAFNetworkingHTTPClient clientWithBaseURL:baseURL];
+    _httpClient = [[APIAFNetworkingHTTPClient alloc] initWithBaseURL:baseURL];
 }
 
 - (id<APIRouter>)router;

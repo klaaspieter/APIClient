@@ -6,12 +6,24 @@
 //  Copyright (c) 2013 Klaas Pieter Annema. All rights reserved.
 //
 
+#import <AFNetworking/AFHTTPSessionManager.h>
+
 #import "APIAFNetworkingHTTPClient.h"
+
+@interface APIAFNetworkingHTTPClient ()
+@property (nonatomic, readwrite, strong) AFHTTPSessionManager *client;
+@end
 
 @implementation APIAFNetworkingHTTPClient
 
-+(instancetype)clientWithBaseURL:(NSURL *)baseURL {
-    return [[self alloc] initWithBaseURL:baseURL];
+- (id)initWithBaseURL:(NSURL *)baseURL;
+{
+    self = [super init];
+    if (self) {
+        _baseURL = baseURL;
+    }
+
+    return self;
 }
 
 - (void)getPath:(NSString *)path
@@ -19,11 +31,20 @@
         success:(void (^)(id responseObject))success
         failure:(void (^)(NSError *error))failure;
 {
-    [super GET:path parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
+    [self.client GET:path parameters:parameters success:^(NSURLSessionDataTask *task, id responseObject) {
         success(responseObject);
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+    } failure:^(NSURLSessionDataTask *task, NSError *error) {
         failure(error);
     }];
+}
+
+- (AFHTTPSessionManager *)client;
+{
+    if (!_client) {
+        _client = [[AFHTTPSessionManager alloc] initWithBaseURL:self.baseURL sessionConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration]];
+    }
+
+    return _client;
 }
 
 @end
