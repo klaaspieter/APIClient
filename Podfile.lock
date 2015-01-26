@@ -20,10 +20,10 @@ PODS:
   - AFNetworking/UIKit (2.5.0):
     - AFNetworking/NSURLConnection
     - AFNetworking/NSURLSession
-  - APIClient (0.1.0):
-    - AFNetworking (~> 2.5.0)
-    - DCKeyValueObjectMapping
-    - InflectorKit
+  - APIClient (0.1.1):
+    - AFNetworking (~> 2.5)
+    - DCKeyValueObjectMapping (~> 1.4)
+    - InflectorKit (= 0.0.1)
   - DCKeyValueObjectMapping (1.4)
   - Expecta (0.3.1)
   - GCDWebServer (3.2.2):
@@ -49,7 +49,7 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   AFNetworking: 0f54cb5d16ce38c1b76948faffb8d5fb705021c7
-  APIClient: 8b1a87983ba17b3a90b1aed0f0d55f8851ef53e1
+  APIClient: 64fa1969084abfddd314ff52b0f6f54a84054a95
   DCKeyValueObjectMapping: c3561709f296ddffba7768a9d7ccf234307fd3c9
   Expecta: 03aabd0a89d8dea843baecb19a7fd7466a69a31d
   GCDWebServer: 285fde9951ab2cd87c2d9d74735fee977a16fe04
