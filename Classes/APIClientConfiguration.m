@@ -15,51 +15,30 @@
 
 @implementation APIClientConfiguration
 
-- (id)init;
-{
-    return [self initWithBaseURL:nil];
-}
-
 + (instancetype)configurationWithBaseURL:(NSURL *)baseURL;
 {
-    return [[self alloc] initWithBaseURL:baseURL];
+    return [self configurationWithBlock:^(APIClientConfiguration *configuration) {
+        configuration.baseURL = baseURL;
+    }];
 }
 
 + (instancetype)configurationWithBlock:(APIClientConfigurationBlock)block;
 {
+    return [[self alloc] initWithBlock:block];
+}
+
+- (id)init;
+{
+    return [self initWithBlock:nil];
+}
+
+- (id)initWithBlock:(APIClientConfigurationBlock)block;
+{
     NSParameterAssert(block);
-    APIClientConfiguration *configuration = [[self alloc] _initWithoutBaseURL];
-    block(configuration);
-    [configuration verifyExistenceOfHTTPClient];
-    return configuration;
-}
-
-- (id)_initWithoutBaseURL;
-{
-    if (self = [super init]) {
-    }
-
-    return self;
-}
-
-- (id)initWithBaseURL:(NSURL *)baseURL;
-{
-    NSParameterAssert(baseURL);
-    
-    id<APIHTTPClient> httpClient = [[APIAFNetworkingHTTPClient alloc] initWithBaseURL:baseURL];
-    return [self initWithHTTPClient:httpClient router:nil serializer:nil mapper:nil];
-}
-
-- (id)initWithHTTPClient:(id<APIHTTPClient>)httpClient
-                  router:(id<APIRouter>)router
-              serializer:(id<APIJSONSerializer>)serializer
-                  mapper:(id<APIMapper>)mapper;
-{
-    if (self = [super init]) {
-        _httpClient = httpClient;
-        _router = router;
-        _serializer = serializer;
-        _mapper = mapper;
+    self = [super init];
+    if (self) {
+        block(self);
+        [self verifyExistenceOfHTTPClient];
     }
 
     return self;

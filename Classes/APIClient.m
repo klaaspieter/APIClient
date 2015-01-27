@@ -8,6 +8,14 @@
 
 #import "APIClient.h"
 
+@interface APIClient ()
+@property (nonatomic, readwrite, copy) NSURL *baseURL;
+@property (nonatomic, readwrite, strong) id<APIHTTPClient> httpClient;
+@property (nonatomic, readwrite, strong) id<APIRouter> router;
+@property (nonatomic, readwrite, strong) id<APIJSONSerializer> serializer;
+@property (nonatomic, readwrite, strong) id<APIMapper>mapper;
+@end
+
 @implementation APIClient
 
 - (id)init;
@@ -27,32 +35,20 @@
 
 - (id)initWithBaseURL:(NSURL *)baseURL;
 {
-    APIClientConfiguration *configuration =
-      [APIClientConfiguration configurationWithBlock:^(APIClientConfiguration *configuration) {
-        configuration.baseURL = baseURL;
-    }];
-    return [self initWithConfiguration:configuration];
+    return [self initWithConfiguration:[APIClientConfiguration configurationWithBaseURL:baseURL]];
 }
 
 - (id)initWithConfiguration:(APIClientConfiguration *)configuration;
 {
     if (self = [super init])
     {
-        _configuration = configuration;
+        _httpClient = configuration.httpClient;
+        _router = configuration.router;
+        _serializer = configuration.serializer;
+        _mapper = configuration.mapper;
     }
 
     return self;
-}
-
-- (id)initWithHTTPClient:(id<APIHTTPClient>)httpClient
-                  router:(id<APIRouter>)router
-              serializer:(id<APIJSONSerializer>)serializer
-                  mapper:(id<APIMapper>)mapper;
-{
-    return [self initWithConfiguration:[[APIClientConfiguration alloc] initWithHTTPClient:httpClient
-                                                                                   router:router
-                                                                               serializer:serializer
-                                                                                   mapper:mapper]];
 }
 
 - (APIResponse *)findAll:(Class)resource;
@@ -103,26 +99,6 @@
         }];
     }];
     return response;
-}
-
-- (id<APIRouter>)router;
-{
-    return self.configuration.router;
-}
-
-- (id<APIHTTPClient>)httpClient;
-{
-    return self.configuration.httpClient;
-}
-
-- (id<APIJSONSerializer>)serializer;
-{
-    return self.configuration.serializer;
-}
-
-- (id<APIMapper>)mapper;
-{
-    return self.configuration.mapper;
 }
 
 @end

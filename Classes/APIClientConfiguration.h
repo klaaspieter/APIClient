@@ -27,10 +27,8 @@ typedef void(^APIClientConfigurationBlock)(APIClientConfiguration *configuration
 
 + (instancetype)configurationWithBlock:(APIClientConfigurationBlock)block;
 + (instancetype)configurationWithBaseURL:(NSURL *)baseURL;
-- (id)initWithHTTPClient:(id<APIHTTPClient>)httpClient
-                  router:(id<APIRouter>)router
-              serializer:(id<APIJSONSerializer>)serializer
-                  mapper:(id<APIMapper>)mapper;
+
+- (id)initWithBlock:(APIClientConfigurationBlock)block NS_DESIGNATED_INITIALIZER;
 
 @end
 

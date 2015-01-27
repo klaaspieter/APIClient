@@ -33,7 +33,7 @@ describe(@"APIClient", ^{
         _router = [[APIRouter alloc] init];
         _serializer = [[APIJSONSerializer alloc] init];
         _mapper = [[APIMapper alloc] init];
-        _client = [APIClient clientWithConfigurationBlock:^(APIClientConfiguration *configuration){
+        _client = [APIClient clientWithConfigurationBlock:^(APIClientConfiguration *configuration) {
             configuration.httpClient = _httpClient;
             configuration.router = _router;
             configuration.serializer = _serializer;
@@ -42,20 +42,32 @@ describe(@"APIClient", ^{
     });
 
     describe(@"initialization", ^{
-        it(@"creates a configuration with the given properties", ^{
-            _client = [[APIClient alloc] initWithHTTPClient:_httpClient router:_router serializer:_serializer mapper:_mapper];
-            expect(_client.configuration.httpClient).to.equal(_httpClient);
-            expect(_client.configuration.router).to.equal(_router);
-            expect(_client.configuration.serializer).to.equal(_serializer);
-            expect(_client.configuration.mapper).to.equal(_mapper);
+        it(@"creates a APIClient with the given properties", ^{
+            _client = [APIClient clientWithConfigurationBlock:^(APIClientConfiguration *configuration) {
+                configuration.httpClient = _httpClient;
+                configuration.router = _router;
+                configuration.serializer = _serializer;
+                configuration.mapper = _mapper;
+            }];
+            expect(_client.httpClient).to.equal(_httpClient);
+            expect(_client.router).to.equal(_router);
+            expect(_client.serializer).to.equal(_serializer);
+            expect(_client.mapper).to.equal(_mapper);
         });
     });
 
     describe(@"routing", ^{
         it(@"uses the router to build paths for a resource", ^{
-            _router = [OCMockObject mockForProtocol:@protocol(APIRouter)];
-            [[[_router expect] andReturn:@"/objects"] pathForAction:@"index" onResource:[Product class]];
-            _client.configuration.router = _router;
+            _router = OCMProtocolMock(@protocol(APIRouter));
+            OCMStub([_router pathForAction:@"index" onResource:[Product class]]).andReturn(@"/objects");
+
+            _client = [APIClient clientWithConfigurationBlock:^(APIClientConfiguration *configuration) {
+                configuration.httpClient = _httpClient;
+                configuration.router = _router;
+                configuration.serializer = _serializer;
+                configuration.mapper = _mapper;
+            }];
+
             [_client findAll:[Product class]];
             expect(_httpClient.requests[0]).to.equal(@"/objects");
             [_router verify];
@@ -64,10 +76,16 @@ describe(@"APIClient", ^{
 
     describe(@"serialization", ^{
         it(@"uses the serializer to deserialize the response body", ^{
-            _serializer = [OCMockObject mockForProtocol:@protocol(APIJSONSerializer)];
-            [[[_serializer expect] andReturn:@{}] deserializeJSON:[@"{}" dataUsingEncoding:NSUTF8StringEncoding]
-                                                            error:(NSError *__autoreleasing *)[OCMArg anyPointer]];
-            _client.configuration.serializer = _serializer;
+            _serializer = OCMProtocolMock(@protocol(APIJSONSerializer));
+            OCMStub([_serializer deserializeJSON:[@"{}" dataUsingEncoding:NSUTF8StringEncoding]
+                                           error:(NSError *__autoreleasing *)[OCMArg anyPointer]]).andReturn(@{});
+            _client = [APIClient clientWithConfigurationBlock:^(APIClientConfiguration *configuration) {
+                configuration.httpClient = _httpClient;
+                configuration.router = _router;
+                configuration.serializer = _serializer;
+                configuration.mapper = _mapper;
+            }];
+
             [_client findAll:[Product class]];
             [_httpClient succeedRequests];
             [_serializer verify];
@@ -76,12 +94,18 @@ describe(@"APIClient", ^{
 
     describe(@"mapping", ^{
         it(@"uses the mapper to map the response to resource objects", ^{
-            _mapper = [OCMockObject mockForProtocol:@protocol(APIMapper)];
-            [[_mapper expect] mapValues:@{} toResource:[Product class]];
-            _client.configuration.mapper = _mapper;
+            _mapper = OCMProtocolMock(@protocol(APIMapper));
+
+            _client = [APIClient clientWithConfigurationBlock:^(APIClientConfiguration *configuration) {
+                configuration.httpClient = _httpClient;
+                configuration.router = _router;
+                configuration.serializer = _serializer;
+                configuration.mapper = _mapper;
+            }];
+
             [_client findAll:[Product class]];
             [_httpClient succeedRequests];
-            [_mapper verify];
+            OCMVerify([_mapper mapValues:@{} toResource:[Product class]]);
         });
     });
 
@@ -97,9 +121,16 @@ describe(@"APIClient", ^{
         });
 
         it(@"uses the router to build paths for the index action", ^{
-            _router = [OCMockObject mockForProtocol:@protocol(APIRouter)];
-            [[[_router expect] andReturn:@"/objects"] pathForAction:@"index" onResource:[Product class]];
-            _client.configuration.router = _router;
+            _router = OCMProtocolMock(@protocol(APIRouter));
+            OCMStub([_router pathForAction:@"index" onResource:[Product class]]).andReturn(@"/objects");
+
+            _client = [APIClient clientWithConfigurationBlock:^(APIClientConfiguration *configuration) {
+                configuration.httpClient = _httpClient;
+                configuration.router = _router;
+                configuration.serializer = _serializer;
+                configuration.mapper = _mapper;
+            }];
+
             [_client findAll:[Product class]];
             expect(_httpClient.requests[0]).to.equal(@"/objects");
             [_router verify];
@@ -150,9 +181,16 @@ describe(@"APIClient", ^{
         });
 
         it(@"uses the router to build paths for the show action", ^{
-            _router = [OCMockObject mockForProtocol:@protocol(APIRouter)];
-            [[[_router expect] andReturn:@"/objects/1"] pathForAction:@"show" onResource:[Product class] withArguments:@{@"id": @1}];
-            _client.configuration.router = _router;
+            _router = OCMProtocolMock(@protocol(APIRouter));
+            OCMStub([_router pathForAction:@"show" onResource:[Product class] withArguments:@{@"id": @1}]).andReturn(@"/objects/1");
+
+            _client = [APIClient clientWithConfigurationBlock:^(APIClientConfiguration *configuration) {
+                configuration.httpClient = _httpClient;
+                configuration.router = _router;
+                configuration.serializer = _serializer;
+                configuration.mapper = _mapper;
+            }];
+            
             [_client findResource:[Product class] withID:@1];
             expect(_httpClient.requests[0]).to.equal(@"/objects/1");
             [_router verify];

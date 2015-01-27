@@ -74,35 +74,14 @@ describe(@"APIClientConfiguration", ^{
         }).to.raise(NSInternalInconsistencyException);
     });
 
-    it(@"can be initialized with a different httpClient", ^{
-        _configuration = [[APIClientConfiguration alloc] initWithHTTPClient:_httpClient router:_router serializer:_serializer mapper:_mapper];
-        expect(_configuration.httpClient).to.equal(_httpClient);
-        expect(_configuration.httpClient.baseURL).to.equal(_baseURL);
-    });
-
     it(@"has a default router", ^{
         _configuration = [APIClientConfiguration configurationWithBaseURL:_baseURL];
         expect(_configuration.router).to.beInstanceOf([APIRouter class]);
     });
 
-    it(@"can be initialized with a different router", ^{
-        _configuration = [[APIClientConfiguration alloc] initWithHTTPClient:_httpClient router:_router serializer:_serializer mapper:_mapper];
-        expect(_configuration.router).to.equal(_router);
-    });
-
     it(@"has a default serializer", ^{
         _configuration = [APIClientConfiguration configurationWithBaseURL:_baseURL];
         expect(_configuration.serializer).to.beInstanceOf([APIJSONSerializer class]);
-    });
-
-    it(@"can be initialized with a different serializer", ^{
-        _configuration = [[APIClientConfiguration alloc] initWithHTTPClient:_httpClient router:_router serializer:_serializer mapper:_mapper];
-        expect(_configuration.serializer).to.equal(_serializer);
-    });
-
-    it(@"can be initialized with a different mapper", ^{
-        _configuration = [[APIClientConfiguration alloc] initWithHTTPClient:_httpClient router:_router serializer:_serializer mapper:_mapper];
-        expect(_configuration.mapper).to.beInstanceOf([APIMapper class]);
     });
 
     it(@"has a default mapper", ^{
