@@ -8,7 +8,7 @@
 
 #import "APIInflector.h"
 
-#import "TTTStringInflector.h"
+#import <InflectorKit/TTTStringInflector.h>
 
 @implementation APIInflector
 

@@ -8,9 +8,9 @@
 
 #import "APIMapper.h"
 
-#import "DCKeyValueObjectMapping.h"
-#import "DCParserConfiguration.h"
-#import "DCObjectMapping.h"
+#import <DCKeyValueObjectMapping/DCKeyValueObjectMapping.h>
+#import <DCKeyValueObjectMapping/DCParserConfiguration.h>
+#import <DCKeyValueObjectMapping/DCObjectMapping.h>
 
 @interface APIMapper ()
 @end
