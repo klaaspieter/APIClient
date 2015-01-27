@@ -18,9 +18,15 @@
 
 - (id)initWithBaseURL:(NSURL *)baseURL;
 {
+    return [self initWithBaseURL:baseURL sessionConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration]];
+}
+
+- (id)initWithBaseURL:(NSURL *)baseURL sessionConfiguration:(NSURLSessionConfiguration *)sessionConfiguration;
+{
     self = [super init];
     if (self) {
         _baseURL = baseURL;
+        _sessionConfiguration = sessionConfiguration;
     }
 
     return self;
@@ -41,7 +47,7 @@
 - (AFHTTPSessionManager *)client;
 {
     if (!_client) {
-        _client = [[AFHTTPSessionManager alloc] initWithBaseURL:self.baseURL sessionConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration]];
+        _client = [[AFHTTPSessionManager alloc] initWithBaseURL:self.baseURL sessionConfiguration:self.sessionConfiguration];
     }
 
     return _client;

@@ -51,7 +51,17 @@
 
 - (void)setBaseURL:(NSURL *)baseURL;
 {
-    _httpClient = [[APIAFNetworkingHTTPClient alloc] initWithBaseURL:baseURL];
+    _httpClient = [[APIAFNetworkingHTTPClient alloc] initWithBaseURL:baseURL sessionConfiguration:self.sessionConfiguration];
+}
+
+- (NSURLSessionConfiguration *)sessionConfiguration;
+{
+    return self.httpClient.sessionConfiguration;
+}
+
+- (void)setSessionConfiguration:(NSURLSessionConfiguration *)sessionConfiguration;
+{
+    _httpClient = [[APIAFNetworkingHTTPClient alloc] initWithBaseURL:self.baseURL sessionConfiguration:sessionConfiguration];
 }
 
 - (id<APIRouter>)router;

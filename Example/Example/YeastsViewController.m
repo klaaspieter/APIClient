@@ -27,7 +27,7 @@
 
     APIClient *client = [APIClient clientWithConfigurationBlock:^(APIClientConfiguration *configuration) {
         NSURL *baseURL = [NSURL URLWithString:@"http://api.brewerydb.com/v2"];
-        configuration.httpClient = [HTTPClient clientWithBaseURL:baseURL];
+        configuration.httpClient = [[HTTPClient alloc] initWithBaseURL:baseURL];
         configuration.mapper = [[Mapper alloc] initWithMappingProvider:self];
     }];
 

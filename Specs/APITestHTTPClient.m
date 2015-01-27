@@ -107,4 +107,9 @@ typedef void(^RequestResolver)(id object);
     }
 }
 
+- (NSURLSessionConfiguration *)sessionConfiguration;
+{
+    return [NSURLSessionConfiguration ephemeralSessionConfiguration];
+}
+
 @end

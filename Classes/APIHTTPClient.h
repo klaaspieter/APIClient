@@ -11,6 +11,7 @@
 @protocol APIHTTPClient <NSObject>
 
 - (NSURL *)baseURL;
+- (NSURLSessionConfiguration *)sessionConfiguration;
 
 - (void)getPath:(NSString *)path
      parameters:(NSDictionary *)parameters

@@ -15,7 +15,7 @@ __block APIMapper *_mapper;
 
 beforeEach(^{
     _baseURL = [NSURL URLWithString:@"https://api.example.org"];
-    _httpClient = [[APIAFNetworkingHTTPClient alloc] initWithBaseURL:_baseURL];
+    _httpClient = [[APIAFNetworkingHTTPClient alloc] initWithBaseURL:_baseURL sessionConfiguration:[NSURLSessionConfiguration ephemeralSessionConfiguration]];
     _router = [[APIRouter alloc] init];
     _serializer = [[APIJSONSerializer alloc] init];
     _mapper = [[APIMapper alloc] init];
@@ -23,7 +23,7 @@ beforeEach(^{
 
 describe(@"APIClientConfiguration", ^{
     beforeEach(^{
-        _httpClient = [[APIAFNetworkingHTTPClient alloc] initWithBaseURL:_baseURL];
+        _httpClient = [[APIAFNetworkingHTTPClient alloc] initWithBaseURL:_baseURL sessionConfiguration:[NSURLSessionConfiguration ephemeralSessionConfiguration]];
         _router = [[APIRouter alloc] init];
     });
 

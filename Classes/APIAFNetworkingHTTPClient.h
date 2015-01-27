@@ -14,7 +14,10 @@
 @interface APIAFNetworkingHTTPClient : NSObject <APIHTTPClient>
 
 @property (nonatomic, readonly, copy) NSURL *baseURL;
+@property (nonatomic, readonly, strong) NSURLSessionConfiguration *sessionConfiguration;
 
 - (id)initWithBaseURL:(NSURL *)baseURL;
+- (id)initWithBaseURL:(NSURL *)baseURL
+ sessionConfiguration:(NSURLSessionConfiguration *)sessionConfiguration NS_DESIGNATED_INITIALIZER;
 
 @end
