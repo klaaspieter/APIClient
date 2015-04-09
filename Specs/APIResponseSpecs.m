@@ -47,12 +47,14 @@ describe(@"APIResponse", ^{
             };
         });
 
-        it(@"calls the success block when the response is resolved", ^AsyncBlock{
-            APIResponse *response = delayedResolvedResponse(_object);
-            response.success = ^(id object) {
-                expect(object).to.equal(_object);
-                done();
-            };
+        it(@"calls the success block when the response is resolved", ^{
+            waitUntil(^(DoneCallback done) {
+                APIResponse *response = delayedResolvedResponse(_object);
+                response.success = ^(id object) {
+                    expect(object).to.equal(_object);
+                    done();
+                };
+            });
         });
 
 #pragma clang diagnostic push
@@ -90,12 +92,14 @@ describe(@"APIResponse", ^{
             };
         });
 
-        it(@"calls the failure block when the response is rejected", ^AsyncBlock{
-            APIResponse *response = delayedRejectedResponse(_object);
-            response.failure = ^(id error) {
-                expect(error).to.equal(_object);
-                done();
-            };
+        it(@"calls the failure block when the response is rejected", ^{
+            waitUntil(^(DoneCallback done) {
+                APIResponse *response = delayedRejectedResponse(_object);
+                response.failure = ^(id error) {
+                    expect(error).to.equal(_object);
+                    done();
+                };
+            });
         });
 
 #pragma clang diagnostic push

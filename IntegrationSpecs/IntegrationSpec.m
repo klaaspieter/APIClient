@@ -24,31 +24,35 @@ describe(@"IntegrationSpec", ^{
         [_fakeAPI stop];
     });
 
-    it(@"can GET a collection of resources", ^AsyncBlock{
-        APIResponse *response = [_client findAll:[Product class]];
-        response.success = ^(NSArray *products) {
-            expect(products).to.haveCountOf(2);
-            done();
-        };
-        response.failure = ^(NSError *error) {
-            expect(nil).toNot.beNil(); // Fail early
-            done();
-        };
+    it(@"can GET a collection of resources", ^{
+        waitUntil(^(DoneCallback done) {
+            APIResponse *response = [_client findAll:[Product class]];
+            response.success = ^(NSArray *products) {
+                expect(products).to.haveCountOf(2);
+                done();
+            };
+            response.failure = ^(NSError *error) {
+                expect(nil).toNot.beNil(); // Fail early
+                done();
+            };
+        });
     });
 
-    it(@"can GET a single resource", ^AsyncBlock{
-        APIResponse *response = [_client findResource:[Product class] withID:@1];
-        response.success = ^(Product *product) {
-            expect(product.name).to.equal(@"Karma w/ 1GB");
-            expect(product.price).to.equal(79);
-            expect(product.inStock).to.beTruthy();
-            expect(product.balanceIncrease).to.equal(1073741824);
-            done();
-        };
-        response.failure = ^(NSError *error) {
-            expect(nil).toNot.beNil(); // Fail early
-            done();
-        };
+    it(@"can GET a single resource", ^{
+        waitUntil(^(DoneCallback done) {
+            APIResponse *response = [_client findResource:[Product class] withID:@1];
+            response.success = ^(Product *product) {
+                expect(product.name).to.equal(@"Karma w/ 1GB");
+                expect(product.price).to.equal(79);
+                expect(product.inStock).to.beTruthy();
+                expect(product.balanceIncrease).to.equal(1073741824);
+                done();
+            };
+            response.failure = ^(NSError *error) {
+                expect(nil).toNot.beNil(); // Fail early
+                done();
+            };
+        });
     });
 });
 

@@ -137,34 +137,40 @@ describe(@"APIClient", ^{
         });
 
         context(@"with a successful request", ^{
-            it(@"resolves the response with the mapping result", ^AsyncBlock {
-                APIResponse *response = [_client findAll:[Product class]];
-                response.success = ^(id products) {
-                    expect(products).to.beKindOf([NSArray class]);
-                    expect(products[0]).to.beInstanceOf([Product class]);
-                    done();
-                };
-                [_httpClient succeedRequestsWithJSONObject:@{@"products": @[@{@"name": @"Karma"}]}];
+            it(@"resolves the response with the mapping result", ^{
+                waitUntil(^(DoneCallback done) {
+                    APIResponse *response = [_client findAll:[Product class]];
+                    response.success = ^(id products) {
+                        expect(products).to.beKindOf([NSArray class]);
+                        expect(products[0]).to.beInstanceOf([Product class]);
+                        done();
+                    };
+                    [_httpClient succeedRequestsWithJSONObject:@{@"products": @[@{@"name": @"Karma"}]}];
+                });
             });
         });
 
         context(@"with a failed request", ^{
-            it(@"rejects the response with the error", ^AsyncBlock {
-                APIResponse *response = [_client findAll:[Product class]];
-                response.failure = ^(NSError *error) {
-                    expect(error).notTo.beNil();
-                    done();
-                };
-                [_httpClient failRequests];
+            it(@"rejects the response with the error", ^ {
+                waitUntil(^(DoneCallback done) {
+                    APIResponse *response = [_client findAll:[Product class]];
+                    response.failure = ^(NSError *error) {
+                        expect(error).notTo.beNil();
+                        done();
+                    };
+                    [_httpClient failRequests];
+                });
             });
 
-            it(@"rejects the response promise when serialization fails", ^AsyncBlock{
-                APIResponse *response = [_client findAll:[Product class]];
-                response.failure = ^(NSError *error) {
-                    expect(error.domain).to.equal(APIJSONSerializerErrorDomain);
-                    done();
-                };
-                [_httpClient succeedRequestsWithResponseString:@"<html></html>"];
+            it(@"rejects the response promise when serialization fails", ^{
+                waitUntil(^(DoneCallback done) {
+                    APIResponse *response = [_client findAll:[Product class]];
+                    response.failure = ^(NSError *error) {
+                        expect(error.domain).to.equal(APIJSONSerializerErrorDomain);
+                        done();
+                    };
+                    [_httpClient succeedRequestsWithResponseString:@"<html></html>"];
+                });
             });
         });
     });
@@ -197,34 +203,40 @@ describe(@"APIClient", ^{
         });
 
         context(@"with a successful request", ^{
-            it(@"resolves the response with the mapping result", ^AsyncBlock {
-                APIResponse *response = [_client findResource:[Product class] withID:@1];
-                response.success = ^(Product *product) {
-                    expect(product).to.beKindOf([Product class]);
-                    done();
-                };
-                [_httpClient succeedRequestsWithJSONObject:@{@"products": @[@{@"name": @"Karma"}]}];
+            it(@"resolves the response with the mapping result", ^ {
+                waitUntil(^(DoneCallback done) {
+                    APIResponse *response = [_client findResource:[Product class] withID:@1];
+                    response.success = ^(Product *product) {
+                        expect(product).to.beKindOf([Product class]);
+                        done();
+                    };
+                    [_httpClient succeedRequestsWithJSONObject:@{@"products": @[@{@"name": @"Karma"}]}];
+                });
             });
         });
 
         context(@"with a failed request", ^{
-            it(@"rejects the response with the error", ^AsyncBlock {
-                APIResponse *response = [_client findResource:[Product class] withID:@1];
-                response.failure = ^(NSError *error) {
-                    expect(error).notTo.beNil();
-                    done();
-                };
-                [_httpClient failRequests];
+            it(@"rejects the response with the error", ^{
+                waitUntil(^(DoneCallback done) {
+                    APIResponse *response = [_client findResource:[Product class] withID:@1];
+                    response.failure = ^(NSError *error) {
+                        expect(error).notTo.beNil();
+                        done();
+                    };
+                    [_httpClient failRequests];
+                });
             });
 
 
-            it(@"rejects the response promise when serialization fails", ^AsyncBlock{
-                APIResponse *response = [_client findResource:[Product class] withID:@1];
-                response.failure = ^(NSError *error) {
-                    expect(error.domain).to.equal(APIJSONSerializerErrorDomain);
-                    done();
-                };
-                [_httpClient succeedRequestsWithResponseString:@"<html></html>"];
+            it(@"rejects the response promise when serialization fails", ^{
+                waitUntil(^(DoneCallback done) {
+                    APIResponse *response = [_client findResource:[Product class] withID:@1];
+                    response.failure = ^(NSError *error) {
+                        expect(error.domain).to.equal(APIJSONSerializerErrorDomain);
+                        done();
+                    };
+                    [_httpClient succeedRequestsWithResponseString:@"<html></html>"];
+                });
             });
         });
     });
