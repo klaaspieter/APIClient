@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "APIClient"
-  s.version      = "0.1.1"
+  s.version      = "0.1.2"
   s.summary      = "Convention over configuration REST API client"
   s.homepage     = "https://github.com/klaaspieter/apiclient"
   s.license      = 'MIT'
