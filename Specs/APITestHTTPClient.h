@@ -15,8 +15,6 @@
 @property (nonatomic, readonly, strong) NSURL *baseURL;
 @property (nonatomic, readonly, strong) NSArray *requests;
 
-- (id)initWithBaseURL:(NSURL *)baseURL;
-
 - (void)succeedRequests;
 - (void)succeedRequestsWithJSONObject:(id)object;
 - (void)succeedRequestsWithResponseString:(NSString *)responseString;

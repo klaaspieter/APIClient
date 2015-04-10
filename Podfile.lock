@@ -1,27 +1,5 @@
 PODS:
-  - AFNetworking (2.5.2):
-    - AFNetworking/NSURLConnection (= 2.5.2)
-    - AFNetworking/NSURLSession (= 2.5.2)
-    - AFNetworking/Reachability (= 2.5.2)
-    - AFNetworking/Security (= 2.5.2)
-    - AFNetworking/Serialization (= 2.5.2)
-    - AFNetworking/UIKit (= 2.5.2)
-  - AFNetworking/NSURLConnection (2.5.2):
-    - AFNetworking/Reachability
-    - AFNetworking/Security
-    - AFNetworking/Serialization
-  - AFNetworking/NSURLSession (2.5.2):
-    - AFNetworking/Reachability
-    - AFNetworking/Security
-    - AFNetworking/Serialization
-  - AFNetworking/Reachability (2.5.2)
-  - AFNetworking/Security (2.5.2)
-  - AFNetworking/Serialization (2.5.2)
-  - AFNetworking/UIKit (2.5.2):
-    - AFNetworking/NSURLConnection
-    - AFNetworking/NSURLSession
   - APIClient (0.1.1):
-    - AFNetworking (~> 2.5)
     - DCKeyValueObjectMapping (~> 1.4)
     - InflectorKit (= 0.0.1)
   - DCKeyValueObjectMapping (1.4)
@@ -34,7 +12,6 @@ PODS:
   - Specta (0.5.0)
 
 DEPENDENCIES:
-  - AFNetworking
   - APIClient (from `./`)
   - DCKeyValueObjectMapping
   - Expecta
@@ -48,8 +25,7 @@ EXTERNAL SOURCES:
     :path: ./
 
 SPEC CHECKSUMS:
-  AFNetworking: fefbce9660acb17f48ae0011292d4da0f457bf36
-  APIClient: 87d03c326951ce5540b5ef83d775b86728eecea9
+  APIClient: 47256718e030c8287f10b5d14f8f6f58556a9c20
   DCKeyValueObjectMapping: 04cd5a338c03ce1c02488926cab6e1d1f704a093
   Expecta: 8c507baf13211207b1e9d0a741480600e6b4ed15
   GCDWebServer: 5320220ad0d497da8e7beca1396f0c82d4f83730

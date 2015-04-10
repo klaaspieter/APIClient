@@ -25,6 +25,8 @@
 
 @protocol APIHTTPClient <NSObject>
 
+- (id)initWithBaseURL:(NSURL *)baseURL sessionConfiguration:(NSURLSessionConfiguration *)sessionConfiguration;
+
 - (NSURL *)baseURL;
 - (NSURLSessionConfiguration *)sessionConfiguration;
 
@@ -33,4 +35,9 @@
         success:(void (^)(id responseObject))success
         failure:(void (^)(NSError *error))failure;
 
+@end
+
+@interface APIHTTPClient : NSObject <APIHTTPClient>
+@property (nonatomic, readonly, copy) NSURL *baseURL;
+@property (nonatomic, readonly, copy) NSURLSessionConfiguration *sessionConfiguration;
 @end

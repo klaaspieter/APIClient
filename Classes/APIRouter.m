@@ -73,12 +73,12 @@
         [NSException raise:NSInvalidArgumentException format:@"“id” argument is not a string or cannot be coerced into a string. Please pass an arguments dictionary with an “id” value that is a string or responds to the “stringValue” selector."];
     }
 
-    return [pluralizedResourceName stringByAppendingPathComponent:resourceID];
+    return [self prefixSlashToString:[pluralizedResourceName stringByAppendingPathComponent:resourceID]];
 }
 
 - (NSString *)pathForIndexActionOnResource:(Class)resource withArguments:(NSDictionary *)arguments;
 {
-    return [self.resourceNamer pluralizedNameForResource:resource];
+    return [self prefixSlashToString:[self.resourceNamer pluralizedNameForResource:resource]];
 }
 
 - (APIResourceNamer *)resourceNamer;
@@ -88,6 +88,14 @@
     }
 
     return _resourceNamer;
+}
+
+- (NSString *)prefixSlashToString:(NSString *)string;
+{
+    if ([string hasPrefix:@"/"]) {
+        return string;
+    }
+    return [NSString stringWithFormat:@"/%@", string];
 }
 
 @end

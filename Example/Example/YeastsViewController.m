@@ -27,14 +27,16 @@
 
     APIClient *client = [APIClient clientWithConfigurationBlock:^(APIClientConfiguration *configuration) {
         NSURL *baseURL = [NSURL URLWithString:@"http://api.brewerydb.com/v2"];
-        configuration.httpClient = [[HTTPClient alloc] initWithBaseURL:baseURL];
+        configuration.httpClient = [[HTTPClient alloc] initWithBaseURL:baseURL sessionConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration]];
         configuration.mapper = [[Mapper alloc] initWithMappingProvider:self];
     }];
 
     APIResponse *response = [client findAll:[Yeast class]];
     response.success = ^(NSArray *yeasts) {
         self.yeasts = yeasts;
-        [self.tableView reloadData];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self.tableView reloadData];
+        });
     };
 
     response.failure = ^(NSError *error) {

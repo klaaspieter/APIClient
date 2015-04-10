@@ -20,7 +20,6 @@
 		A1534DB5185687430095C11C /* Responses in Resources */ = {isa = PBXBuildFile; fileRef = A1534DB4185687430095C11C /* Responses */; };
 		A1537E3817D1768400D22137 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1537E3717D1768400D22137 /* UIKit.framework */; };
 		A1537E3917D176AA00D22137 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1537E3717D1768400D22137 /* UIKit.framework */; };
-		A1589205184FDA8200028655 /* APIAFNetworkingHTTPClient.m in Sources */ = {isa = PBXBuildFile; fileRef = A15891FF184FDA8200028655 /* APIAFNetworkingHTTPClient.m */; };
 		A1589206184FDA8200028655 /* APIClient.m in Sources */ = {isa = PBXBuildFile; fileRef = A1589201184FDA8200028655 /* APIClient.m */; };
 		A1589207184FDA8200028655 /* APIClientConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = A1589203184FDA8200028655 /* APIClientConfiguration.m */; };
 		A158920A184FDA9500028655 /* APIResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = A1589209184FDA9500028655 /* APIResponse.m */; };
@@ -47,6 +46,7 @@
 		A19B260F17D17056008DA908 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A19B25BA17D16E47008DA908 /* Foundation.framework */; };
 		A19B261F17D17056008DA908 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A19B25BA17D16E47008DA908 /* Foundation.framework */; };
 		A19B262217D17056008DA908 /* libAPIClient.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A19B260E17D17056008DA908 /* libAPIClient.a */; };
+		A1B00B051AD647B2004D6798 /* APIHTTPClient.m in Sources */ = {isa = PBXBuildFile; fileRef = A1B00B041AD647B2004D6798 /* APIHTTPClient.m */; };
 		CB64A1AFD06C4B9DAED00C23 /* libPods-IntegrationSpecs.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E99FEFE1901430F916E2625 /* libPods-IntegrationSpecs.a */; };
 /* End PBXBuildFile section */
 
@@ -96,8 +96,6 @@
 		A13049C3185283AF003EA1FA /* FakeAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FakeAPI.m; sourceTree = "<group>"; };
 		A1534DB4185687430095C11C /* Responses */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Responses; sourceTree = "<group>"; };
 		A1537E3717D1768400D22137 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
-		A15891FE184FDA8200028655 /* APIAFNetworkingHTTPClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = APIAFNetworkingHTTPClient.h; path = Classes/APIAFNetworkingHTTPClient.h; sourceTree = SOURCE_ROOT; };
-		A15891FF184FDA8200028655 /* APIAFNetworkingHTTPClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = APIAFNetworkingHTTPClient.m; path = Classes/APIAFNetworkingHTTPClient.m; sourceTree = SOURCE_ROOT; };
 		A1589200184FDA8200028655 /* APIClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = APIClient.h; path = Classes/APIClient.h; sourceTree = SOURCE_ROOT; };
 		A1589201184FDA8200028655 /* APIClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = APIClient.m; path = Classes/APIClient.m; sourceTree = SOURCE_ROOT; };
 		A1589202184FDA8200028655 /* APIClientConfiguration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = APIClientConfiguration.h; path = Classes/APIClientConfiguration.h; sourceTree = SOURCE_ROOT; };
@@ -143,6 +141,7 @@
 		A19B25C917D16E47008DA908 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		A19B260E17D17056008DA908 /* libAPIClient.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libAPIClient.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		A19B261C17D17056008DA908 /* Specs.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Specs.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		A1B00B041AD647B2004D6798 /* APIHTTPClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = APIHTTPClient.m; path = Classes/APIHTTPClient.m; sourceTree = SOURCE_ROOT; };
 		A64F1F3DB793A3EDA0B33AEC /* Pods-Specs.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Specs.release.xcconfig"; path = "Pods/Target Support Files/Pods-Specs/Pods-Specs.release.xcconfig"; sourceTree = "<group>"; };
 		AC047CB0CC064A31BAF31F64 /* libPods-Specs.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Specs.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AE942C4F48D7A90C074ECD8E /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
@@ -194,13 +193,12 @@
 		A1060D2917DD284500EC32B7 /* Client */ = {
 			isa = PBXGroup;
 			children = (
-				A15891FE184FDA8200028655 /* APIAFNetworkingHTTPClient.h */,
-				A15891FF184FDA8200028655 /* APIAFNetworkingHTTPClient.m */,
+				A1589204184FDA8200028655 /* APIHTTPClient.h */,
+				A1B00B041AD647B2004D6798 /* APIHTTPClient.m */,
 				A1589200184FDA8200028655 /* APIClient.h */,
 				A1589201184FDA8200028655 /* APIClient.m */,
 				A1589202184FDA8200028655 /* APIClientConfiguration.h */,
 				A1589203184FDA8200028655 /* APIClientConfiguration.m */,
-				A1589204184FDA8200028655 /* APIHTTPClient.h */,
 			);
 			name = Client;
 			sourceTree = "<group>";
@@ -657,7 +655,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A1589205184FDA8200028655 /* APIAFNetworkingHTTPClient.m in Sources */,
 				A1589206184FDA8200028655 /* APIClient.m in Sources */,
 				A158920A184FDA9500028655 /* APIResponse.m in Sources */,
 				A1589207184FDA8200028655 /* APIClientConfiguration.m in Sources */,
@@ -666,6 +663,7 @@
 				A1589214184FDABC00028655 /* APIMapper.m in Sources */,
 				A1589219184FDACD00028655 /* APIInflector.m in Sources */,
 				A158921A184FDACD00028655 /* APIResourceNamer.m in Sources */,
+				A1B00B051AD647B2004D6798 /* APIHTTPClient.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

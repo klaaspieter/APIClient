@@ -1,6 +1,5 @@
 inhibit_all_warnings!
 
-pod "AFNetworking"
 pod "InflectorKit"
 pod "DCKeyValueObjectMapping"
 

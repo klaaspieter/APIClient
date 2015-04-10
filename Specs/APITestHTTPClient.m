@@ -42,7 +42,7 @@ typedef void(^RequestResolver)(id object);
 
 @implementation APITestHTTPClient
 
-- (id)initWithBaseURL:(NSURL *)baseURL;
+- (id)initWithBaseURL:(NSURL *)baseURL sessionConfiguration:(NSURLSessionConfiguration *)sessionConfiguration;
 {
     if (self = [super init])
     {

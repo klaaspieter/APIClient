@@ -2,20 +2,19 @@
 
 #import "APIClientConfiguration.h"
 
-#import "APIAFNetworkingHTTPClient.h"
 
 SpecBegin(APIClientConfigurationSpecs)
 
 __block APIClientConfiguration *_configuration;
 __block NSURL *_baseURL;
-__block APIAFNetworkingHTTPClient *_httpClient;
+__block APIHTTPClient *_httpClient;
 __block APIRouter *_router;
 __block APIJSONSerializer *_serializer;
 __block APIMapper *_mapper;
 
 beforeEach(^{
     _baseURL = [NSURL URLWithString:@"https://api.example.org"];
-    _httpClient = [[APIAFNetworkingHTTPClient alloc] initWithBaseURL:_baseURL sessionConfiguration:[NSURLSessionConfiguration ephemeralSessionConfiguration]];
+    _httpClient = [[APIHTTPClient alloc] initWithBaseURL:_baseURL sessionConfiguration:[NSURLSessionConfiguration ephemeralSessionConfiguration]];
     _router = [[APIRouter alloc] init];
     _serializer = [[APIJSONSerializer alloc] init];
     _mapper = [[APIMapper alloc] init];
@@ -23,7 +22,7 @@ beforeEach(^{
 
 describe(@"APIClientConfiguration", ^{
     beforeEach(^{
-        _httpClient = [[APIAFNetworkingHTTPClient alloc] initWithBaseURL:_baseURL sessionConfiguration:[NSURLSessionConfiguration ephemeralSessionConfiguration]];
+        _httpClient = [[APIHTTPClient alloc] initWithBaseURL:_baseURL sessionConfiguration:[NSURLSessionConfiguration ephemeralSessionConfiguration]];
         _router = [[APIRouter alloc] init];
     });
 
@@ -64,7 +63,7 @@ describe(@"APIClientConfiguration", ^{
 
     it(@"creates a default httpClient with the configured baseURL", ^{
         _configuration = [APIClientConfiguration configurationWithBaseURL:_baseURL];
-        expect(_configuration.httpClient).to.beInstanceOf([APIAFNetworkingHTTPClient class]);
+        expect(_configuration.httpClient).to.beInstanceOf([APIHTTPClient class]);
         expect(_configuration.httpClient.baseURL).to.equal(_baseURL);
     });
     

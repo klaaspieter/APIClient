@@ -29,7 +29,7 @@ describe(@"APIClient", ^{
 
     beforeEach(^{
         _baseURL = [NSURL URLWithString:@"https://api.example.org"];
-        _httpClient = [[APITestHTTPClient alloc] initWithBaseURL:_baseURL];
+        _httpClient = [[APITestHTTPClient alloc] initWithBaseURL:_baseURL sessionConfiguration:nil];
         _router = [[APIRouter alloc] init];
         _serializer = [[APIJSONSerializer alloc] init];
         _mapper = [[APIMapper alloc] init];
@@ -117,7 +117,7 @@ describe(@"APIClient", ^{
 
         it(@"makes a request for the resource", ^{
             [_client findAll:[Product class]];
-            expect(_httpClient.requests[0]).to.equal(@"products");
+            expect(_httpClient.requests[0]).to.equal(@"/products");
         });
 
         it(@"uses the router to build paths for the index action", ^{
@@ -183,7 +183,7 @@ describe(@"APIClient", ^{
 
         it(@"makes a request for the resource", ^{
             [_client findResource:[Product class] withID:@1];
-            expect(_httpClient.requests[0]).to.equal(@"products/1");
+            expect(_httpClient.requests[0]).to.equal(@"/products/1");
         });
 
         it(@"uses the router to build paths for the show action", ^{

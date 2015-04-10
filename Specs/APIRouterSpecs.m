@@ -35,17 +35,17 @@ describe(@"APIRouter", ^{
     describe(@"routing", ^{
         describe(@"index actions", ^{
             it(@"routes to the pluralized resource name", ^{
-                expect([_router pathForAction:@"index" onResource:[NSObject class]]).to.equal(@"objects");
+                expect([_router pathForAction:@"index" onResource:[NSObject class]]).to.equal(@"/objects");
             });
         });
 
         describe(@"show actions", ^{
             it(@"routes to the pluralized resource name and ID", ^{
-                expect([_router pathForAction:@"show" onResource:[NSObject class] withArguments:@{@"id": @1}]).to.equal(@"objects/1");
+                expect([_router pathForAction:@"show" onResource:[NSObject class] withArguments:@{@"id": @1}]).to.equal(@"/objects/1");
             });
 
             it(@"routes to resource with non-numeric IDs", ^{
-                expect([_router pathForAction:@"show" onResource:[NSObject class] withArguments:@{@"id": @"test"}]).to.equal(@"objects/test");
+                expect([_router pathForAction:@"show" onResource:[NSObject class] withArguments:@{@"id": @"test"}]).to.equal(@"/objects/test");
             });
 
             it(@"raises if the arguments doesn't contain an ID", ^{

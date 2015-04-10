@@ -23,8 +23,6 @@
 
 #import "APIClientConfiguration.h"
 
-#import "APIAFNetworkingHTTPClient.h"
-
 @interface APIClientConfiguration ()
 @end
 
@@ -66,7 +64,7 @@
 
 - (void)setBaseURL:(NSURL *)baseURL;
 {
-    _httpClient = [[APIAFNetworkingHTTPClient alloc] initWithBaseURL:baseURL sessionConfiguration:self.sessionConfiguration];
+    _httpClient = [[APIHTTPClient alloc] initWithBaseURL:baseURL sessionConfiguration:self.sessionConfiguration];
 }
 
 - (NSURLSessionConfiguration *)sessionConfiguration;
@@ -76,7 +74,7 @@
 
 - (void)setSessionConfiguration:(NSURLSessionConfiguration *)sessionConfiguration;
 {
-    _httpClient = [[APIAFNetworkingHTTPClient alloc] initWithBaseURL:self.baseURL sessionConfiguration:sessionConfiguration];
+    _httpClient = [[APIHTTPClient alloc] initWithBaseURL:self.baseURL sessionConfiguration:sessionConfiguration];
 }
 
 - (id<APIRouter>)router;

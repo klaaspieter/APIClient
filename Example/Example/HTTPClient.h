@@ -8,8 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
-#import "APIAFNetworkingHTTPClient.h"
+#import "APIHTTPClient.h"
 
-@interface HTTPClient : APIAFNetworkingHTTPClient
+@interface HTTPClient : APIHTTPClient
 
 @end
