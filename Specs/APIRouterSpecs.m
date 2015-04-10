@@ -35,7 +35,7 @@ describe(@"APIRouter", ^{
     describe(@"routing", ^{
         describe(@"index actions", ^{
             it(@"routes to the pluralized resource name", ^{
-                expect([_router pathForAction:@"index" onResource:[NSObject class]]).to.equal(@"/objects");
+                expect([_router pathForAction:@"index" onResource:[NSObject class] withArguments:nil]).to.equal(@"/objects");
             });
         });
 

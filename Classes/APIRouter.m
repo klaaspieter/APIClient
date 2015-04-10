@@ -39,11 +39,6 @@
     return self;
 }
 
-- (NSString *)pathForAction:(NSString *)action onResource:(Class)resource;
-{
-    return [self pathForAction:action onResource:resource withArguments:nil];
-}
-
 - (NSString *)pathForAction:(NSString *)action onResource:(Class)resource withArguments:(NSDictionary *)arguments;
 {
     if ([action isEqualToString:@"show"]) {

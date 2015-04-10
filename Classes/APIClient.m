@@ -69,7 +69,7 @@
 - (APIResponse *)findAll:(Class)resource;
 {
     APIResponse *response = [[APIResponse alloc] initWithResolver:^(APIResponseBlock resolve, APIResponseBlock reject) {
-        [self.httpClient getPath:[self.router pathForAction:@"index" onResource:resource] parameters:nil success:^(id responseObject) {
+        [self.httpClient getPath:[self.router pathForAction:@"index" onResource:resource withArguments:nil] parameters:nil success:^(id responseObject) {
             if ([responseObject isKindOfClass:[NSData class]]) {
                 NSError *error;
                 id serialized = [self.serializer deserializeJSON:responseObject error:&error];

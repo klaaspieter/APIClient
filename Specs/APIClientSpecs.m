@@ -59,7 +59,7 @@ describe(@"APIClient", ^{
     describe(@"routing", ^{
         it(@"uses the router to build paths for a resource", ^{
             _router = OCMProtocolMock(@protocol(APIRouter));
-            OCMStub([_router pathForAction:@"index" onResource:[Product class]]).andReturn(@"/objects");
+            OCMStub([_router pathForAction:@"index" onResource:[Product class] withArguments:nil]).andReturn(@"/objects");
 
             _client = [APIClient clientWithConfigurationBlock:^(APIClientConfiguration *configuration) {
                 configuration.httpClient = _httpClient;
@@ -122,7 +122,7 @@ describe(@"APIClient", ^{
 
         it(@"uses the router to build paths for the index action", ^{
             _router = OCMProtocolMock(@protocol(APIRouter));
-            OCMStub([_router pathForAction:@"index" onResource:[Product class]]).andReturn(@"/objects");
+            OCMStub([_router pathForAction:@"index" onResource:[Product class] withArguments:nil]).andReturn(@"/objects");
 
             _client = [APIClient clientWithConfigurationBlock:^(APIClientConfiguration *configuration) {
                 configuration.httpClient = _httpClient;
