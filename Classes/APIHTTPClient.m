@@ -25,7 +25,7 @@
         success:(void (^)(id responseObject))success
         failure:(void (^)(NSError *error))failure;
 {
-    NSURLSession *session = [NSURLSession sessionWithConfiguration:self.sessionConfiguration];
+    NSURLSession *session = [NSURLSession sessionWithConfiguration:self.sessionConfiguration delegate:nil delegateQueue:[NSOperationQueue mainQueue]];
 
     NSURL *url = ({
 
