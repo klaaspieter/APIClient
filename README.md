@@ -1,5 +1,7 @@
 # APIClient
 
+Swift happened. This was fun, but I have no intention to develop this further.
+
 ## Installation
 
 APIClient is available through [CocoaPods](http://cocoapods.org), to install
